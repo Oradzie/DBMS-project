@@ -93,7 +93,7 @@ create table Scaffale (
 	CodScaffale char(1) not null,
 	primary key (Cod. Scaffale));
 
-create table Sconto Utente (
+create table ScontoUtente (
 	Percentuale char(1) not null,
 	CodiceSconto char(1) not null,
 	primary key (CodiceSconto));
@@ -108,7 +108,7 @@ create table Utente Online (
 ,
 	unique (Username));
 
-create table Vendita Promozionale (
+create table VenditaPromozionale (
 	DataFine char(1) not null,
 	DataInizio -- ERROR
 	PercentualeSconto char(1) not null,

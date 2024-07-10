@@ -22,10 +22,10 @@ create table Categoria Prodotto (
 	NomeProdotto -- ERROR
 	Promozione -- ERROR
 ,
-	primary key (NomeProdotto -- atr decomp --));
+	primary key (NomeProdotto));
 
 create table Dettaglio Ordine (
-	Quantit� char(1) not null,
+	Quantita char(1) not null,
 	Numero Linea char(1) not null,
 	primary key (, Numero Linea));
 
@@ -52,8 +52,8 @@ create table Magazziniere (
 );
 
 create table Magazzino (
-	Cod. magazzino char(1) not null,
-	Indirizzo -- ERROR
+	CodMagazzino char(1) not null,
+	Indirizzo
 ,
 	primary key (Cod. magazzino));
 
@@ -86,11 +86,11 @@ create table Rifornimento (
 	primary key (CodiceRifornimento));
 
 create table Ripiano (
-	Cod. Ripiano char(1) not null,
+	CodRipiano char(1) not null,
 	primary key (Cod. Ripiano));
 
 create table Scaffale (
-	Cod. Scaffale char(1) not null,
+	CodScaffale char(1) not null,
 	primary key (Cod. Scaffale));
 
 create table Sconto Utente (
@@ -99,12 +99,12 @@ create table Sconto Utente (
 	primary key (CodiceSconto));
 
 create table Settore (
-	Cod. Settore char(1) not null,
+	CodSettore char(1) not null,
 	primary key (Cod. Settore));
 
 create table Utente Online (
 	Username char(1) not null,
-	Indirizzo di Spedizione -- ERROR
+	IndirizzoSpedizione 
 ,
 	unique (Username));
 
@@ -114,12 +114,12 @@ create table Vendita Promozionale (
 	PercentualeSconto char(1) not null,
 	CodicePromo -- ERROR
 ,
-	primary key (CodicePromo -- atr decomp --));
+	primary key (CodicePromo));
 
 create table Versione Prodotto (
 	Colore char(1),
 	Specifiche char(1) not null,
-	Disponibilit� numeric(1) not null,
+	Disponibilita numeric(1) not null,
 	CodiceProdotto char(1) not null,
 	primary key (CodiceProdotto));
 

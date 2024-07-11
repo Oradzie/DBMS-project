@@ -15,8 +15,7 @@ create database SCHEMA;
 -- Table Section
 -- _____________
 
-create table Amministratore (
-);
+create table Amministratore ();
 
 create table CategoriaProdotto (
 	NomeProdotto char(30) not null,
@@ -48,7 +47,7 @@ create table Fornitore (
 
 create table Indirizzo (
 	Via char(20) not null,
-	Città char(20) not null,
+	Cittï¿½ char(20) not null,
 	CAP numeric(5) not null,
 	NumCivico numeric(4) not null,
 	primary key (Via, CAP, NumCivico));

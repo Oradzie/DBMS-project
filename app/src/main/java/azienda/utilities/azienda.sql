@@ -3,7 +3,7 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 14 2021              
--- * Generation date: Thu Jul 11 17:09:54 2024 
+-- * Generation date: Thu Jul 11 17:52:57 2024 
 -- * LUN file: C:\Users\Oradzie\Code\DBMS-project\schema-logico.lun 
 -- * Schema: AZIENDA/1 
 -- ********************************************* 
@@ -28,6 +28,24 @@ create table CategoriaProdotto (
      Pro_Percentuale float(5),
      constraint ID_CategoriaProdotto_ID primary key (NomeProdotto));
 
+create table Colore (
+     CodiceProdotto char(20) not null,
+     Colore char(20) not null,
+     constraint ID_Colore_ID primary key (CodiceProdotto, Colore));
+
+create table Credito (
+     CodiceSconto char(10) not null,
+     CodiceFiscale char(20) not null,
+     constraint ID_Credito_ID primary key (CodiceSconto, CodiceFiscale));
+
+create table DatiFatturazione (
+     IBAN char(1) not null,
+     Via char(20) not null,
+     CAP int not null,
+     NumCivico int not null,
+     constraint ID_DatiFatturazione_ID primary key (IBAN),
+     constraint FKFatturazione_ID unique (Via, CAP, NumCivico));
+
 create table DettaglioOrdine (
      CodiceOrdine char(20) not null,
      Quantita int not null,
@@ -42,22 +60,24 @@ create table Dipendente (
      CodiceFiscale char(20) not null,
      CodiceDipendente char(20) not null,
      CodMagazzino char(20) not null,
-     Magazziniere char(20),
-     Amministratore char(20),
+     Magazziniere char,
+     Amministratore char,
      constraint SID_Dipendente_ID unique (CodMagazzino, CodiceDipendente),
      constraint FKPer_Dip_ID primary key (CodiceFiscale));
-
-create table Stipendio (
-     CodiceFiscale char(20) not null,
-     Importo float(10) not null,
-     Bonus float(10),
-     DataEmissione date not null,
-     IBAN char(1) not null,
-     constraint ID_Stipendio_ID primary key (CodiceFiscale, DataEmissione));
 
 create table Fornitore (
      CodiceFornitore char(20) not null,
      constraint ID_Fornitore_ID primary key (CodiceFornitore));
+
+create table GestioneOrdine (
+     CodPacco char(20) not null,
+     CodiceFiscale char(20) not null,
+     constraint FKGes_Pac_ID primary key (CodPacco));
+
+create table GestioneRifornimento (
+     CodiceFiscale char(20) not null,
+     CodiceRifornimento char(20) not null,
+     constraint ID_GestioneRifornimento_ID primary key (CodiceRifornimento, CodiceFiscale));
 
 create table Indirizzo (
      Via char(20) not null,
@@ -71,6 +91,13 @@ create table Inventario (
      Data date not null,
      Com_CodiceFiscale char(20) not null,
      constraint ID_Inventario_ID primary key (CodiceFiscale, Data));
+
+create table LocazioneUtente (
+     Via char(20) not null,
+     CAP int not null,
+     NumCivico int not null,
+     CodiceFiscale char(20) not null,
+     constraint ID_LocazioneUtente_ID primary key (CodiceFiscale, Via, CAP, NumCivico));
 
 create table Lotto (
      CodiceLotto char(20) not null,
@@ -92,24 +119,6 @@ create table Magazzino (
      constraint ID_Magazzino_ID primary key (CodMagazzino),
      constraint FKLocazioneMagazzino_ID unique (Via, CAP, NumCivico));
 
-create table Colore (
-     CodiceProdotto char(20) not null,
-     Colore char(20) not null,
-     constraint ID_Colore_ID primary key (CodiceProdotto, Colore));
-
-create table Credito (
-     CodiceSconto char(10) not null,
-     CodiceFiscale char(20) not null,
-     constraint ID_Credito_ID primary key (CodiceSconto, CodiceFiscale));
-
-create table DatiFatturazione (
-     IBAN char(1) not null,
-     Via char(20) not null,
-     CAP int not null,
-     NumCivico int not null,
-     constraint ID_DatiFatturazione_ID primary key (IBAN),
-     constraint FKFatturazione_ID unique (Via, CAP, NumCivico));
-
 create table Ordine (
      CodiceOrdine char(20) not null,
      DataOrdine date not null,
@@ -130,8 +139,8 @@ create table Persona (
      Cognome char(30) not null,
      CodiceFiscale char(20) not null,
      Telefono bigint not null,
-     UtenteOnline char(20),
-     Dipendente char(20),
+     UtenteOnline char,
+     Dipendente char,
      constraint ID_Persona_ID primary key (CodiceFiscale));
 
 create table Prodotto (
@@ -146,23 +155,6 @@ create table QuantitaLotti (
      CodiceRifornimento char(20) not null,
      numero int not null,
      constraint ID_QuantitaLotti_ID primary key (CodiceRifornimento, numero));
-
-create table GestioneOrdine (
-     CodPacco char(20) not null,
-     CodiceFiscale char(20) not null,
-     constraint FKGes_Pac_ID primary key (CodPacco));
-
-create table GestioneRifornimento (
-     CodiceFiscale char(20) not null,
-     CodiceRifornimento char(20) not null,
-     constraint ID_GestioneRifornimento_ID primary key (CodiceRifornimento, CodiceFiscale));
-
-create table LocazioneUtente (
-     Via char(20) not null,
-     CAP int not null,
-     NumCivico int not null,
-     CodiceFiscale char(20) not null,
-     constraint ID_LocazioneUtente_ID primary key (CodiceFiscale, Via, CAP, NumCivico));
 
 create table Rifornimento (
      CodiceRifornimento char(20) not null,
@@ -189,6 +181,14 @@ create table Settore (
      CodSettore char(20) not null,
      CodMagazzino char(20) not null,
      constraint ID_Settore_ID primary key (CodSettore));
+
+create table Stipendio (
+     CodiceFiscale char(20) not null,
+     Importo float(10) not null,
+     Bonus float(10),
+     DataEmissione date not null,
+     IBAN char(1) not null,
+     constraint ID_Stipendio_ID primary key (CodiceFiscale, DataEmissione));
 
 create table UtenteOnline (
      CodiceFiscale char(20) not null,
@@ -220,6 +220,22 @@ alter table Amministratore add constraint FKDip_Amm_FK
      foreign key (CodiceFiscale)
      references Dipendente (CodiceFiscale);
 
+alter table Colore add constraint FKVer_Col
+     foreign key (CodiceProdotto)
+     references VersioneProdotto (CodiceProdotto);
+
+alter table Credito add constraint FKCre_Ute_FK
+     foreign key (CodiceFiscale)
+     references UtenteOnline (CodiceFiscale);
+
+alter table Credito add constraint FKCre_Sco
+     foreign key (CodiceSconto)
+     references ScontoUtente (CodiceSconto);
+
+alter table DatiFatturazione add constraint FKFatturazione_FK
+     foreign key (Via, CAP, NumCivico)
+     references Indirizzo (Via, CAP, NumCivico);
+
 alter table DettaglioOrdine add constraint FKRiferimento_FK
      foreign key (CodiceProdotto)
      references VersioneProdotto (CodiceProdotto);
@@ -248,13 +264,26 @@ alter table Dipendente add constraint FKPer_Dip_FK
      foreign key (CodiceFiscale)
      references Persona (CodiceFiscale);
 
-alter table Stipendio add constraint FKDestinazione_FK
-     foreign key (IBAN)
-     references DatiFatturazione (IBAN);
+-- Not implemented
+-- alter table GestioneOrdine add constraint FKGes_Pac_CHK
+--     check(exists(select * from DettaglioOrdine
+--                  where DettaglioOrdine.CodPacco = CodPacco)); 
 
-alter table Stipendio add constraint FKRisquote
+alter table GestioneOrdine add constraint FKGes_Pac_FK
+     foreign key (CodPacco)
+     references PaccoPreparato (CodPacco);
+
+alter table GestioneOrdine add constraint FKGes_Amm_FK
      foreign key (CodiceFiscale)
-     references Dipendente (CodiceFiscale);
+     references Amministratore (CodiceFiscale);
+
+alter table GestioneRifornimento add constraint FKGes_Rif
+     foreign key (CodiceRifornimento)
+     references Rifornimento (CodiceRifornimento);
+
+alter table GestioneRifornimento add constraint FKGes_Mag_FK
+     foreign key (CodiceFiscale)
+     references Magazziniere (CodiceFiscale);
 
 alter table Inventario add constraint FKEsecuzione
      foreign key (CodiceFiscale)
@@ -263,6 +292,14 @@ alter table Inventario add constraint FKEsecuzione
 alter table Inventario add constraint FKCommissione_FK
      foreign key (Com_CodiceFiscale)
      references Amministratore (CodiceFiscale);
+
+alter table LocazioneUtente add constraint FKLoc_Ute
+     foreign key (CodiceFiscale)
+     references UtenteOnline (CodiceFiscale);
+
+alter table LocazioneUtente add constraint FKLoc_Ind_FK
+     foreign key (Via, CAP, NumCivico)
+     references Indirizzo (Via, CAP, NumCivico);
 
 -- Not implemented
 -- alter table Lotto add constraint ID_Lotto_CHK
@@ -283,22 +320,6 @@ alter table Magazziniere add constraint FKDip_Mag_FK
 --                  where Dipendente.CodMagazzino = CodMagazzino)); 
 
 alter table Magazzino add constraint FKLocazioneMagazzino_FK
-     foreign key (Via, CAP, NumCivico)
-     references Indirizzo (Via, CAP, NumCivico);
-
-alter table Colore add constraint FKVer_Col
-     foreign key (CodiceProdotto)
-     references VersioneProdotto (CodiceProdotto);
-
-alter table Credito add constraint FKCre_Ute_FK
-     foreign key (CodiceFiscale)
-     references UtenteOnline (CodiceFiscale);
-
-alter table Credito add constraint FKCre_Sco
-     foreign key (CodiceSconto)
-     references ScontoUtente (CodiceSconto);
-
-alter table DatiFatturazione add constraint FKFatturazione_FK
      foreign key (Via, CAP, NumCivico)
      references Indirizzo (Via, CAP, NumCivico);
 
@@ -357,35 +378,6 @@ alter table QuantitaLotti add constraint FKRichiestaQuantita
      references Rifornimento (CodiceRifornimento);
 
 -- Not implemented
--- alter table GestioneOrdine add constraint FKGes_Pac_CHK
---     check(exists(select * from DettaglioOrdine
---                  where DettaglioOrdine.CodPacco = CodPacco)); 
-
-alter table GestioneOrdine add constraint FKGes_Pac_FK
-     foreign key (CodPacco)
-     references PaccoPreparato (CodPacco);
-
-alter table GestioneOrdine add constraint FKGes_Amm_FK
-     foreign key (CodiceFiscale)
-     references Amministratore (CodiceFiscale);
-
-alter table GestioneRifornimento add constraint FKGes_Rif
-     foreign key (CodiceRifornimento)
-     references Rifornimento (CodiceRifornimento);
-
-alter table GestioneRifornimento add constraint FKGes_Mag_FK
-     foreign key (CodiceFiscale)
-     references Magazziniere (CodiceFiscale);
-
-alter table LocazioneUtente add constraint FKLoc_Ute
-     foreign key (CodiceFiscale)
-     references UtenteOnline (CodiceFiscale);
-
-alter table LocazioneUtente add constraint FKLoc_Ind_FK
-     foreign key (Via, CAP, NumCivico)
-     references Indirizzo (Via, CAP, NumCivico);
-
--- Not implemented
 -- alter table Rifornimento add constraint ID_Rifornimento_CHK
 --     check(exists(select * from QuantitaLotti
 --                  where QuantitaLotti.CodiceRifornimento = CodiceRifornimento)); 
@@ -410,6 +402,14 @@ alter table Settore add constraint FKDivisione_FK
      foreign key (CodMagazzino)
      references Magazzino (CodMagazzino);
 
+alter table Stipendio add constraint FKDestinazione_FK
+     foreign key (IBAN)
+     references DatiFatturazione (IBAN);
+
+alter table Stipendio add constraint FKRisquote
+     foreign key (CodiceFiscale)
+     references Dipendente (CodiceFiscale);
+
 alter table UtenteOnline add constraint FKPer_Ute_FK
      foreign key (CodiceFiscale)
      references Persona (CodiceFiscale);
@@ -427,6 +427,21 @@ create unique index FKDip_Amm_IND
 
 create unique index ID_CategoriaProdotto_IND
      on CategoriaProdotto (NomeProdotto);
+
+create unique index ID_Colore_IND
+     on Colore (CodiceProdotto, Colore);
+
+create unique index ID_Credito_IND
+     on Credito (CodiceSconto, CodiceFiscale);
+
+create index FKCre_Ute_IND
+     on Credito (CodiceFiscale);
+
+create unique index ID_DatiFatturazione_IND
+     on DatiFatturazione (IBAN);
+
+create unique index FKFatturazione_IND
+     on DatiFatturazione (Via, CAP, NumCivico);
 
 create unique index ID_DettaglioOrdine_IND
      on DettaglioOrdine (CodiceOrdine, NumeroLinea);
@@ -446,14 +461,20 @@ create unique index SID_Dipendente_IND
 create unique index FKPer_Dip_IND
      on Dipendente (CodiceFiscale);
 
-create unique index ID_Stipendio_IND
-     on Stipendio (CodiceFiscale, DataEmissione);
-
-create index FKDestinazione_IND
-     on Stipendio (IBAN);
-
 create unique index ID_Fornitore_IND
      on Fornitore (CodiceFornitore);
+
+create unique index FKGes_Pac_IND
+     on GestioneOrdine (CodPacco);
+
+create index FKGes_Amm_IND
+     on GestioneOrdine (CodiceFiscale);
+
+create unique index ID_GestioneRifornimento_IND
+     on GestioneRifornimento (CodiceRifornimento, CodiceFiscale);
+
+create index FKGes_Mag_IND
+     on GestioneRifornimento (CodiceFiscale);
 
 create unique index ID_Indirizzo_IND
      on Indirizzo (Via, CAP, NumCivico);
@@ -463,6 +484,12 @@ create unique index ID_Inventario_IND
 
 create index FKCommissione_IND
      on Inventario (Com_CodiceFiscale);
+
+create unique index ID_LocazioneUtente_IND
+     on LocazioneUtente (CodiceFiscale, Via, CAP, NumCivico);
+
+create index FKLoc_Ind_IND
+     on LocazioneUtente (Via, CAP, NumCivico);
 
 create unique index ID_Lotto_IND
      on Lotto (CodiceLotto);
@@ -478,21 +505,6 @@ create unique index ID_Magazzino_IND
 
 create unique index FKLocazioneMagazzino_IND
      on Magazzino (Via, CAP, NumCivico);
-
-create unique index ID_Colore_IND
-     on Colore (CodiceProdotto, Colore);
-
-create unique index ID_Credito_IND
-     on Credito (CodiceSconto, CodiceFiscale);
-
-create index FKCre_Ute_IND
-     on Credito (CodiceFiscale);
-
-create unique index ID_DatiFatturazione_IND
-     on DatiFatturazione (IBAN);
-
-create unique index FKFatturazione_IND
-     on DatiFatturazione (Via, CAP, NumCivico);
 
 create unique index ID_Ordine_IND
      on Ordine (CodiceOrdine);
@@ -533,24 +545,6 @@ create index FKContenimento_IND
 create unique index ID_QuantitaLotti_IND
      on QuantitaLotti (CodiceRifornimento, numero);
 
-create unique index FKGes_Pac_IND
-     on GestioneOrdine (CodPacco);
-
-create index FKGes_Amm_IND
-     on GestioneOrdine (CodiceFiscale);
-
-create unique index ID_GestioneRifornimento_IND
-     on GestioneRifornimento (CodiceRifornimento, CodiceFiscale);
-
-create index FKGes_Mag_IND
-     on GestioneRifornimento (CodiceFiscale);
-
-create unique index ID_LocazioneUtente_IND
-     on LocazioneUtente (CodiceFiscale, Via, CAP, NumCivico);
-
-create index FKLoc_Ind_IND
-     on LocazioneUtente (Via, CAP, NumCivico);
-
 create unique index ID_Rifornimento_IND
      on Rifornimento (CodiceRifornimento);
 
@@ -580,6 +574,12 @@ create unique index ID_Settore_IND
 
 create index FKDivisione_IND
      on Settore (CodMagazzino);
+
+create unique index ID_Stipendio_IND
+     on Stipendio (CodiceFiscale, DataEmissione);
+
+create index FKDestinazione_IND
+     on Stipendio (IBAN);
 
 create unique index SID_UtenteOnline_IND
      on UtenteOnline (Username);

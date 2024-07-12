@@ -1,4 +1,4 @@
-package azinda;
+package azienda;
 
 import db_lab.data.DAOException;
 import db_lab.data.DAOUtils;

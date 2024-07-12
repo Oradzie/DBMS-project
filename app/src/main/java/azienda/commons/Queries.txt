@@ -1,0 +1,195 @@
+-- Inseriamo gli inidirizzi
+INSERT INTO Indirizzo (Via, Citta, CAP, NumCivico) VALUES
+('Via Napoli', 'Napoli', 80100, 10),
+('Corso Venezia', 'Milano', 20121, 15),
+('Via Firenze', 'Firenze', 50100, 20),
+('Via Bologna', 'Bologna', 40121, 25),
+('Via Torino', 'Torino', 10121, 30),
+('Via Palermo', 'Palermo', 90100, 35),
+('Via Genova', 'Genova', 16121, 40),
+('Via Bari', 'Bari', 70121, 45),
+('Via Cagliari', 'Cagliari', 09100, 50),
+('Via Verona', 'Verona', 37121, 55);
+
+-- Inseriamo i magazzini
+INSERT INTO Magazzino (CodMagazzino, DataFondazione, Via, CAP, NumCivico) VALUES
+('MAG001', '2000-01-01', 'Via Napoli', 80100, 10),
+('MAG002', '2001-02-02', 'Corso Venezia', 20121, 15),
+('MAG003', '2002-03-03', 'Via Firenze', 50100, 20),
+('MAG004', '2003-04-04', 'Via Bologna', 40121, 25),
+('MAG005', '2004-05-05', 'Via Torino', 10121, 30);
+
+-- Inseriamo le persone (magazzinieri)
+INSERT INTO Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipendente) VALUES
+('Mario', 'Rossi', 'CF101', 1234567890, NULL, TRUE),
+('Luigi', 'Bianchi', 'CF102', 1234567891, NULL, TRUE),
+('Giovanni', 'Verdi', 'CF103', 1234567892, NULL, TRUE),
+('Anna', 'Gialli', 'CF104', 1234567893, NULL, TRUE),
+('Maria', 'Neri', 'CF105', 1234567894, NULL, TRUE),
+('Paolo', 'Marroni', 'CF106', 1234567895, NULL, TRUE),
+('Luca', 'Bianchi', 'CF107', 1234567896, NULL, TRUE),
+('Laura', 'Rossi', 'CF108', 1234567897, NULL, TRUE),
+('Sara', 'Verdi', 'CF109', 1234567898, NULL, TRUE),
+('Marco', 'Gialli', 'CF110', 1234567899, NULL, TRUE);
+
+-- Inseriamo i dipendenti
+INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, Magazziniere, Amministratore) VALUES
+('CF101', 'D001', 'MAG001', TRUE, NULL),
+('CF102', 'D002', 'MAG001', TRUE, NULL),
+('CF103', 'D003', 'MAG001', TRUE, NULL),
+('CF104', 'D004', 'MAG001', TRUE, NULL),
+('CF105', 'D005', 'MAG001', TRUE, NULL),
+('CF106', 'D006', 'MAG001', TRUE, NULL),
+('CF107', 'D007', 'MAG002', TRUE, NULL),
+('CF108', 'D008', 'MAG003', TRUE, NULL),
+('CF109', 'D009', 'MAG004', TRUE, NULL),
+('CF110', 'D010', 'MAG005', TRUE, NULL);
+
+-- Inseriamo i magazzinieri
+INSERT INTO Magazziniere (CodiceFiscale)
+VALUES
+('CF101'),
+('CF102'),
+('CF103'),
+('CF104'),
+('CF105'),
+('CF106'),
+('CF107'),
+('CF108'),
+('CF109'),
+('CF110');
+
+-- Inseriamo le nuove persone con i codici fiscali specificati (amministratori)
+INSERT INTO Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipendente) VALUES
+('Elena', 'Rossi', 'CF001', 1234567810, NULL, True),
+('Giulia', 'Bianchi', 'CF002', 1234567811, NULL, True),
+('Francesco', 'Verdi', 'CF003', 1234567812, NULL, True),
+('Giorgio', 'Gialli', 'CF004', 1234567813, NULL, True),
+('Sofia', 'Neri', 'CF005', 1234567814, NULL, True);
+
+-- Assegniamo ogni amministratore ad un magazzino diverso
+INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, Magazziniere, Amministratore) VALUES
+('CF001', 'D011', 'MAG001', NULL, True),
+('CF002', 'D012', 'MAG002', NULL, True),
+('CF003', 'D013', 'MAG003', NULL, True),
+('CF004', 'D014', 'MAG004', NULL, True),
+('CF005', 'D015', 'MAG005', NULL, True);
+
+-- Inseriamo i nuovi amministratori con i codici fiscali specificati
+INSERT INTO Amministratore (CodiceFiscale) VALUES
+('CF001'),
+('CF002'),
+('CF003'),
+('CF004'),
+('CF005');
+
+-- Inseriamo i dati dei Fornitori
+INSERT INTO Fornitore (CodiceFornitore)
+VALUES ('FOR001'),
+       ('FOR002'),
+       ('FOR003');
+
+-- Inseriamo i dati dei rifornimenti
+INSERT INTO Rifornimento (CodiceRifornimento, CodiceFornitore, CodiceFiscale)
+VALUES
+('RIF001', 'FOR001', 'CF001'),
+('RIF002', 'FOR002', 'CF001'),
+('RIF003', 'FOR003', 'CF001'),
+('RIF004', 'FOR001', 'CF001'),
+('RIF005', 'FOR002', 'CF001');
+
+-- Inseriamo le associazioni tra i rifornimenti e i magazzinieri
+INSERT INTO azienda.gestionerifornimento(CodiceFiscale, CodiceRifornimento)
+VALUES
+    ('CF101', 'RIF001'),
+    ('CF103', 'RIF002'),
+    ('CF106', 'RIF003'),
+    ('CF107', 'RIF004'),
+    ('CF110', 'RIF005');
+
+-- Inseriamo i Lotti
+INSERT INTO Lotto (CodiceLotto, Datascadenza)
+VALUES
+    ('L001', '2025-01-01'),
+    ('L002', '2025-02-01'),
+    ('L003', '2025-03-01'),
+    ('L004', '2025-04-01'),
+    ('L005', '2025-05-01'),
+    ('L006', '2025-06-01'),
+    ('L007', '2025-07-01'),
+    ('L008', '2025-08-01'),
+    ('L009', '2025-09-01'),
+    ('L010', '2025-10-01');
+
+-- Inseriamo i settori del magazzino
+INSERT INTO Settore (CodSettore, CodMagazzino) VALUES
+('SET001', 'MAG001'),
+('SET002', 'MAG001'),
+('SET003', 'MAG002'),
+('SET004', 'MAG002'),
+('SET005', 'MAG003'),
+('SET006', 'MAG003'),
+('SET007', 'MAG004'),
+('SET008', 'MAG004'),
+('SET009', 'MAG005'),
+('SET010', 'MAG005');
+
+-- Inseriamo gli scaffali del magazzino
+INSERT INTO Scaffale (CodScaffale, CodSettore) VALUES
+('SCA001', 'SET001'),
+('SCA002', 'SET001'),
+('SCA003', 'SET002'),
+('SCA004', 'SET002'),
+('SCA005', 'SET003'),
+('SCA006', 'SET003'),
+('SCA007', 'SET004'),
+('SCA008', 'SET004'),
+('SCA009', 'SET005'),
+('SCA010', 'SET005'),
+('SCA011', 'SET006'),
+('SCA012', 'SET006'),
+('SCA013', 'SET007'),
+('SCA014', 'SET007'),
+('SCA015', 'SET008'),
+('SCA016', 'SET008'),
+('SCA017', 'SET009'),
+('SCA018', 'SET009'),
+('SCA019', 'SET010'),
+('SCA020', 'SET010');
+
+-- Inseriamo i ripiani degli scaffali
+INSERT INTO Ripiano (CodRipiano, CodScaffale) VALUES
+('RIP001', 'SCA001'),
+('RIP002', 'SCA002'),
+('RIP003', 'SCA003'),
+('RIP004', 'SCA004'),
+('RIP005', 'SCA005'),
+('RIP006', 'SCA006'),
+('RIP007', 'SCA007'),
+('RIP008', 'SCA008'),
+('RIP009', 'SCA009'),
+('RIP010', 'SCA010'),
+('RIP011', 'SCA011'),
+('RIP012', 'SCA012'),
+('RIP013', 'SCA013'),
+('RIP014', 'SCA014'),
+('RIP015', 'SCA015'),
+('RIP016', 'SCA016'),
+('RIP017', 'SCA017'),
+('RIP018', 'SCA018'),
+('RIP019', 'SCA019'),
+('RIP020', 'SCA020');
+
+-- Inseriamo la quantità dei lotti nei vari rifornimenti
+INSERT INTO azienda.quantitalotti(CodiceLotto, CodiceRifornimento, numero)
+VALUES
+    ('L001', 'RIF001', 10),
+    ('L002', 'RIF001', 7),
+    ('L003', 'RIF002', 16),
+    ('L004', 'RIF002', 3),
+    ('L005', 'RIF003', 8),
+    ('L006', 'RIF003', 12),
+    ('L007', 'RIF004', 15),
+    ('L008', 'RIF005', 2),
+    ('L009', 'RIF005', 6),
+    ('L010', 'RIF005', 6);

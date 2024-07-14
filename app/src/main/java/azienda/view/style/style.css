@@ -1,0 +1,11 @@
+.custom-text-field {
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.custom-text-field:focused {
+    -fx-border-color: red;
+    -fx-background-color: white;
+}

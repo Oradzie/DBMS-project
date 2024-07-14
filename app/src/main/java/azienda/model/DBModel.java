@@ -1,11 +1,10 @@
-package db_lab.model;
+package azienda.model;
 
-import db_lab.data.Product;
-import db_lab.data.ProductPreview;
 import java.sql.Connection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import azienda.model.Model;
 
 // This is the real model implementation that uses the DAOs we've defined to
 // actually load data from the underlying database.

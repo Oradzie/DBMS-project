@@ -19,7 +19,7 @@ val javaFXModules = listOf(
     "graphics"
 )
 
-val supportedPlatforms = listOf("linux", "mac", "win") // All required for OOP
+val supportedPlatforms = listOf("linux", "mac", "win","mac-aarch64") // All required for OOP
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -28,14 +28,14 @@ repositories {
 
 dependencies {
     
-    val javaFxVersion = 15
+    val javaFxVersion = "20.0.2"
     for (platform in supportedPlatforms) {
         for (module in javaFXModules) {
             implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
         }
     }
 
-    implementation("mysql:mysql-connector-java:8.0.29")
+    implementation("mysql:mysql-connector-java:8.0.28")
 
     // Used to load dotenvfiles
     implementation("io.github.cdimascio:dotenv-java:3.0.0")
@@ -52,7 +52,7 @@ dependencies {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 

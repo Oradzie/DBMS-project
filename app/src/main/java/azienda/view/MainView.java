@@ -11,10 +11,7 @@ import azienda.controller.Controller;
 
 public class MainView extends Application {
 
-
-    public MainView(Object object) {
-        //TODO Auto-generated constructor stub
-    }
+    private Controller controller;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -26,7 +23,7 @@ public class MainView extends Application {
         stage.show();
     }
 
-    public void setController(Controller controller) {
-       
+    public void setController(final Controller controller) {
+       this.controller = controller;
     }
 }

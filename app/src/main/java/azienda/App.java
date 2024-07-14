@@ -18,7 +18,7 @@ public final class App {
         var username = dotenv.get("DB_USERNAME");
         var connection = DAOUtils.localMySQLConnection(database, username, password);
         var model = Model.fromConnection(connection);
-        var view = new MainView(args);
+        var view = new MainView();
         var controller = new Controller(model,view);
         view.setController(controller);
         controller.userRequestedInitialPage();

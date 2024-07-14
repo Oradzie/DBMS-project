@@ -4,6 +4,7 @@ import azienda.commons.DAOException;
 import azienda.model.Model;
 import java.util.Objects;
 import azienda.view.MainView;
+import javafx.application.Application;
 
 public final class Controller {
 
@@ -18,7 +19,7 @@ public final class Controller {
     }
 
     public void userRequestedInitialPage() {
-        
+        Application.launch(MainView.class);
     }
 
 }

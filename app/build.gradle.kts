@@ -7,8 +7,17 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
+    java
     application
 }
+
+val javaFXModules = listOf(
+    "base",
+    "controls",
+    "fxml",
+    "swing",
+    "graphics"
+)
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -16,6 +25,14 @@ repositories {
 }
 
 dependencies {
+    
+    val javaFxVersion = 15
+    for (platform in supportedPlatforms) {
+        for (module in javaFXModules) {
+            implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
+        }
+    }
+    
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
 

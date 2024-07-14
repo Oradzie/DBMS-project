@@ -11,14 +11,14 @@ import azienda.controller.Controller;
 
 public class MainView extends Application {
 
-    
+
     public MainView(Object object) {
         //TODO Auto-generated constructor stub
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainView.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainView.class.getResource("start-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("style.css")));
         stage.setTitle("Hello!");

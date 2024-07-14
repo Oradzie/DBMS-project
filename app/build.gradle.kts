@@ -34,9 +34,11 @@ dependencies {
             implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
         }
     }
-    
+
+    implementation("mysql:mysql-connector-java:8.0.29")
+
     // Used to load dotenvfiles
-    implementation('io.github.cdimascio:dotenv-java:2.2.0')
+    implementation("io.github.cdimascio:dotenv-java:3.0.0")
     
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)

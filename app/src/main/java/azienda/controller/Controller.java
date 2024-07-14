@@ -18,8 +18,7 @@ public final class Controller {
     }
 
     public void userRequestedInitialPage() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'userRequestedInitialPage'");
+        
     }
 
 }

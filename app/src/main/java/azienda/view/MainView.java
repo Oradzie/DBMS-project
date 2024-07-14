@@ -27,7 +27,6 @@ public class MainView extends Application {
     }
 
     public void setController(Controller controller) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setController'");
+       
     }
 }

@@ -19,6 +19,8 @@ val javaFXModules = listOf(
     "graphics"
 )
 
+val supportedPlatforms = listOf("linux", "mac", "win") // All required for OOP
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()

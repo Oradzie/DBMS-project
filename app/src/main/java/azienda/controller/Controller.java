@@ -17,4 +17,9 @@ public final class Controller {
         this.model = model;
     }
 
+    public void userRequestedInitialPage() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'userRequestedInitialPage'");
+    }
+
 }

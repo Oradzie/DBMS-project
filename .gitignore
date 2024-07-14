@@ -3,6 +3,7 @@
 .gradle/
 .vscode/
 *.iml
+.env
 
 # output folders
 bin/

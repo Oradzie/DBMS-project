@@ -35,6 +35,9 @@ dependencies {
         }
     }
     
+    // Used to load dotenvfiles
+    implementation('io.github.cdimascio:dotenv-java:2.2.0')
+    
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
 

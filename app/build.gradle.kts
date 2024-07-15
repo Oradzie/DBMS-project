@@ -19,7 +19,7 @@ val javaFXModules = listOf(
     "graphics"
 )
 
-val supportedPlatforms = listOf("linux", "mac", "win","mac-aarch64") // All required for OOP
+val supportedPlatforms = listOf("linux", "mac", "win", "mac-aarch64")
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -27,42 +27,47 @@ repositories {
 }
 
 dependencies {
-    
-    val javaFxVersion = "20.0.2"
-    for (platform in supportedPlatforms) {
-        for (module in javaFXModules) {
-            implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
-        }
+    val javaFxVersion = "17.0.6"
+    val os = System.getProperty("os.name").toLowerCase()
+    val arch = System.getProperty("os.arch")
+
+    val platform = when {
+        os.contains("win") -> "win"
+        os.contains("mac") && arch == "aarch64" -> "mac-aarch64"
+        os.contains("mac") -> "mac"
+        else -> "linux"
+    }
+
+    for (module in javaFXModules) {
+        implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
     }
 
     implementation("mysql:mysql-connector-java:8.0.28")
 
-    // Used to load dotenvfiles
+    // Used to load dotenv files
     implementation("io.github.cdimascio:dotenv-java:3.0.0")
-    
-    // Use JUnit Jupiter for testing.
-    testImplementation(libs.junit.jupiter)
 
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    // Use JUnit Jupiter for testing.
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 
     // This dependency is used by the application.
-    implementation(libs.guava)
+    implementation("com.google.guava:guava:31.1-jre")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
 application {
     // Define the main class for the application.
-    mainClass = "azienda.App"
+    mainClass.set("azienda.App")
 }
 
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
-

@@ -19,15 +19,6 @@ repositories {
 
 dependencies {
     val javaFxVersion = "17.0.6"
-    val os = System.getProperty("os.name").toLowerCase()
-    val arch = System.getProperty("os.arch")
-
-    val platform = when {
-        os.contains("win") -> "win"
-        os.contains("mac") && arch == "aarch64" -> "mac-aarch64"
-        os.contains("mac") -> "mac"
-        else -> "linux"
-    }
     
     // JavaFX imports
     implementation("org.openjfx:javafx-base:$javaFxVersion")

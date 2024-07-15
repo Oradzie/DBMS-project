@@ -2,6 +2,7 @@ package azienda.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -14,10 +15,13 @@ public class MainView extends Application {
     private Controller controller;
 
     @Override
-    public void start(Stage stage) throws IOException {
-        System.out.println(getClass().getResource("").getPath());
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/azienda/view/start-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+    public void start(final Stage stage) throws IOException {
+        // Path to the FXML File
+        String fxmlDocPath = "/azienda/view/start-view.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
+        Parent root = loader.load();
+
+        final Scene scene = new Scene(root, 320, 240);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("/azienda/view/style.css")));
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -25,7 +29,7 @@ public class MainView extends Application {
     }
 
     public void setController(final Controller controller) {
-       this.controller = controller;
+        this.controller = controller;
     }
 
 }

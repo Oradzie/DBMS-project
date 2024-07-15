@@ -7,19 +7,10 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
-    java
     application
+    // Apply the JavaFX plugin
+    id("org.openjfx.javafxplugin") version "0.0.13"
 }
-
-val javaFXModules = listOf(
-    "base",
-    "controls",
-    "fxml",
-    "swing",
-    "graphics"
-)
-
-val supportedPlatforms = listOf("linux", "mac", "win", "mac-aarch64")
 
 repositories {
     // Use Maven Central for resolving dependencies.
@@ -37,22 +28,26 @@ dependencies {
         os.contains("mac") -> "mac"
         else -> "linux"
     }
+    
+    // JavaFX imports
+    implementation("org.openjfx:javafx-base:$javaFxVersion")
+    implementation("org.openjfx:javafx-controls:$javaFxVersion")
+    implementation("org.openjfx:javafx-fxml:$javaFxVersion")
+    implementation("org.openjfx:javafx-graphics:$javaFxVersion")
+    implementation("org.openjfx:javafx-swing:$javaFxVersion")
 
-    for (module in javaFXModules) {
-        implementation("org.openjfx:javafx-$module:$javaFxVersion:$platform")
-    }
-
+    // MySQL connector
     implementation("mysql:mysql-connector-java:8.0.28")
 
     // Used to load dotenv files
     implementation("io.github.cdimascio:dotenv-java:3.0.0")
 
     // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 
     // This dependency is used by the application.
-    implementation("com.google.guava:guava:31.1-jre")
+    implementation("com.google.guava:guava:31.0.1-jre")
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -67,7 +62,13 @@ application {
     mainClass.set("azienda.App")
 }
 
-tasks.named<Test>("test") {
+tasks.test {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+
+javafx {
+    version = "17.0.6"
+    modules = listOf("javafx.controls", "javafx.fxml", "javafx.graphics", "javafx.swing", "javafx.base")
 }

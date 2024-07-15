@@ -9,9 +9,9 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
     <Label alignment="BASELINE_CENTER" text="Inserire dati persona" />
-    <TextField promptText="Nome" />
-    <TextField promptText="Cognome" />
-    <TextField promptText="Email" />
-    <TextField promptText="Telefono" />
-    <Button text="Submit"/>
+    <TextField  promptText="Nome" styleClass="custom-text-field" />
+    <TextField  promptText="Cognome" styleClass="custom-text-field" />
+    <TextField  promptText="Email" styleClass="custom-text-field" />
+    <TextField  promptText="Telefono" styleClass="custom-text-field" />
+    <Button  text="Submit"/>
 </VBox>

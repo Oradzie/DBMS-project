@@ -11,6 +11,11 @@ public final class Controller {
     private final Model model;
     private final MainView view;
 
+    public Controller() {
+        this.model = null;
+        this.view = null;
+    }
+
     public Controller(Model model, MainView view) {
         Objects.requireNonNull(model, "Controller created with null model");
         Objects.requireNonNull(view, "Controller created with null view");

@@ -193,3 +193,33 @@ VALUES
     ('L008', 'RIF005', 2),
     ('L009', 'RIF005', 6),
     ('L010', 'RIF005', 6);
+
+
+-- Inserisco 5 persone
+insert into Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipendente) 
+values 
+('Giulia', 'Ferrari', 'FRRGLL90A01H501X', 3456789012, 'S', null),
+('Paolo', 'Ricci', 'RCCPLA75A01H501V', 5678901234, 'S', null);
+
+-- Inserisco 5 utentiOnline associati alle persone create
+insert into UtenteOnline (CodiceFiscale, Username, Password, E_mail) 
+values 
+('FRRGLL90A01H501X', 'giulia.ferrari', 'password3', 'giulia.ferrari@example.com'),
+('RCCPLA75A01H501V', 'paolo.ricci', 'password5', 'paolo.ricci@example.com');
+
+insert into ScontoUtente (PercentualeScontoUtente, CodiceSconto)
+values
+(10.0, 'SCONTO10'),
+(15.0, 'SCONTO15'),
+(20.0, 'SCONTO20');
+
+insert into Credito (CodiceSconto, CodiceFiscale)
+values 
+('SCONTO10', 'RCCPLA75A01H501V'),
+('SCONTO15', 'FRRGLL90A01H501X'),
+('SCONTO20', 'FRRGLL90A01H501X');
+
+insert into VenditaPromozionale (DataFine, DataInizio, PercentualeSconto, CodicePromo)
+values
+('2024-12-31', '2024-12-24', 25.0, 'PROMO25'),
+('2024-11-30', '2024-11-01', 30.0, 'PROMO30');

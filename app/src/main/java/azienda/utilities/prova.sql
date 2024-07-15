@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `azienda` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `azienda`;
--- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: localhost    Database: azienda
 -- ------------------------------------------------------
--- Server version	8.0.37
+-- Server version	8.0.38
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -115,6 +115,7 @@ CREATE TABLE `credito` (
 
 LOCK TABLES `credito` WRITE;
 /*!40000 ALTER TABLE `credito` DISABLE KEYS */;
+INSERT INTO `credito` VALUES ('SCONTO10','RCCPLA75A01H501V'),('SCONTO15','FRRGLL90A01H501X'),('SCONTO20','FRRGLL90A01H501X');
 /*!40000 ALTER TABLE `credito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -547,7 +548,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES ('Elena','Rossi','CF001',1234567810,NULL,'1'),('Giulia','Bianchi','CF002',1234567811,NULL,'1'),('Francesco','Verdi','CF003',1234567812,NULL,'1'),('Giorgio','Gialli','CF004',1234567813,NULL,'1'),('Sofia','Neri','CF005',1234567814,NULL,'1'),('Mario','Rossi','CF101',1234567890,NULL,'1'),('Luigi','Bianchi','CF102',1234567891,NULL,'1'),('Giovanni','Verdi','CF103',1234567892,NULL,'1'),('Anna','Gialli','CF104',1234567893,NULL,'1'),('Maria','Neri','CF105',1234567894,NULL,'1'),('Paolo','Marroni','CF106',1234567895,NULL,'1'),('Luca','Bianchi','CF107',1234567896,NULL,'1'),('Laura','Rossi','CF108',1234567897,NULL,'1'),('Sara','Verdi','CF109',1234567898,NULL,'1'),('Marco','Gialli','CF110',1234567899,NULL,'1');
+INSERT INTO `persona` VALUES ('Elena','Rossi','CF001',1234567810,NULL,'1'),('Giulia','Bianchi','CF002',1234567811,NULL,'1'),('Francesco','Verdi','CF003',1234567812,NULL,'1'),('Giorgio','Gialli','CF004',1234567813,NULL,'1'),('Sofia','Neri','CF005',1234567814,NULL,'1'),('Mario','Rossi','CF101',1234567890,NULL,'1'),('Luigi','Bianchi','CF102',1234567891,NULL,'1'),('Giovanni','Verdi','CF103',1234567892,NULL,'1'),('Anna','Gialli','CF104',1234567893,NULL,'1'),('Maria','Neri','CF105',1234567894,NULL,'1'),('Paolo','Marroni','CF106',1234567895,NULL,'1'),('Luca','Bianchi','CF107',1234567896,NULL,'1'),('Laura','Rossi','CF108',1234567897,NULL,'1'),('Sara','Verdi','CF109',1234567898,NULL,'1'),('Marco','Gialli','CF110',1234567899,NULL,'1'),('Giulia','Ferrari','FRRGLL90A01H501X',3456789012,'1',NULL),('Paolo','Ricci','RCCPLA75A01H501V',5678901234,'1',NULL);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -668,6 +669,7 @@ CREATE TABLE `ripiano` (
 
 LOCK TABLES `ripiano` WRITE;
 /*!40000 ALTER TABLE `ripiano` DISABLE KEYS */;
+INSERT INTO `ripiano` VALUES ('RIP001','SCA001'),('RIP002','SCA002'),('RIP003','SCA003'),('RIP004','SCA004'),('RIP005','SCA005'),('RIP006','SCA006'),('RIP007','SCA007'),('RIP008','SCA008'),('RIP009','SCA009'),('RIP010','SCA010'),('RIP011','SCA011'),('RIP012','SCA012'),('RIP013','SCA013'),('RIP014','SCA014'),('RIP015','SCA015'),('RIP016','SCA016'),('RIP017','SCA017'),('RIP018','SCA018'),('RIP019','SCA019'),('RIP020','SCA020');
 /*!40000 ALTER TABLE `ripiano` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -694,6 +696,7 @@ CREATE TABLE `scaffale` (
 
 LOCK TABLES `scaffale` WRITE;
 /*!40000 ALTER TABLE `scaffale` DISABLE KEYS */;
+INSERT INTO `scaffale` VALUES ('SCA001','SET001'),('SCA002','SET001'),('SCA003','SET002'),('SCA004','SET002'),('SCA005','SET003'),('SCA006','SET003'),('SCA007','SET004'),('SCA008','SET004'),('SCA009','SET005'),('SCA010','SET005'),('SCA011','SET006'),('SCA012','SET006'),('SCA013','SET007'),('SCA014','SET007'),('SCA015','SET008'),('SCA016','SET008'),('SCA017','SET009'),('SCA018','SET009'),('SCA019','SET010'),('SCA020','SET010');
 /*!40000 ALTER TABLE `scaffale` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -718,6 +721,7 @@ CREATE TABLE `scontoutente` (
 
 LOCK TABLES `scontoutente` WRITE;
 /*!40000 ALTER TABLE `scontoutente` DISABLE KEYS */;
+INSERT INTO `scontoutente` VALUES (10,'SCONTO10'),(15,'SCONTO15'),(20,'SCONTO20');
 /*!40000 ALTER TABLE `scontoutente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -744,6 +748,7 @@ CREATE TABLE `settore` (
 
 LOCK TABLES `settore` WRITE;
 /*!40000 ALTER TABLE `settore` DISABLE KEYS */;
+INSERT INTO `settore` VALUES ('SET001','MAG001'),('SET002','MAG001'),('SET003','MAG002'),('SET004','MAG002'),('SET005','MAG003'),('SET006','MAG003'),('SET007','MAG004'),('SET008','MAG004'),('SET009','MAG005'),('SET010','MAG005');
 /*!40000 ALTER TABLE `settore` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -803,6 +808,7 @@ CREATE TABLE `utenteonline` (
 
 LOCK TABLES `utenteonline` WRITE;
 /*!40000 ALTER TABLE `utenteonline` DISABLE KEYS */;
+INSERT INTO `utenteonline` VALUES ('FRRGLL90A01H501X','giulia.ferrari','password3','giulia.ferrari@example.com'),('RCCPLA75A01H501V','paolo.ricci','password5','paolo.ricci@example.com');
 /*!40000 ALTER TABLE `utenteonline` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -829,6 +835,7 @@ CREATE TABLE `venditapromozionale` (
 
 LOCK TABLES `venditapromozionale` WRITE;
 /*!40000 ALTER TABLE `venditapromozionale` DISABLE KEYS */;
+INSERT INTO `venditapromozionale` VALUES ('2024-12-31','2024-12-24',25,'PROMO25'),('2024-11-30','2024-11-01',30,'PROMO30');
 /*!40000 ALTER TABLE `venditapromozionale` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -869,4 +876,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-14 17:55:44
+-- Dump completed on 2024-07-15 18:07:26

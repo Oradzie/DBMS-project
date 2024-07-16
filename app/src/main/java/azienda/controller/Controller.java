@@ -2,14 +2,26 @@ package azienda.controller;
 
 import azienda.commons.DAOException;
 import azienda.model.Model;
-import java.util.Objects;
 import azienda.view.MainView;
+
+import java.util.Objects;
+
 import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
+import org.mindrot.jbcrypt.BCrypt;
 
 public final class Controller {
 
     private final Model model;
     private final MainView view;
+
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
 
     public Controller() {
         this.model = null;
@@ -25,6 +37,14 @@ public final class Controller {
 
     public void userRequestedInitialPage() {
         Application.launch(MainView.class);
+    }
+
+    public void login() {
+        try {
+            model.login(this.usernameField.getText(), this.passwordField.getText());
+        } catch (DAOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

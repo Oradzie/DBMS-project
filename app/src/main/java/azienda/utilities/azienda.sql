@@ -3,7 +3,7 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 14 2021              
--- * Generation date: Fri Jul 12 18:12:11 2024 
+-- * Generation date: Tue Jul 16 17:27:46 2024 
 -- * LUN file: C:\Users\Oradzie\Code\DBMS-project\schema-logico.lun 
 -- * Schema: AZIENDA/1 
 -- ********************************************* 
@@ -60,6 +60,7 @@ create table Dipendente (
      CodiceFiscale char(20) not null,
      CodiceDipendente char(20) not null,
      CodMagazzino char(20) not null,
+     Password char(50) not null,
      Magazziniere char default null,
      Amministratore char default null,
      constraint SID_Dipendente_ID unique (CodMagazzino, CodiceDipendente),
@@ -191,10 +192,9 @@ create table Stipendio (
 
 create table UtenteOnline (
      CodiceFiscale char(20) not null,
-     Username char(30) not null,
      Password char(20) not null,
      E_mail char(30) not null,
-     constraint SID_UtenteOnline_ID unique (Username),
+     constraint SID_UtenteOnline_ID unique (E_mail),
      constraint FKPer_Ute_ID primary key (CodiceFiscale));
 
 create table VenditaPromozionale (
@@ -338,7 +338,7 @@ alter table Ordine add constraint FKPossedere_FK
 
 alter table Ordine add constraint FKEffettuazione_FK
      foreign key (CodiceFiscale)
-     references Persona (CodiceFiscale);
+     references UtenteOnline (CodiceFiscale);
 
 -- Not implemented
 -- alter table PaccoPreparato add constraint ID_PaccoPreparato_CHK
@@ -586,7 +586,7 @@ create index FKDestinazione_IND
      on Stipendio (IBAN);
 
 create unique index SID_UtenteOnline_IND
-     on UtenteOnline (Username);
+     on UtenteOnline (E_mail);
 
 create unique index FKPer_Ute_IND
      on UtenteOnline (CodiceFiscale);

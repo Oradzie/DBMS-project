@@ -4,6 +4,8 @@
 .vscode/
 *.iml
 .env
+.~lock.Final-schemaER.lun#
+.~lock.schema-logico.lun#
 
 # output folders
 bin/

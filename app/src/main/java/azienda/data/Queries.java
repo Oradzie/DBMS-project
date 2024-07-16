@@ -25,4 +25,11 @@ public final class Queries {
         FROM    PRODUCT p
         WHERE   p.code = ?
         """;
+
+    public static final String FIND_USER =
+        """
+        SLECT * 
+        FROM DIPENDENTI d
+        WHERE d.username = ?
+        """;
 }

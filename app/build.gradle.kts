@@ -27,6 +27,9 @@ dependencies {
     implementation("org.openjfx:javafx-graphics:$javaFxVersion")
     implementation("org.openjfx:javafx-swing:$javaFxVersion")
 
+    // Password Hashing library
+    implementation("org.mindrot:jbcrypt:0.4")
+
     // MySQL connector
     implementation("mysql:mysql-connector-java:8.0.28")
 

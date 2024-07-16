@@ -9,3 +9,8 @@
     -fx-border-color: red;
     -fx-background-color: white;
 }
+
+.header-label {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+}

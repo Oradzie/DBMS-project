@@ -21,10 +21,11 @@ public class MainView extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
         Parent root = loader.load();
 
-        final Scene scene = new Scene(root, 320, 240);
+        final Scene scene = new Scene(root);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("/azienda/view/style.css")));
         stage.setTitle("Hello!");
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 

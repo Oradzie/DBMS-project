@@ -33,7 +33,7 @@ INSERT INTO Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipen
 ('Marco', 'Gialli', 'CF110', 1234567899, NULL, TRUE);
 
 -- Inseriamo i dipendenti
-INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, password, Magazziniere, Amministratore)
+INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, Password, Magazziniere, Amministratore)
 VALUES
 ('CF101', 'D001', 'MAG001', 'password10', TRUE, NULL),
 ('CF102', 'D002', 'MAG001', 'password20', TRUE, NULL),
@@ -70,7 +70,7 @@ INSERT INTO Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipen
 ('Sofia', 'Neri', 'CF005', 1234567814, NULL, True);
 
 -- Assegniamo ogni amministratore ad un magazzino diverso
-INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, password, Magazziniere, Amministratore) VALUES
+INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, Password, Magazziniere, Amministratore) VALUES
 ('CF001', 'D011', 'MAG001', 'password1', NULL, True),
 ('CF002', 'D012', 'MAG002', 'password2', NULL, True),
 ('CF003', 'D013', 'MAG003', 'password3', NULL, True),
@@ -197,17 +197,17 @@ VALUES
     ('L010', 'RIF005', 6);
 
 
--- Inserisco 5 persone
+-- Inserisco 2 persone
 insert into Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipendente) 
 values 
 ('Giulia', 'Ferrari', 'FRRGLL90A01H501X', 3456789012, 'S', null),
 ('Paolo', 'Ricci', 'RCCPLA75A01H501V', 5678901234, 'S', null);
 
--- Inserisco 5 utentiOnline associati alle persone create
-insert into UtenteOnline (CodiceFiscale, Username, Password, E_mail) 
+-- Inserisco 2 utentiOnline associati alle persone create
+insert into UtenteOnline (CodiceFiscale, Password, E_mail)
 values 
-('FRRGLL90A01H501X', 'giulia.ferrari', 'password3', 'giulia.ferrari@example.com'),
-('RCCPLA75A01H501V', 'paolo.ricci', 'password5', 'paolo.ricci@example.com');
+('FRRGLL90A01H501X', 'password3', 'giulia.ferrari@example.com'),
+('RCCPLA75A01H501V', 'password5', 'paolo.ricci@example.com');
 
 insert into ScontoUtente (PercentualeScontoUtente, CodiceSconto)
 values

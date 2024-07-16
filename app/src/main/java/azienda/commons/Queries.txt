@@ -68,12 +68,12 @@ INSERT INTO Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipen
 ('Sofia', 'Neri', 'CF005', 1234567814, NULL, True);
 
 -- Assegniamo ogni amministratore ad un magazzino diverso
-INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, Magazziniere, Amministratore) VALUES
-('CF001', 'D011', 'MAG001', NULL, True),
-('CF002', 'D012', 'MAG002', NULL, True),
-('CF003', 'D013', 'MAG003', NULL, True),
-('CF004', 'D014', 'MAG004', NULL, True),
-('CF005', 'D015', 'MAG005', NULL, True);
+INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, password, Magazziniere, Amministratore) VALUES
+('CF001', 'D011', 'MAG001', 'password1', NULL, True),
+('CF002', 'D012', 'MAG002', 'password2', NULL, True),
+('CF003', 'D013', 'MAG003', 'password3', NULL, True),
+('CF004', 'D014', 'MAG004', 'password4', NULL, True),
+('CF005', 'D015', 'MAG005', 'password5', NULL, True);
 
 -- Inseriamo i nuovi amministratori con i codici fiscali specificati
 INSERT INTO Amministratore (CodiceFiscale) VALUES
@@ -223,3 +223,60 @@ insert into VenditaPromozionale (DataFine, DataInizio, PercentualeSconto, Codice
 values
 ('2024-12-31', '2024-12-24', 25.0, 'PROMO25'),
 ('2024-11-30', '2024-11-01', 30.0, 'PROMO30');
+
+INSERT INTO CategoriaProdotto (NomeProdotto, Pro_Percentuale) VALUES
+('iPhone 13', 10.0),
+('MacBook Air', 15.0),
+('iPad Pro', 12.0),
+('Samsung Galaxy S21', 10.0),
+('Sony WH-1000XM4', 8.0),
+('Dell XPS 13', 14.0),
+('Microsoft Surface Pro 7', 13.0),
+('Bose QuietComfort 35 II', 9.0),
+('Apple Watch Series 6', 10.0),
+('Amazon Echo Dot', 7.0),
+('Google Pixel 6', 11.0),
+('HP Spectre x360', 14.0),
+('Lenovo ThinkPad X1 Carbon', 13.0),
+('ASUS ROG Zephyrus G14', 0.0),
+('Nintendo Switch', 0.0),
+('Sony PlayStation 5', 0.0),
+('Xbox Series X', 0.0),
+('Apple AirPods Pro', 0.0),
+('Samsung Galaxy Tab S7', 0.0),
+('DJI Mavic Air 2', 0.0);
+
+INSERT INTO VersioneProdotto (Specifiche, Disponibilita, CodiceProdotto, NomeProdotto) VALUES
+('iPhone 13 128GB, Black', 50, 'IP13-128-BLK', 'iPhone 13'),
+('iPhone 13 256GB, White', 30, 'IP13-256-WHT', 'iPhone 13'),
+('MacBook Air M1, 8GB RAM, 256GB SSD', 40, 'MBA-M1-8-256', 'MacBook Air'),
+('MacBook Air M1, 16GB RAM, 512GB SSD', 20, 'MBA-M1-16-512', 'MacBook Air'),
+('iPad Pro 11-inch, 128GB', 25, 'IPADPRO-11-128', 'iPad Pro'),
+('iPad Pro 12.9-inch, 256GB', 15, 'IPADPRO-12-256', 'iPad Pro'),
+('Samsung Galaxy S21 128GB, Black', 60, 'SGS21-128-BLK', 'Samsung Galaxy S21'),
+('Samsung Galaxy S21 256GB, Silver', 30, 'SGS21-256-SIL', 'Samsung Galaxy S21'),
+('Sony WH-1000XM4, Black', 70, 'WH1000XM4-BLK', 'Sony WH-1000XM4'),
+('Sony WH-1000XM4, Silver', 40, 'WH1000XM4-SIL', 'Sony WH-1000XM4'),
+('Dell XPS 13, 8GB RAM, 256GB SSD', 35, 'XPS13-8-256', 'Dell XPS 13'),
+('Dell XPS 13, 16GB RAM, 512GB SSD', 20, 'XPS13-16-512', 'Dell XPS 13'),
+('Microsoft Surface Pro 7, i5, 8GB RAM, 128GB SSD', 30, 'SP7-I5-8-128', 'Microsoft Surface Pro 7'),
+('Microsoft Surface Pro 7, i7, 16GB RAM, 256GB SSD', 15, 'SP7-I7-16-256', 'Microsoft Surface Pro 7'),
+('Bose QuietComfort 35 II, Black', 50, 'QC35II-BLK', 'Bose QuietComfort 35 II'),
+('Bose QuietComfort 35 II, Silver', 30, 'QC35II-SIL', 'Bose QuietComfort 35 II'),
+('Apple Watch Series 6, 40mm', 40, 'AWS6-40', 'Apple Watch Series 6'),
+('Apple Watch Series 6, 44mm', 20, 'AWS6-44', 'Apple Watch Series 6'),
+('Amazon Echo Dot 4th Gen', 80, 'ECDOT-4', 'Amazon Echo Dot');
+
+INSERT INTO Prodotto (NumeroSeriale, CodiceLotto ,CodPacco, CodiceProdotto, CodRipiano) VALUES
+('SN1234567890','L001',null,'IP13-128-BLK','RIP001'),
+('SN0987654321','L001',null,'IP13-128-BLK','RIP001'),
+('SN1122334455','L001',null,'IP13-128-BLK','RIP001'),
+('SN5566778899','L002',null,'IP13-256-WHT','RIP001'),
+('SN9988776655','L002',null,'IP13-256-WHT','RIP001'),
+('SN2233445566','L003',null,'MBA-M1-8-256','RIP001'),
+('SN6655443322','L003',null,'MBA-M1-8-256','RIP001'),
+('SN7766554433','L003',null,'MBA-M1-8-256','RIP001'),
+('SN3344556677','L004',null,'SGS21-128-BLK','RIP001'),
+('SN8877665544','L004',null,'SGS21-128-BLK','RIP001'),
+('SN4433221100','L005',null,'SGS21-256-SIL','RIP001'),
+('SN0011223344','L005',null,'SGS21-256-SIL','RIP001');

@@ -14,4 +14,4 @@
     <TextField  promptText="Email" styleClass="custom-text-field" />
     <TextField  promptText="Telefono" styleClass="custom-text-field" />
     <Button  text="Submit"/>
-</VBox>
+</VBox> 

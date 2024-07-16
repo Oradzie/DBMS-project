@@ -3,7 +3,7 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 14 2021              
--- * Generation date: Tue Jul 16 17:27:46 2024 
+-- * Generation date: Tue Jul 16 17:53:25 2024 
 -- * LUN file: C:\Users\Oradzie\Code\DBMS-project\schema-logico.lun 
 -- * Schema: AZIENDA/1 
 -- ********************************************* 
@@ -27,11 +27,6 @@ create table CategoriaProdotto (
      NomeProdotto char(30) not null,
      Pro_Percentuale float(5),
      constraint ID_CategoriaProdotto_ID primary key (NomeProdotto));
-
-create table Colore (
-     CodiceProdotto char(20) not null,
-     Colore char(20) not null,
-     constraint ID_Colore_ID primary key (CodiceProdotto, Colore));
 
 create table Credito (
      CodiceSconto char(10) not null,
@@ -218,10 +213,6 @@ create table VersioneProdotto (
 alter table Amministratore add constraint FKDip_Amm_FK
      foreign key (CodiceFiscale)
      references Dipendente (CodiceFiscale);
-
-alter table Colore add constraint FKVer_Col
-     foreign key (CodiceProdotto)
-     references VersioneProdotto (CodiceProdotto);
 
 alter table Credito add constraint FKCre_Ute
      foreign key (CodiceFiscale)
@@ -431,9 +422,6 @@ create unique index FKDip_Amm_IND
 
 create unique index ID_CategoriaProdotto_IND
      on CategoriaProdotto (NomeProdotto);
-
-create unique index ID_Colore_IND
-     on Colore (CodiceProdotto, Colore);
 
 create unique index ID_Credito_IND
      on Credito (CodiceFiscale, CodiceSconto);

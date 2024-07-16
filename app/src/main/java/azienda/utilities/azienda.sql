@@ -34,7 +34,7 @@ create table Credito (
      constraint ID_Credito_ID primary key (CodiceFiscale, CodiceSconto));
 
 create table DatiFatturazione (
-     IBAN char(1) not null,
+     IBAN char(30) not null,
      Via char(20) not null,
      CAP int not null,
      NumCivico int not null,
@@ -182,7 +182,7 @@ create table Stipendio (
      Importo float(10) not null,
      Bonus float(10),
      DataEmissione date not null,
-     IBAN char(1) not null,
+     IBAN char(30) not null,
      constraint ID_Stipendio_ID primary key (CodiceFiscale, DataEmissione));
 
 create table UtenteOnline (

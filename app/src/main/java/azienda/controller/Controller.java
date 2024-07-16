@@ -39,12 +39,5 @@ public final class Controller {
         Application.launch(MainView.class);
     }
 
-    public void login() {
-        try {
-            model.login(this.usernameField.getText(), this.passwordField.getText());
-        } catch (DAOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }

@@ -1,21 +1,17 @@
 package azienda.data;
 
-public class DatiFatturazione {
+public class LocazioneUtente {
 
-    public final String IBAN;
     public final String via;
     public final int cap;
     public final int numeroCivico;
-    
-    public DatiFatturazione(final String iBAN,final String Via, final int cAP, final int numeroCivico) {
-        this.IBAN = iBAN;
-        this.via = Via;
-        this.cap = cAP;
-        this.numeroCivico = numeroCivico;
-    }
+    public final String codiceFiscale;
 
-    public String getIBAN() {
-        return IBAN;
+    public LocazioneUtente(String via, int cap, int numeroCivico, String codiceFiscale) {
+        this.via = via;
+        this.cap = cap;
+        this.numeroCivico = numeroCivico;
+        this.codiceFiscale = codiceFiscale;
     }
 
     public String getVia() {
@@ -28,6 +24,10 @@ public class DatiFatturazione {
 
     public int getNumeroCivico() {
         return numeroCivico;
+    }
+    
+    public String getCodiceFiscale() {
+        return codiceFiscale;
     }
     
 }

@@ -8,6 +8,6 @@ public interface Model {
         return new DBModel(connection);
     }
 
-    public void login(final String username, final String password);
+   
     
 }

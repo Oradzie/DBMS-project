@@ -4,16 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" spacing="50.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.Controller">
+<VBox alignment="CENTER_LEFT" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.Controller">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label alignment="CENTER" text="BENVENUTO IN AZIENDA" styleClass="header-label"/>
-    <VBox alignment="CENTER" spacing="5.0">
-        <TextField fx:id="usernameField" promptText="Email" focusTraversable="false" maxWidth="200"/>
-        <PasswordField fx:id="passwordField" promptText="Password" focusTraversable="false" maxWidth="200"/>
-    </VBox>
-    <Button fx:id="loginButton" mnemonicParsing="false" text="Login" onAction="#login"/>
-
-</VBox>
+    <Label alignment="BASELINE_CENTER" text="Inserire dati persona" />
+    <TextField  promptText="Nome" styleClass="custom-text-field" />
+    <TextField  promptText="Cognome" styleClass="custom-text-field" />
+    <TextField  promptText="Email" styleClass="custom-text-field" />
+    <TextField  promptText="Telefono" styleClass="custom-text-field" />
+    <Button  text="Submit"/>
+</VBox> 

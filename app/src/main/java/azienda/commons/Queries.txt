@@ -282,3 +282,58 @@ INSERT INTO Prodotto (NumeroSeriale, CodiceLotto ,CodPacco, CodiceProdotto, CodR
 ('SN8877665544','L004',null,'SGS21-128-BLK','RIP001'),
 ('SN4433221100','L005',null,'SGS21-256-SIL','RIP001'),
 ('SN0011223344','L005',null,'SGS21-256-SIL','RIP001');
+
+
+-- Creazione dei dati di fatturazione collegati agli indirizzi
+INSERT INTO DatiFatturazione (IBAN, Via, CAP, NumCivico) VALUES
+('IT60X0542811101000000123456', 'Via Palermo', 90100, 35),
+('IT60X0542811101000000654321', 'Via Genova', 16121, 40);
+
+-- Creazione di stipendo per CF101 e CF001
+INSERT INTO Stipendio (CodiceFiscale, Importo, DataEmissione, IBAN) VALUES 
+('CF101', 3000.00, '2024-07-16', 'IT60X0542811101000000123456');
+('CF001', 2500.00, '2024-07-16', 'IT60X0542811101000000654321');
+
+-- Inseriamo i pacchi preparati
+INSERT INTO PaccoPreparato (CodPacco,CodiceFiscale)
+VALUES
+('PP001', 'CF101'),
+('PP002', 'CF102'),
+('PP003', 'CF103'),
+('PP004', 'CF104');
+
+
+INSERT INTO LocazioneUtente(Via,CAP,NumCivico,CodiceFiscale) VALUES
+('Via Bari', 70121, 45,'FRRGLL90A01H501X'),
+('Via Cagliari', 09100, 50,'FRRGLL90A01H501X'),
+('Via Verona', 37121, 55,'RCCPLA75A01H501V');
+
+
+-- Inseriamo gli ordini effettuati dai due utenti
+INSERT INTO Ordine (CodiceOrdine, DataOrdine,IndirizzoDestinatario,CodiceSconto,CodicePromo, CodiceFiscale)
+VALUES
+('ORD001', '2024-07-16','Via Bari 45 70121','SCONTO15',null, 'FRRGLL90A01H501X'),
+('ORD002', '2024-07-16','Via Cagliari 50 09100','SCONTO15','PROMO25', 'FRRGLL90A01H501X'),
+('ORD003', '2024-07-16','Via Verona 55 37121','SCONTO10',null, 'RCCPLA75A01H501V'),
+('ORD004', '2024-07-16','Via Verona 55 37121',null,'PROMO25',  'RCCPLA75A01H501V'),
+('ORD005', '2024-07-16','Via Verona 55 37121',null,'PROMO30',  'RCCPLA75A01H501V');
+
+INSERT INTO gestioneordine (CodPacco, CodiceFiscale) VALUES 
+('PP001', 'CF001'),
+('PP002', 'CF001'),
+('PP003', 'CF001'),
+('PP004', 'CF001');
+
+//non aggiunto
+INSERT INTO DettaglioOrdine (CodiceOrdine,Quantita, NumeroLinea,CodPacco,CodiceProdotto, CodMagazzino)
+VALUES
+('ORD001',1,1,'PP001', 'IP13-128-BLK','MAG001'), -- iPhone 13 128GB, Black
+('ORD001',2,2,'PP001', 'IP13-256-WHT','MAG001'), -- iPhone 13 256GB, White
+('ORD002',3,1,'PP002', 'IP13-128-BLK','MAG001'), -- iPhone 13 128GB, Black
+('ORD002',1,2,'PP002', 'IP13-256-WHT','MAG001'), -- iPhone 13 256GB, White
+('ORD003',1,1,'PP003', 'MBA-M1-8-256','MAG001'), -- MacBook Air M1, 8GB RAM, 256GB SSD
+('ORD003',1,2,'PP003', 'MBA-M1-8-256','MAG001'), -- MacBook Air M1, 8GB RAM, 256GB SSD
+('ORD004',2,1,'PP003', 'SGS21-128-BLK','MAG001'), -- Samsung Galaxy S21 128GB, Black
+('ORD005',1,1,'PP003', 'SGS21-128-BLK','MAG001'); -- Samsung Galaxy S21 128GB, Black
+//non aggiunto!!
+

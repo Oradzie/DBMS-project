@@ -33,17 +33,19 @@ INSERT INTO Persona (Nome, Cognome, CodiceFiscale, Telefono, UtenteOnline, Dipen
 ('Marco', 'Gialli', 'CF110', 1234567899, NULL, TRUE);
 
 -- Inseriamo i dipendenti
-INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, Magazziniere, Amministratore) VALUES
-('CF101', 'D001', 'MAG001', TRUE, NULL),
-('CF102', 'D002', 'MAG001', TRUE, NULL),
-('CF103', 'D003', 'MAG001', TRUE, NULL),
-('CF104', 'D004', 'MAG001', TRUE, NULL),
-('CF105', 'D005', 'MAG001', TRUE, NULL),
-('CF106', 'D006', 'MAG001', TRUE, NULL),
-('CF107', 'D007', 'MAG002', TRUE, NULL),
-('CF108', 'D008', 'MAG003', TRUE, NULL),
-('CF109', 'D009', 'MAG004', TRUE, NULL),
-('CF110', 'D010', 'MAG005', TRUE, NULL);
+INSERT INTO Dipendente (CodiceFiscale, CodiceDipendente, CodMagazzino, password, Magazziniere, Amministratore)
+VALUES
+('CF101', 'D001', 'MAG001', 'password10', TRUE, NULL),
+('CF102', 'D002', 'MAG001', 'password20', TRUE, NULL),
+('CF103', 'D003', 'MAG001', 'password30', TRUE, NULL),
+('CF104', 'D004', 'MAG001', 'password40', TRUE, NULL),
+('CF105', 'D005', 'MAG001', 'password50', TRUE, NULL),
+('CF106', 'D006', 'MAG001', 'password60', TRUE, NULL),
+('CF107', 'D007', 'MAG002', 'password70', TRUE, NULL),
+('CF108', 'D008', 'MAG003', 'password80', TRUE, NULL),
+('CF109', 'D009', 'MAG004', 'password90', TRUE, NULL),
+('CF110', 'D010', 'MAG005', 'password11', TRUE, NULL);
+
 
 -- Inseriamo i magazzinieri
 INSERT INTO Magazziniere (CodiceFiscale)

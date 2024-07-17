@@ -1,5 +1,7 @@
 package azienda.data;
 
+import java.sql.*;
+
 public class CategoriaProdotto {
 
     public final String NomeProdotto;
@@ -22,4 +24,15 @@ public class CategoriaProdotto {
         PercentualeSconto = percentualeSconto;
     }
     
+    public static void addCategoriaProdotto(CategoriaProdotto categoriaProdotto,Connection connection) {
+        String sql = "INSERT INTO CategoriaProdotto (NomeProdotto, PercentualeSconto) VALUES (?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, categoriaProdotto.getNomeProdotto());
+            statement.setFloat(2, categoriaProdotto.getPercentualeSconto());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

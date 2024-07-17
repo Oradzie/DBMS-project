@@ -10,13 +10,15 @@ import azienda.App;
 
 import java.io.IOException;
 import java.util.List;
-
 import azienda.controller.Controller;
 
 public class MainView extends Application {
 
+    public Stage stage;
+
     @Override
     public void start(final Stage stage) throws IOException {
+        this.stage = stage;
         // Path to the FXML File
         String fxmlDocPath = "/azienda/view/start-view.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
@@ -40,4 +42,20 @@ public class MainView extends Application {
             System.out.println(product.getNumeroSeriale());
         }
     }
+
+    public void showDashbord() throws IOException{
+        // Path to the FXML File
+        String fxmlDocPath = "/azienda/view/amministrator-dashboard.fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
+        loader.setController(App.CONTROLLER);
+        try{
+            Parent root = loader.load();
+            final Scene scene = new Scene(root);
+            this.stage.setScene(scene);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

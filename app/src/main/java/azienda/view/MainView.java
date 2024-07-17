@@ -14,11 +14,11 @@ import azienda.controller.Controller;
 
 public class MainView extends Application {
 
-    public Stage stage;
+    private Stage stage;
 
     @Override
-    public void start(final Stage stage) throws IOException {
-        this.stage = stage;
+    public void start(final Stage primaryStage) throws IOException {
+        this.stage = primaryStage;
         // Path to the FXML File
         String fxmlDocPath = "/azienda/view/start-view.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
@@ -43,7 +43,7 @@ public class MainView extends Application {
         }
     }
 
-    public void showDashbord() throws IOException{
+    public void showAmministratorDashboard(){
         // Path to the FXML File
         String fxmlDocPath = "/azienda/view/amministrator-dashboard.fxml";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
@@ -56,6 +56,8 @@ public class MainView extends Application {
             e.printStackTrace();
         }
     }
+
+
 
 
 }

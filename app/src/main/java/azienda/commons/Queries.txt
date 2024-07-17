@@ -283,14 +283,13 @@ INSERT INTO Prodotto (NumeroSeriale, CodiceLotto ,CodPacco, CodiceProdotto, CodR
 ('SN4433221100','L005',null,'SGS21-256-SIL','RIP001'),
 ('SN0011223344','L005',null,'SGS21-256-SIL','RIP001');
 
-
 -- Creazione dei dati di fatturazione collegati agli indirizzi
 INSERT INTO DatiFatturazione (IBAN, Via, CAP, NumCivico) VALUES
 ('IT60X0542811101000000123456', 'Via Palermo', 90100, 35),
 ('IT60X0542811101000000654321', 'Via Genova', 16121, 40);
 
 -- Creazione di stipendo per CF101 e CF001
-INSERT INTO Stipendio (CodiceFiscale, Importo, DataEmissione, IBAN) VALUES 
+INSERT INTO Stipendio (CodiceFiscale, Importo, DataEmissione, IBAN) VALUES
 ('CF101', 3000.00, '2024-07-16', 'IT60X0542811101000000123456');
 ('CF001', 2500.00, '2024-07-16', 'IT60X0542811101000000654321');
 
@@ -318,7 +317,7 @@ VALUES
 ('ORD004', '2024-07-16','Via Verona 55 37121',null,'PROMO25',  'RCCPLA75A01H501V'),
 ('ORD005', '2024-07-16','Via Verona 55 37121',null,'PROMO30',  'RCCPLA75A01H501V');
 
-INSERT INTO gestioneordine (CodPacco, CodiceFiscale) VALUES 
+INSERT INTO gestioneordine (CodPacco, CodiceFiscale) VALUES
 ('PP001', 'CF001'),
 ('PP002', 'CF001'),
 ('PP003', 'CF001'),
@@ -336,4 +335,3 @@ VALUES
 ('ORD004',2,1,'PP003', 'SGS21-128-BLK','MAG001'), -- Samsung Galaxy S21 128GB, Black
 ('ORD005',1,1,'PP003', 'SGS21-128-BLK','MAG001'); -- Samsung Galaxy S21 128GB, Black
 //non aggiunto!!
-

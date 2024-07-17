@@ -4,16 +4,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER_LEFT" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
 
-    <Label alignment="BASELINE_CENTER" text="Inserire dati persona" />
-    <TextField  promptText="Nome" styleClass="custom-text-field" />
-    <TextField  promptText="Cognome" styleClass="custom-text-field" />
-    <TextField  promptText="Email" styleClass="custom-text-field" />
-    <TextField  promptText="Telefono" styleClass="custom-text-field" />
-    <Button onAction="#userClickedPreview" text="Submit"/>
+    <Label text="ACCESSO UTENTI" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="header-label"/>
+    <HBox alignment="CENTER" spacing="10.0" GridPane.rowIndex="1" GridPane.columnIndex="1">
+        <RadioButton fx:id="utenteOnlineRadio" toggleGroup="$accessToggle" onAction="#handleOptionSelection"
+                     text="Utente online"/>
+        <RadioButton fx:id="dipendenteRadio" toggleGroup="$accessToggle" onAction="#handleOptionSelection"
+                     text="Dipendente"/>
+    </HBox>
 
-</VBox>
+    <TextField fx:id="usernameField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Codice dipendente"
+               visible="true" styleClass="custom-text-field" />
+    <TextField fx:id="emailField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Email"
+               visible="false" styleClass="custom-text-field" />
+    <PasswordField fx:id="passwordField" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Password" styleClass="custom-text-field" />
+    <Button fx:id="loginButton" GridPane.rowIndex="5" GridPane.columnIndex="1" GridPane.halignment="CENTER"
+            onAction="#login" text="Login"/>
+
+</GridPane>

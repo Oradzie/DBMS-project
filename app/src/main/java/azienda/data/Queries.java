@@ -7,4 +7,11 @@ public final class Queries {
         SELECT *
         FROM azienda.prodotto;
         """;
+
+    public static final String FIND_DIPENDENTE =
+        """
+        SELECT *
+        FROM azienda.dipendente
+        WHERE CodiceDipendente = ?          
+        """;
 }

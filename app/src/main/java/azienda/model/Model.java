@@ -12,4 +12,6 @@ public interface Model {
     }
 
     public List<Prodotto> getProducts();
+
+    String getPassword(final String text);
 }

@@ -25,7 +25,7 @@ public class MainView extends Application {
 
         final Scene scene = new Scene(root);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("/azienda/view/style.css")));
-        stage.setTitle("Hello!");
+        stage.setTitle("DBMS Azienda");
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();

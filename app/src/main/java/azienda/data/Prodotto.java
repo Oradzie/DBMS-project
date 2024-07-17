@@ -55,11 +55,11 @@ public class Prodotto {
                 final List<Prodotto> products = new ArrayList<Prodotto>();
 
                 while(resultSet.next()) {
-                    final String numeroSeriale = resultSet.getString("numero_seriale");
-                    final String codiceLotto = resultSet.getString("codice_lotto");
-                    final String codicePacco = resultSet.getString("codice_pacco");
-                    final String codiceProdotto = resultSet.getString("codice_prodotto");
-                    final String codiceRipiano = resultSet.getString("codice_ripiano");
+                    final String numeroSeriale = resultSet.getString("NumeroSeriale");
+                    final String codiceLotto = resultSet.getString("CodiceLotto");
+                    final String codicePacco = resultSet.getString("CodPacco");
+                    final String codiceProdotto = resultSet.getString("CodiceProdotto");
+                    final String codiceRipiano = resultSet.getString("CodRipiano");
                     final Prodotto product = new Prodotto(numeroSeriale, codiceLotto, codicePacco, codiceProdotto, codiceRipiano);
                     products.add(product);
                 }
@@ -70,5 +70,4 @@ public class Prodotto {
             }
         }
     }
-
 }

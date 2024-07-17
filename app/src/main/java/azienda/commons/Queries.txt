@@ -328,7 +328,9 @@ VALUES
 ('ORD001',1,1,'PP001', 'IP13-128-BLK','MAG001'), -- iPhone 13 128GB, Black
 ('ORD002',3,1,'PP002', 'IP13-128-BLK','MAG001'), -- iPhone 13 128GB, Black
 ('ORD003',1,1,'PP003', 'MBA-M1-8-256','MAG001'), -- MacBook Air M1, 8GB RAM, 256GB SSD
-('ORD003',1,2,'PP003', 'MBA-M1-8-256','MAG001'), -- MacBook Air M1, 8GB RAM, 256GB SSD
-('ORD004',2,1,'PP003', 'SGS21-128-BLK','MAG001'), -- Samsung Galaxy S21 128GB, Black
-('ORD005',1,1,'PP003', 'SGS21-128-BLK','MAG001'); -- Samsung Galaxy S21 128GB, Black
-//non aggiunto!!
+('ORD004',2,1,'PP004', 'SGS21-128-BLK','MAG001'); -- Samsung Galaxy S21 128GB, Black
+
+INSERT INTO Inventario (Ese_CodiceFiscale, Data, CodiceFiscale)
+VALUES
+('CF101','2023-07-17','CF001'),
+('CF102','2024-07-17','CF001');

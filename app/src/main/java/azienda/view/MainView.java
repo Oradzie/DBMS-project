@@ -23,6 +23,7 @@ public class MainView extends Application {
         loader.setController(App.CONTROLLER);
         Parent root = loader.load();
 
+        
         final Scene scene = new Scene(root);
         scene.getStylesheets().add(String.valueOf(getClass().getResource("/azienda/view/style.css")));
         stage.setTitle("DBMS Azienda");

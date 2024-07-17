@@ -1,5 +1,10 @@
 package azienda.data;
 
+import java.sql.*;
+import java.util.*;
+import azienda.commons.DAOException;
+import azienda.commons.DAOUtils;
+
 public class CategoriaProdotto {
 
     public final String NomeProdotto;

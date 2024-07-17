@@ -7,6 +7,7 @@ import azienda.view.MainView;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -59,10 +60,10 @@ public final class Controller implements Initializable {
     public void login() {
         try {
             if (this.model != null) {
-                if (this.model.getPassword(usernameField.getText()).equals(this.passwordField.getText())) {
+                final String password = this.model.getPassword(usernameField.getText());
+                if (!Objects.isNull(password) && password.equals(this.passwordField.getText())) {
                     System.out.println("Login successful");
                 } else {
-                    System.out.println("Login failed");
                     this.view.showError("Login failed");
                 }
             } else {

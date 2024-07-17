@@ -24,7 +24,6 @@ public final class DBModel implements Model {
 
     @Override
     public String getPassword(final String codiceDipendente) {
-        System.out.println(Dipendente.DAO.handleLogin(this.connection, codiceDipendente).orElse(null));
         return Dipendente.DAO.handleLogin(this.connection, codiceDipendente).orElse(null);
     }
 }

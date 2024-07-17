@@ -4,14 +4,16 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER_LEFT" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.Controller">
+<VBox alignment="CENTER_LEFT" spacing="5.0" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+
     <Label alignment="BASELINE_CENTER" text="Inserire dati persona" />
     <TextField  promptText="Nome" styleClass="custom-text-field" />
     <TextField  promptText="Cognome" styleClass="custom-text-field" />
     <TextField  promptText="Email" styleClass="custom-text-field" />
     <TextField  promptText="Telefono" styleClass="custom-text-field" />
-    <Button  text="Submit"/>
-</VBox> 
+    <Button onAction="#userClickedPreview" text="Submit"/>
+
+</VBox>

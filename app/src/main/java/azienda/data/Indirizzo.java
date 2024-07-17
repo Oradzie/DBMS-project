@@ -3,13 +3,13 @@ package azienda.data;
 public class Indirizzo {
 
     public final String via;
-    public final String città;
+    public final String citta;
     public final int cap;
     public final int numeroCivico;
 
-    public Indirizzo(String via, String città, int cap, int numeroCivico) {
+    public Indirizzo(String via, String citta, int cap, int numeroCivico) {
         this.via = via;
-        this.città = città;
+        this.citta = citta;
         this.cap = cap;
         this.numeroCivico = numeroCivico;
     }
@@ -18,8 +18,8 @@ public class Indirizzo {
         return via;
     }
 
-    public String getCittà() {
-        return città;
+    public String getCitta() {
+        return citta;
     }
 
     public int getCap() {

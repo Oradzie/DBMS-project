@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import azienda.model.Model;
-import org.mindrot.jbcrypt.BCrypt;
+
+import azienda.data.Prodotto;
 
 // This is the real model implementation that uses the DAOs we've defined to
 // actually load data from the underlying database.
@@ -24,5 +24,12 @@ public final class DBModel implements Model {
         this.connection = connection;
     }
 
-   
+
+    /**
+     * @return
+     */
+    @Override
+    public List<Prodotto> getProducts() {
+        return Prodotto.DAO.list(this.connection);
+    }
 }

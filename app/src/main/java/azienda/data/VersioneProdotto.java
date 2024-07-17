@@ -3,13 +3,13 @@ package azienda.data;
 public class VersioneProdotto {
 
     public final String Specifiche;
-    public final int Disponibilità;
+    public final int disponibilita;
     public final String CodiceProdotto;
     public final String NomeProdotto;
 
-    public VersioneProdotto(String specifiche, int disponibilità, String codiceProdotto, String nomeProdotto) {
+    public VersioneProdotto(String specifiche, int disponibilita, String codiceProdotto, String nomeProdotto) {
         Specifiche = specifiche;
-        Disponibilità = disponibilità;
+        this.disponibilita = disponibilita;
         CodiceProdotto = codiceProdotto;
         NomeProdotto = nomeProdotto;
     }
@@ -18,8 +18,8 @@ public class VersioneProdotto {
         return Specifiche;
     }
 
-    public int getDisponibilità() {
-        return Disponibilità;
+    public int getDisponibilita() {
+        return disponibilita;
     }
 
     public String getCodiceProdotto() {

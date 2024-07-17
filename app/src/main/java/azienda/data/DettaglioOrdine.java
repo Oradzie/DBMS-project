@@ -3,16 +3,16 @@ package azienda.data;
 public class DettaglioOrdine {
 
     public final String codiceOrdine;
-    public final int quantità;
+    public final int quantita;
     public final int numeroLinea;
     public final String codPacco;
     public final String codiceProdotto;
     public final String codMagazzino;
 
-    public DettaglioOrdine(String codiceOrdine, int quantità, int numeroLinea, String codPacco, String codiceProdotto,
+    public DettaglioOrdine(String codiceOrdine, int quantita, int numeroLinea, String codPacco, String codiceProdotto,
             String codMagazzino) {
         this.codiceOrdine = codiceOrdine;
-        this.quantità = quantità;
+        this.quantita = quantita;
         this.numeroLinea = numeroLinea;
         this.codPacco = codPacco;
         this.codiceProdotto = codiceProdotto;
@@ -23,8 +23,8 @@ public class DettaglioOrdine {
         return codiceOrdine;
     }
 
-    public int getQuantità() {
-        return quantità;
+    public int getQuantita() {
+        return quantita;
     }
 
     public int getNumeroLinea() {

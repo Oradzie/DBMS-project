@@ -1,6 +1,9 @@
 package azienda.data;
 
 import java.sql.*;
+import java.util.*;
+import azienda.commons.DAOException;
+import azienda.commons.DAOUtils;
 
 public class CategoriaProdotto {
 
@@ -24,15 +27,4 @@ public class CategoriaProdotto {
         PercentualeSconto = percentualeSconto;
     }
     
-    public static void addCategoriaProdotto(CategoriaProdotto categoriaProdotto,Connection connection) {
-        String sql = "INSERT INTO CategoriaProdotto (NomeProdotto, PercentualeSconto) VALUES (?, ?)";
-        try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, categoriaProdotto.getNomeProdotto());
-            statement.setFloat(2, categoriaProdotto.getPercentualeSconto());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
 }

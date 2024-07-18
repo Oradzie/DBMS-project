@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import azienda.App;
 
@@ -32,8 +33,13 @@ public class MainView extends Application {
         showStartView();
     }
 
-    public void showError(String s) {
-        System.err.println(s);
+    public void showError(final String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("An error happened");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 
     public void showStartView() {

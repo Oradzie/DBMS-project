@@ -81,7 +81,7 @@ public final class Controller implements Initializable {
                     this.view.showError("No option selected");
                 }
             } else {
-                this.view.showError("Model is null");
+                this.view.showError("The Model is null");
             }
         } catch (DAOException e) {
             this.view.showError("Error while loading products: " + e.getMessage());
@@ -96,7 +96,7 @@ public final class Controller implements Initializable {
             this.view.closeStartView();
             this.view.showAmministratorDashboard();
         } else {
-            this.view.showError("Login failed");
+            this.view.showError("Login failed! Invalid credentials.");
         }
     }
 

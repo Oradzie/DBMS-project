@@ -17,9 +17,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
 
+import javafx.scene.layout.VBox;
 import org.mindrot.jbcrypt.BCrypt;
 
 public final class Controller implements Initializable {
@@ -42,7 +44,7 @@ public final class Controller implements Initializable {
     @FXML
     private Button loginButton;
     @FXML
-    private Pane formPane;
+    private VBox formPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -110,7 +112,8 @@ public final class Controller implements Initializable {
     }
 
     @FXML
-    public void openInserimentoMagazziniere(){
-        
+    public void toggleInserimentoMagazziniere(){
+        this.formPane.setDisable(!this.formPane.isDisabled());
+        this.formPane.setVisible(!this.formPane.isVisible());
     }
 }

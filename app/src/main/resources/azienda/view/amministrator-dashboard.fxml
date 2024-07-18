@@ -17,12 +17,12 @@
         <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold;"/>
 
         <GridPane hgap="10.0" vgap="10.0">
-            <Button text="Inserimento Magazziniere" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#openInserimentoMagazziniere"/>
+            <Button text="Inserimento Magazziniere" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleInserimentoMagazziniere"/>
             <Button text="Visualizzazione Statistiche" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
         </GridPane>
     </VBox>
 
     <!-- Contenitore per il form di inserimento -->
-    <fx:include source="inserimentoMagazziniere.fxml"/>
+    <fx:include fx:id="formPane" source="inserimentoMagazziniere.fxml"/>
 </HBox>
 

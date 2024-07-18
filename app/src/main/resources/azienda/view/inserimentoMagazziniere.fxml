@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" fx:id="formPane" alignment="TOP_CENTER" visible="false">
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" alignment="TOP_CENTER" visible="false" disable="true">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
@@ -29,7 +29,16 @@
 
         <Label text="Telefono:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
         <TextField fx:id="telefono" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Codice magazzino:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <TextField fx:id="codiceMagazzino" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+        <Label text="Password:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <TextField fx:id="password" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+        <Label text="DatiFatturazione:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+        <TextField fx:id="datiFatturazione" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
     </GridPane>
 
-    <Button text="Salva" onAction="#handleSave"/>
-</GridPane>
+    <Button text="Salva"/>
+</VBox>

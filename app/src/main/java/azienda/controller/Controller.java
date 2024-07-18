@@ -13,8 +13,12 @@ import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import java.io.IOException;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -37,6 +41,8 @@ public final class Controller implements Initializable {
     private ToggleGroup accessToggle;
     @FXML
     private Button loginButton;
+    @FXML
+    private Pane formPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -101,5 +107,10 @@ public final class Controller implements Initializable {
             emailField.setDisable(true);
             usernameField.setDisable(true);
         }
+    }
+
+    @FXML
+    public void openInserimentoMagazziniere(){
+        
     }
 }

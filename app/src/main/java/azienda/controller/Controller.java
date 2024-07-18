@@ -54,6 +54,8 @@ public final class Controller implements Initializable {
     @FXML
     private VBox VisualizzaQuantitaPane;
     @FXML
+    private VBox inserimentoIndirizzoPane;
+    @FXML
     private Pane rightPane;
 
     @Override
@@ -100,7 +102,7 @@ public final class Controller implements Initializable {
         if (!Objects.isNull(password) && password.equals(passwordField.getText())) {
             System.out.println("Login successful");
             this.view.closeStartView();
-            this.view.showMagazziniereDashboard();
+            this.view.showUtenteDashboard();
         } else {
             this.view.showError("Login failed! Invalid credentials.");
         }
@@ -169,6 +171,13 @@ public final class Controller implements Initializable {
         this.VisualizzaQuantitaPane.setVisible(!this.VisualizzaQuantitaPane.isVisible());
         this.inserimentoProdottoPane.setVisible(false);
         this.eliminazioneProdottoPane.setVisible(false);
+    }
+
+    @FXML
+    public void toggleInserimentoIndirizzo() {
+        this.inserimentoIndirizzoPane.setDisable(false);
+        this.inserimentoIndirizzoPane.setVisible(!this.inserimentoIndirizzoPane.isVisible());
+
     }
 
 }

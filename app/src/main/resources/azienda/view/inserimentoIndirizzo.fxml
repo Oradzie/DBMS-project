@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" alignment="TOP_CENTER" visible="false" disable="true">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Inserimento Nuovo Indirizzo" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <Label text="Via:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="Via" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Città:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="Citta" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="CAP:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="CAP" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Numero Civico:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="NumCivico" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        </GridPane>
+
+    <Button text="Salva"/>
+</VBox>

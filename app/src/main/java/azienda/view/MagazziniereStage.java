@@ -17,12 +17,23 @@ public class MagazziniereStage extends Stage {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
         loader.setController(App.CONTROLLER);
 
-        String subDocPath = "/azienda/view/inserimentoProdotto.fxml";
-        FXMLLoader subLoader = new FXMLLoader(getClass().getResource(subDocPath));
-        subLoader.setController(App.CONTROLLER);
+        String insProdPath = "/azienda/view/inserimentoProdotto.fxml";
+        FXMLLoader insProdLoader = new FXMLLoader(getClass().getResource(insProdPath));
+        insProdLoader.setController(App.CONTROLLER);
+
+        String elimProdPath = "/azienda/view/eliminazioneProdotto.fxml";
+        FXMLLoader elimProdLoader = new FXMLLoader(getClass().getResource(elimProdPath));
+        elimProdLoader.setController(App.CONTROLLER);
+
+        String visQProdPath = "/azienda/view/VisualizzaQuantitaProdotto.fxml";
+        FXMLLoader visQProdLoader = new FXMLLoader(getClass().getResource(visQProdPath));
+        visQProdLoader.setController(App.CONTROLLER);
+
         try {
             Parent root = loader.load();
-            subLoader.load();
+            insProdLoader.load();
+            elimProdLoader.load();
+            visQProdLoader.load();
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");
             this.setScene(scene);

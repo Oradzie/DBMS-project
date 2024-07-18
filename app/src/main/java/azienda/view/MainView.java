@@ -20,11 +20,13 @@ public class MainView extends Application {
     private StartStage startStage;
     private AdminStage adminStage;
     private MagazziniereStage magazziniereStage;
+    private UtenteStage utenteStage;
 
     public MainView() {
         this.startStage = null;
         this.adminStage = null;
-        magazziniereStage = null;
+        this.magazziniereStage = null;
+        this.utenteStage = null;
     }
 
     @Override
@@ -61,6 +63,10 @@ public class MainView extends Application {
 
     public void showMagazziniereDashboard() {
         this.magazziniereStage = new MagazziniereStage();
+    }
+
+    public void showUtenteDashboard() {
+        this.utenteStage = new UtenteStage();
     }
 
     public void closeAdminBashboard() {

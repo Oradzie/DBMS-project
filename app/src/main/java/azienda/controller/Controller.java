@@ -63,7 +63,8 @@ public final class Controller implements Initializable {
                 final String password = this.model.getPassword(usernameField.getText());
                 if (!Objects.isNull(password) && password.equals(this.passwordField.getText())) {
                     System.out.println("Login successful");
-                    view.showAmministratorDashboard();
+                    this.view.closeStartView();
+                    this.view.showAmministratorDashboard();
                 } else {
                     this.view.showError("Login failed");
                 }

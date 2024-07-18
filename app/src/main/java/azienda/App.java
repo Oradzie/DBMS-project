@@ -20,9 +20,7 @@ public final class App {
         final String username = dotenv.get("DB_USERNAME");
         final Connection connection = DAOUtils.localMySQLConnection(database, username, password);
         final Model model = Model.fromConnection(connection);
-        final MainView view = new MainView();
         CONTROLLER.setModel(model);
-        CONTROLLER.setView(view);
         CONTROLLER.userRequestedInitialPage();
     }
 }

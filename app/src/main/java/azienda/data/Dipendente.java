@@ -7,41 +7,52 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Optional;
 
-public class Dipendente extends Persona{
+public class Dipendente implements Utente {
 
-    public final String CodiceDipendente;
-    public final String CodiceMagazzino;
-    public final String Password;
-    public DatiFatturazione datiFatturazione;
-    
+    private final String codiceFiscale;
+    private final String codiceDipendente;
+    private final String codiceMagazzino;
+    private final String password;
+    private final Boolean isAdmin;
+    private final Boolean isMagazziniere;
 
-    public Dipendente(String nome, String cognome, String codiceFiscale, int telefono, String codiceDipendente,
-            String codiceMagazzino, String password, DatiFatturazione datiFatturazione) {
-        super(nome, cognome, codiceFiscale, telefono);
-        CodiceDipendente = codiceDipendente;
-        CodiceMagazzino = codiceMagazzino;
-        Password = password;
-        this.datiFatturazione = datiFatturazione;
+    public Dipendente(final String codiceFiscale, final String codiceDipendente, final String codiceMagazzino,
+                      final String password, final Boolean isAdmin, final Boolean isMagazziniere) {
+        this.codiceFiscale = codiceFiscale;
+        this.codiceDipendente = codiceDipendente;
+        this.codiceMagazzino = codiceMagazzino;
+        this.password = password;
+        this.isAdmin = isAdmin;
+        this.isMagazziniere = isMagazziniere;
+    }
+
+    public String getCodiceFiscale() {
+        return this.codiceFiscale;
     }
 
     public String getCodiceDipendente() {
-        return CodiceDipendente;
+        return this.codiceDipendente;
     }
 
     public String getCodiceMagazzino() {
-        return CodiceMagazzino;
+        return this.codiceMagazzino;
     }
 
     public String getPassword() {
-        return Password;
+        return this.password;
     }
 
-    public DatiFatturazione getDatiFatturazione() {
-        return datiFatturazione;
+    public Boolean isAdmin() {
+        return this.isAdmin;
     }
 
-    public void setDatiFatturazione(DatiFatturazione datiFatturazione) {
-        this.datiFatturazione = datiFatturazione;
+    public Boolean isMagazziniere() {
+        return this.isMagazziniere;
+    }
+
+    @Override
+    public String toString() {
+        return this.codiceDipendente;
     }
 
     public static final class DAO {
@@ -59,6 +70,31 @@ public class Dipendente extends Persona{
             } catch (Exception e) {
                 throw new DAOException(e);
             }
+        }
+
+        public static Optional<String> getRelatedMagazzino(Connection connection, String currentUSer) {
+            return null;
+        }
+
+        public static Optional<Dipendente> getDipendente(final Connection connection, final String userID) {
+                try(
+                        final PreparedStatement statement = DAOUtils.prepare(connection, Queries.FIND_DIPENDENTE, userID);
+                        var resultSet = statement.executeQuery();
+                ){
+                    if (resultSet.next()) {
+                        return Optional.of(new Dipendente(
+                                resultSet.getString("CodiceFiscale"),
+                                resultSet.getString("CodiceDipendente"),
+                                resultSet.getString("CodMagazzino"),
+                                resultSet.getString("Password"),
+                                resultSet.getBoolean("Amministratore"),
+                                resultSet.getBoolean("Magazziniere")));
+                    }else{
+                        return Optional.empty();
+                    }
+                } catch (Exception e) {
+                    throw new DAOException(e);
+                }
         }
     }
 }

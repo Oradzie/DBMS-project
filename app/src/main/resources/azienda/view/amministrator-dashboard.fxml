@@ -9,18 +9,18 @@
 <?import javafx.scene.layout.VBox?>
 
 <HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0">
-    <VBox alignment="TOP_CENTER" spacing="10.0">
-        <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-        </padding>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
 
-         <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold; -fx-font-size: 24px;"/>
+    <VBox alignment="TOP_LEFT" spacing="10.0">
+        <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold; -fx-font-size: 24px;"/>
 
         <GridPane hgap="10.0" vgap="10.0">
             <Button text="Inserimento Magazziniere" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleInserimentoMagazziniere"/>
             <Button text="Categoria più Venduta" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleCategoriaVenduta"/>
             <Button text="Statistiche Magazzinieri" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-            <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleSalesChertPane"/>
             <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0"/>
             <Button text="Richiesta rifornimento"  GridPane.rowIndex="5" GridPane.columnIndex="0"/>
             <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0"/>

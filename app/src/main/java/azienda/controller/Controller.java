@@ -1,6 +1,7 @@
 package azienda.controller;
 
 import azienda.commons.DAOException;
+import azienda.data.Persona;
 import azienda.data.Prodotto;
 import azienda.model.Model;
 import azienda.view.MainView;
@@ -9,6 +10,7 @@ import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
@@ -48,6 +50,8 @@ public final class Controller implements Initializable {
     @FXML
     private VBox categoriaPiuVendutaPane;
     @FXML
+    private VBox andamentoVenditePane;
+    @FXML
     private VBox inserimentoProdottoPane;
     @FXML
     private VBox eliminazioneProdottoPane;
@@ -81,30 +85,26 @@ public final class Controller implements Initializable {
     public void login() {
         try {
             if (this.model != null) {
-                if (utenteOnlineRadio.isSelected()) {
-                    this.access(this.emailField, this.passwordField, false);
-                } else if (dipendenteRadio.isSelected()) {
-                    this.access(this.usernameField, this.passwordField, true);
+                final Optional<Integer> result = this.model.handleLogin(this.usernameField.getText() + this.emailField.getText(),
+                        this.passwordField.getText(), this.dipendenteRadio.isSelected());
+                if (result.isPresent()) {
+                    System.out.println("Login successful!");
+                    if (result.get() == 0) {
+                        this.view.showAmministratorDashboard();
+                    } else if (result.get() == 1) {
+                        this.view.showMagazziniereDashboard();
+                    } else {
+                        this.view.showUtenteDashboard();
+                    }
+                    this.view.closeStartView();
                 } else {
-                    this.view.showError("No option selected");
+                    this.view.showError("Login failed! Invalid credentials.");
                 }
             } else {
                 this.view.showError("The Model is null");
             }
         } catch (DAOException e) {
             this.view.showError("Error while loading products: " + e.getMessage());
-        }
-    }
-
-    private void access(final TextField field, final PasswordField passwordField, final boolean isDipendente) {
-        final String userID = field.getText();
-        final String password = this.model.getPassword(userID, isDipendente);
-        if (!Objects.isNull(password) && password.equals(passwordField.getText())) {
-            System.out.println("Login successful");
-            this.view.closeStartView();
-            this.view.showUtenteDashboard();
-        } else {
-            this.view.showError("Login failed! Invalid credentials.");
         }
     }
 
@@ -131,7 +131,7 @@ public final class Controller implements Initializable {
                 this.inserimentoMagazzinierePane.setVisible(true);
             } else {
                 node.setDisable(true);
-                node.setDisable(false);
+                node.setVisible(false);
             }
         });
     }
@@ -144,7 +144,20 @@ public final class Controller implements Initializable {
                 this.categoriaPiuVendutaPane.setVisible(true);
             } else {
                 node.setDisable(true);
-                node.setDisable(false);
+                node.setVisible(false);
+            }
+        });
+    }
+
+    @FXML
+    public void toggleSalesChertPane() {
+        this.rightPane.getChildren().forEach(node -> {
+            if (node.equals(this.andamentoVenditePane)) {
+                this.andamentoVenditePane.setDisable(false);
+                this.andamentoVenditePane.setVisible(true);
+            } else {
+                node.setDisable(true);
+                node.setVisible(false);
             }
         });
     }
@@ -180,4 +193,7 @@ public final class Controller implements Initializable {
 
     }
 
+    public void setSalesController(final SalesChartController controller) {
+        controller.initialize(this.model.getMonthlySales());
+    }
 }

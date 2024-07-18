@@ -1,20 +1,52 @@
 package azienda.model;
 
+import java.io.InterruptedIOException;
 import java.sql.Connection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
-import azienda.data.Dipendente;
-import azienda.data.Prodotto;
-import azienda.data.UtenteOnline;
+import azienda.commons.Pair;
+import azienda.data.*;
 
 public final class DBModel implements Model {
 
     private final Connection connection;
+    private Utente currentUSer;
 
     public DBModel(Connection connection) {
         Objects.requireNonNull(connection, "Model created with null connection");
         this.connection = connection;
+    }
+
+    @Override
+    public Optional<Integer> handleLogin(final String userID, final String password, final Boolean isDipendente) {
+        if (isDipendente) {
+            return Dipendente.DAO.getDipendente(this.connection, userID)
+                    .flatMap(dipendente -> {
+                        if (dipendente.getPassword().equals(password)) {
+                            this.currentUSer = dipendente;
+                            System.out.println(dipendente.getCodiceDipendente() + ": " + dipendente.isAdmin());
+                            if (dipendente.isAdmin()) {
+                                return Optional.of(0);
+                            } else {
+                                return Optional.of(1);
+                            }
+                        } else {
+                            return Optional.empty();
+                        }
+                    });
+        } else {
+            return UtenteOnline.DAO.getUtente(this.connection, userID)
+                    .flatMap(utenteOnline -> {
+                        if (utenteOnline.getPassword().equals(password)) {
+                            this.currentUSer = utenteOnline;
+                            return Optional.of(2);
+                        } else {
+                            return Optional.empty();
+                        }
+                    });
+        }
     }
 
     @Override
@@ -29,5 +61,11 @@ public final class DBModel implements Model {
         } else {
             return UtenteOnline.DAO.handleLogin(this.connection, text).orElse(null);
         }
+    }
+
+    @Override
+    public Pair<String, Integer> getMonthlySales() {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return Magazzino.DAO.getMonthlySales(this.connection, user.getCodiceMagazzino());
     }
 }

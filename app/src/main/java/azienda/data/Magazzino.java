@@ -1,6 +1,14 @@
 package azienda.data;
 
+import azienda.commons.DAOException;
+import azienda.commons.DAOUtils;
+import azienda.commons.Pair;
+import azienda.model.DBModel;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class Magazzino {
 
@@ -37,5 +45,22 @@ public class Magazzino {
     public int getNumeroCivico() {
         return numeroCivico;
     }
-    
+
+    public static final class DAO {
+
+        public static Pair<String, Integer> getMonthlySales(final Connection connection, final String codiceMagazzino) {
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.GET_MONTHLY_SALES, codiceMagazzino);
+                    var resultSet = statement.executeQuery();
+            ) {
+                if (resultSet.next()) {
+                    return new Pair<>(resultSet.getString("Mese"), resultSet.getInt("NumeroVendite"));
+                } else {
+                    return null;
+                }
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+        }
+    }
 }

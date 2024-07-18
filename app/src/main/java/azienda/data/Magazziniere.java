@@ -1,11 +1,18 @@
 package azienda.data;
 
-public class Magazziniere extends Dipendente{
+public class Magazziniere {
 
-    public Magazziniere(String nome, String cognome, String codiceFiscale, int telefono, String codiceDipendente,
-            String codiceMagazzino, String password, DatiFatturazione datiFatturazione) {
-        super(nome, cognome, codiceFiscale, telefono, codiceDipendente, codiceMagazzino, password, datiFatturazione);
-        //TODO Auto-generated constructor stub
+    public String codiceFiscale;
+
+    public Magazziniere(final String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
     }
 
+    public String getCodiceFiscale() {
+        return codiceFiscale;
+    }
+
+    public void setCodiceFiscale(final String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
+    }
 }

@@ -1,14 +1,15 @@
 package azienda.data;
 
-public class Amministratore extends Dipendente {
+public class Amministratore {
 
-    public Amministratore(String nome, String cognome, String codiceFiscale, int telefono, String codiceDipendente,
-            String codiceMagazzino, String password, DatiFatturazione datiFatturazione) {
-        super(nome, cognome, codiceFiscale, telefono, codiceDipendente, codiceMagazzino, password, datiFatturazione);
-        //TODO Auto-generated constructor stub
+    public final String codiceFiscale;
+
+    public Amministratore(final String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
     }
 
-   
-
+    public String getCodiceFiscale() {
+        return codiceFiscale;
+    }
 }
 

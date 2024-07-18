@@ -5,10 +5,11 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.XYChart?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" alignment="CENTER" visible="false" disable="true">
+<?import javafx.scene.chart.CategoryAxis?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.SalesChartController" spacing="10.0" alignment="CENTER" visible="false" disable="true">
     <LineChart fx:id="salesChart">
         <xAxis>
-            <NumberAxis label="Month" />
+            <CategoryAxis label="Month" />
         </xAxis>
         <yAxis>
             <NumberAxis label="Sales" />

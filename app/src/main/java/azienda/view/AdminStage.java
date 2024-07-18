@@ -1,12 +1,14 @@
 package azienda.view;
 
 import azienda.App;
+import azienda.controller.SalesChartController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class AdminStage extends Stage {
     
@@ -24,10 +26,16 @@ public class AdminStage extends Stage {
         FXMLLoader catVenLoader = new FXMLLoader(getClass().getResource(catVenDocPath));
         catVenLoader.setController(App.CONTROLLER);
 
+        String andVenDocPath = "/azienda/view/andamento-vendite.fxml";
+        FXMLLoader andVenLoader = new FXMLLoader(getClass().getResource(andVenDocPath));
+
+
         try{
             Parent root = loader.load();
             insMagLoader.load();
             catVenLoader.load();
+            andVenLoader.load();
+            App.CONTROLLER.setSalesController((SalesChartController) andVenLoader.getController());
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");
             this.setScene(scene);

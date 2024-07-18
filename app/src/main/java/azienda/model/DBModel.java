@@ -3,10 +3,10 @@ package azienda.model;
 import java.sql.Connection;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import azienda.data.Dipendente;
 import azienda.data.Prodotto;
+import azienda.data.UtenteOnline;
 
 public final class DBModel implements Model {
 
@@ -23,7 +23,11 @@ public final class DBModel implements Model {
     }
 
     @Override
-    public String getPassword(final String codiceDipendente) {
-        return Dipendente.DAO.handleLogin(this.connection, codiceDipendente).orElse(null);
+    public String getPassword(final String text, final boolean isDipendente) {
+        if (isDipendente) {
+            return Dipendente.DAO.handleLogin(this.connection, text).orElse(null);
+        } else {
+            return UtenteOnline.DAO.handleLogin(this.connection, text).orElse(null);
+        }
     }
 }

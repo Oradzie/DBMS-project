@@ -14,4 +14,11 @@ public final class Queries {
         FROM azienda.dipendente
         WHERE CodiceDipendente = ?          
         """;
+
+    public static final String FIND_UTENTE_ONLINE =
+        """
+        SELECT *
+        FROM azienda.utenteonline
+        WHERE E_mail = ?          
+        """;
 }

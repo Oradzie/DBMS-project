@@ -13,7 +13,5 @@ public interface Model {
 
     public List<Prodotto> getProducts();
 
-    String getPassword(final String text);
-
-    
+    String getPassword(final String text, final boolean isDipendente);
 }

@@ -5,6 +5,7 @@ import azienda.data.Prodotto;
 import azienda.model.Model;
 import azienda.view.MainView;
 
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.List;
 import java.util.Objects;
@@ -60,19 +61,30 @@ public final class Controller implements Initializable {
     public void login() {
         try {
             if (this.model != null) {
-                final String password = this.model.getPassword(usernameField.getText());
-                if (!Objects.isNull(password) && password.equals(this.passwordField.getText())) {
-                    System.out.println("Login successful");
-                    this.view.closeStartView();
-                    this.view.showAmministratorDashboard();
+                if (utenteOnlineRadio.isSelected()) {
+                    this.access(this.emailField, this.passwordField, false);
+                } else if (dipendenteRadio.isSelected()) {
+                    this.access(this.usernameField, this.passwordField, true);
                 } else {
-                    this.view.showError("Login failed");
+                    this.view.showError("No option selected");
                 }
             } else {
                 this.view.showError("Model is null");
             }
         } catch (DAOException e) {
             this.view.showError("Error while loading products: " + e.getMessage());
+        }
+    }
+
+    private void access(final TextField field, final PasswordField passwordField, final boolean isDipendente) {
+        final String userID = field.getText();
+        final String password = this.model.getPassword(userID, isDipendente);
+        if (!Objects.isNull(password) && password.equals(passwordField.getText())) {
+            System.out.println("Login successful");
+            this.view.closeStartView();
+            this.view.showAmministratorDashboard();
+        } else {
+            this.view.showError("Login failed");
         }
     }
 

@@ -11,7 +11,7 @@
 
     <Label text="ACCESSO UTENTI" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="header-label"/>
    
-    <TextField fx:id="usernameField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Codice dipendente"
+    <TextField fx:id="codiceDipendente" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Codice dipendente"
                visible="true" styleClass="custom-text-field" />
     <TextField fx:id="emailField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Email"
                visible="false" styleClass="custom-text-field" />

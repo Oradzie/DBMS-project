@@ -17,13 +17,15 @@
         <Label text="DASHBOARD MAGAZZINIERE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold;"/>
 
         <GridPane hgap="10.0" vgap="10.0">
-            <Button text="Eliminazione Prodotto" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Button text="Eliminazione Prodotto" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleEliminazioneProdotto"/>
             <Button text="Aggiungi prodotto" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleInserimentoProdotto"/>
-            <Button text="Visualizza quantita prodotto" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Button text="Visualizza quantita prodotto" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#toggleVisualizzaQuantita"/>
         </GridPane>
     </VBox>
 
     <!-- Contenitore per il form di inserimento -->
     <fx:include fx:id="inserimentoProdottoPane" source="inserimentoProdotto.fxml"/>
+    <fx:include fx:id="eliminazioneProdottoPane" source="eliminazioneProdotto.fxml"/>
+    <fx:include fx:id="VisualizzaQuantitaPane" source="VisualizzaQuantitaProdotto.fxml"/>
 </HBox>
 

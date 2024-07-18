@@ -49,6 +49,10 @@ public final class Controller implements Initializable {
     private VBox categoriaPiuVendutaPane;
     @FXML
     private VBox inserimentoProdottoPane;
+    @FXML
+    private VBox eliminazioneProdottoPane;
+    @FXML
+    private VBox VisualizzaQuantitaPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -94,7 +98,7 @@ public final class Controller implements Initializable {
         if (!Objects.isNull(password) && password.equals(passwordField.getText())) {
             System.out.println("Login successful");
             this.view.closeStartView();
-            this.view.showAmministratorDashboard();
+            this.view.showMagazziniereDashboard();
         } else {
             this.view.showError("Login failed! Invalid credentials.");
         }
@@ -117,19 +121,40 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleInserimentoMagazziniere() {
-        this.inserimentoMagazzinierePane.setDisable(!this.inserimentoMagazzinierePane.isDisabled());
+        this.inserimentoProdottoPane.setDisable(false);
         this.inserimentoMagazzinierePane.setVisible(!this.inserimentoMagazzinierePane.isVisible());
+        this.categoriaPiuVendutaPane.setVisible(false);
     }
 
     @FXML
     public void toggleCategoriaVenduta() {
-        this.categoriaPiuVendutaPane.setDisable(!this.categoriaPiuVendutaPane.isDisabled());
+        this.inserimentoProdottoPane.setDisable(false);
         this.categoriaPiuVendutaPane.setVisible(!this.categoriaPiuVendutaPane.isVisible());
+        this.inserimentoMagazzinierePane.setVisible(false);
     }
 
     @FXML
     public void toggleInserimentoProdotto() {
-        this.inserimentoProdottoPane.setDisable(!this.inserimentoProdottoPane.isDisabled());
+        this.inserimentoProdottoPane.setDisable(false);
         this.inserimentoProdottoPane.setVisible(!this.inserimentoProdottoPane.isVisible());
+        this.eliminazioneProdottoPane.setVisible(false);
+        this.VisualizzaQuantitaPane.setVisible(false);
     }
+
+    @FXML
+    public void toggleEliminazioneProdotto() {
+        this.eliminazioneProdottoPane.setDisable(false);
+        this.eliminazioneProdottoPane.setVisible(!this.eliminazioneProdottoPane.isVisible());
+        this.inserimentoProdottoPane.setVisible(false);
+        this.VisualizzaQuantitaPane.setVisible(false);
+    }
+
+    @FXML
+    public void toggleVisualizzaQuantita() {
+        this.VisualizzaQuantitaPane.setDisable(false);
+        this.VisualizzaQuantitaPane.setVisible(!this.VisualizzaQuantitaPane.isVisible());
+        this.inserimentoProdottoPane.setVisible(false);
+        this.eliminazioneProdottoPane.setVisible(false);
+    }
+
 }

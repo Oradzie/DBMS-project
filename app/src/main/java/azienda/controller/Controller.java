@@ -53,6 +53,8 @@ public final class Controller implements Initializable {
     private VBox eliminazioneProdottoPane;
     @FXML
     private VBox VisualizzaQuantitaPane;
+    @FXML
+    private Pane rightPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,16 +123,28 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleInserimentoMagazziniere() {
-        this.inserimentoProdottoPane.setDisable(false);
-        this.inserimentoMagazzinierePane.setVisible(!this.inserimentoMagazzinierePane.isVisible());
-        this.categoriaPiuVendutaPane.setVisible(false);
+        this.rightPane.getChildren().forEach(node -> {
+            if (node.equals(this.inserimentoMagazzinierePane)) {
+                this.inserimentoMagazzinierePane.setDisable(false);
+                this.inserimentoMagazzinierePane.setVisible(true);
+            } else {
+                node.setDisable(true);
+                node.setDisable(false);
+            }
+        });
     }
 
     @FXML
     public void toggleCategoriaVenduta() {
-        this.inserimentoProdottoPane.setDisable(false);
-        this.categoriaPiuVendutaPane.setVisible(!this.categoriaPiuVendutaPane.isVisible());
-        this.inserimentoMagazzinierePane.setVisible(false);
+        this.rightPane.getChildren().forEach(node -> {
+            if (node.equals(this.categoriaPiuVendutaPane)) {
+                this.categoriaPiuVendutaPane.setDisable(false);
+                this.categoriaPiuVendutaPane.setVisible(true);
+            } else {
+                node.setDisable(true);
+                node.setDisable(false);
+            }
+        });
     }
 
     @FXML

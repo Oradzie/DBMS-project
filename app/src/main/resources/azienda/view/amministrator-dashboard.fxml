@@ -28,8 +28,8 @@
     </VBox>
 
     <!-- Contenitore per il form di inserimento -->
-    <fx:include fx:id="formPane1" source="inserimentoMagazziniere.fxml"/>
+    <fx:include fx:id="inserimentoMagazzinierePane" source="inserimentoMagazziniere.fxml"/>
 
-    <fx:include fx:id="formPane2" source="categoria-più-venduta.fxml"/>
+    <fx:include fx:id="categoriaPiuVendutaPane" source="categoria-più-venduta.fxml"/>
 </HBox>
 

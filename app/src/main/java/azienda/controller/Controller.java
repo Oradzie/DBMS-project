@@ -44,9 +44,11 @@ public final class Controller implements Initializable {
     @FXML
     private Button loginButton;
     @FXML
-    private VBox formPane1;
+    private VBox inserimentoMagazzinierePane;
     @FXML
-    private VBox formPane2;
+    private VBox categoriaPiuVendutaPane;
+    @FXML
+    private VBox inserimentoProdottoPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -114,14 +116,20 @@ public final class Controller implements Initializable {
     }
 
     @FXML
-    public void toggleInserimentoMagazziniere(){
-        this.formPane1.setDisable(!this.formPane1.isDisabled());
-        this.formPane1.setVisible(!this.formPane1.isVisible());
+    public void toggleInserimentoMagazziniere() {
+        this.inserimentoMagazzinierePane.setDisable(!this.inserimentoMagazzinierePane.isDisabled());
+        this.inserimentoMagazzinierePane.setVisible(!this.inserimentoMagazzinierePane.isVisible());
     }
 
     @FXML
-    public void toggleCategoriaVenduta(){
-        this.formPane2.setDisable(!this.formPane1.isDisabled());
-        this.formPane2.setVisible(!this.formPane1.isVisible());
+    public void toggleCategoriaVenduta() {
+        this.categoriaPiuVendutaPane.setDisable(!this.categoriaPiuVendutaPane.isDisabled());
+        this.categoriaPiuVendutaPane.setVisible(!this.categoriaPiuVendutaPane.isVisible());
+    }
+
+    @FXML
+    public void toggleInserimentoProdotto() {
+        this.inserimentoProdottoPane.setDisable(!this.inserimentoProdottoPane.isDisabled());
+        this.inserimentoProdottoPane.setVisible(!this.inserimentoProdottoPane.isVisible());
     }
 }

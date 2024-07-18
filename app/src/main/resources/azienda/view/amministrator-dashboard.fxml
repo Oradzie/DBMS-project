@@ -14,15 +14,22 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
         </padding>
 
-        <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold;"/>
+         <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold; -fx-font-size: 24px;"/>
 
         <GridPane hgap="10.0" vgap="10.0">
             <Button text="Inserimento Magazziniere" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleInserimentoMagazziniere"/>
-            <Button text="Visualizzazione Statistiche" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <Button text="Categoria più Venduta" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleCategoriaVenduta"/>
+            <Button text="Statistiche Magazzinieri" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Button text="Richiesta rifornimento"  GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
         </GridPane>
     </VBox>
 
     <!-- Contenitore per il form di inserimento -->
-    <fx:include fx:id="formPane" source="inserimentoMagazziniere.fxml"/>
+    <fx:include fx:id="formPane1" source="inserimentoMagazziniere.fxml"/>
+
+    <fx:include fx:id="formPane2" source="categoria-più-venduta.fxml"/>
 </HBox>
 

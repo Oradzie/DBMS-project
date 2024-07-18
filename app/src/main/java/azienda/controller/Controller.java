@@ -44,7 +44,9 @@ public final class Controller implements Initializable {
     @FXML
     private Button loginButton;
     @FXML
-    private VBox formPane;
+    private VBox formPane1;
+    @FXML
+    private VBox formPane2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -113,7 +115,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleInserimentoMagazziniere(){
-        this.formPane.setDisable(!this.formPane.isDisabled());
-        this.formPane.setVisible(!this.formPane.isVisible());
+        this.formPane1.setDisable(!this.formPane1.isDisabled());
+        this.formPane1.setVisible(!this.formPane1.isVisible());
+    }
+
+    @FXML
+    public void toggleCategoriaVenduta(){
+        this.formPane2.setDisable(!this.formPane1.isDisabled());
+        this.formPane2.setVisible(!this.formPane1.isVisible());
     }
 }

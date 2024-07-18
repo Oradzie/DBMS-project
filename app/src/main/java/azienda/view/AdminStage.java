@@ -18,12 +18,17 @@ public class AdminStage extends Stage {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
         loader.setController(App.CONTROLLER);
 
-        String subDocPath = "/azienda/view/inserimentoMagazziniere.fxml";
-        FXMLLoader subLoader = new FXMLLoader(getClass().getResource(subDocPath));
-        subLoader.setController(App.CONTROLLER);
+        String insMagDocPath = "/azienda/view/inserimentoMagazziniere.fxml";
+        FXMLLoader insMagLoader = new FXMLLoader(getClass().getResource(insMagDocPath));
+        insMagLoader.setController(App.CONTROLLER);
+
+        String catVenDocPath = "/azienda/view/categoria-più-venduta.fxml";
+        FXMLLoader catVenLoader = new FXMLLoader(getClass().getResource(catVenDocPath));
+
         try{
             Parent root = loader.load();
-            subLoader.load();
+            insMagLoader.load();
+            catVenLoader.load();
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");
             this.setScene(scene);

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" alignment="CENTER" visible="false" disable="true">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Categoria più Venduta per Mese" style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableView" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="meseColumn" text="Mese" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="mese"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="categoriaColumn" text="Categoria" prefWidth="300">
+                <cellValueFactory>
+                    <PropertyValueFactory property="categoria"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="venditeColumn" text="Vendite" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="vendite"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

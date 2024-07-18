@@ -1,11 +1,9 @@
 package azienda.view;
 
 import azienda.App;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,8 +20,9 @@ public class AdminStage extends Stage {
         FXMLLoader insMagLoader = new FXMLLoader(getClass().getResource(insMagDocPath));
         insMagLoader.setController(App.CONTROLLER);
 
-        String catVenDocPath = "/azienda/view/categoria-più-venduta.fxml";
+        String catVenDocPath = "/azienda/view/categoria-piu-venduta.fxml";
         FXMLLoader catVenLoader = new FXMLLoader(getClass().getResource(catVenDocPath));
+        catVenLoader.setController(App.CONTROLLER);
 
         try{
             Parent root = loader.load();

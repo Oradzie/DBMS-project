@@ -14,3 +14,8 @@
     -fx-font-size: 34px;
     -fx-font-weight: bold;
 }
+
+.entry-label {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}

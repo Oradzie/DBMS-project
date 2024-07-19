@@ -73,6 +73,8 @@ public final class Controller implements Initializable {
     private Pane statisticheMagazzinieriPane;
     @FXML
     private VBox istogrammaVenditePane;
+    @FXML
+    private VBox rifornimentoPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -240,6 +242,19 @@ public final class Controller implements Initializable {
             if (node.equals(this.istogrammaVenditePane)) {
                 this.istogrammaVenditePane.setDisable(false);
                 this.istogrammaVenditePane.setVisible(true);
+            } else {
+                node.setDisable(true);
+                node.setVisible(false);
+            }
+        });
+    }
+
+    @FXML
+    public void toggleRichiestaRifornimentoPage() {
+        this.rightPane.getChildren().forEach(node -> {
+            if (node.equals(this.rifornimentoPane)) {
+                this.rifornimentoPane.setDisable(false);
+                this.rifornimentoPane.setVisible(true);
             } else {
                 node.setDisable(true);
                 node.setVisible(false);

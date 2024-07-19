@@ -96,4 +96,9 @@ public final class DBModel implements Model {
         final Dipendente user = (Dipendente) this.currentUSer;
         return Magazzino.DAO.mostSaledProduct(this.connection, user.getCodiceMagazzino());
     }
+
+    @Override
+    public List<Fornitore> getFornitori() {
+        return Fornitore.DAO.listAll(this.connection);
+    }
 }

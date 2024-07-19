@@ -1,11 +1,7 @@
 package azienda.model;
 
 import azienda.commons.Pair;
-import azienda.data.MagazziniereRow;
-import azienda.data.Fornitore;
-import azienda.data.MyTableRow;
-import azienda.data.Prodotto;
-import azienda.data.SalesRow;
+import azienda.data.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -38,4 +34,6 @@ public interface Model {
     List<MagazziniereRow> getDatiMagazzinieri();
 
     List<Fornitore> getFornitori();
+
+    List<VersioneProdotto> getVersioniProdotto();
 }

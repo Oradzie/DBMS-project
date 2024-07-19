@@ -199,4 +199,10 @@ public final class Queries {
             SELECT *
             FROM azienda.fornitore;
             """;
+
+    public static final String LIST_VERSIONE_PRODOTTO =
+            """
+            SELECT *
+            FROM azienda.versioneprodotto;     
+            """;
 }

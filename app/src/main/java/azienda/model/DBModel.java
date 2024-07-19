@@ -107,4 +107,9 @@ public final class DBModel implements Model {
     public List<Fornitore> getFornitori() {
         return Fornitore.DAO.listAll(this.connection);
     }
+
+    @Override
+    public List<VersioneProdotto> getVersioniProdotto() {
+        return VersioneProdotto.DAO.list(this.connection);
+    }
 }

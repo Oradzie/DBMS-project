@@ -18,6 +18,11 @@
     <Label text="Selezionare un rifornitore" styleClass="entry-label"/>
     <ComboBox fx:id="boxFornitore"/>
 
-    <Label text="Slezriona un prodotto" styleClass="entry-label"/>
+    <Label text="Seleziona un prodotto" styleClass="entry-label"/>
     <ComboBox fx:id="boxProdotto"/>
+
+    <Label text="Scegli la qunatitá di lotti" styleClass="entry-label"/>
+    <TextField fx:id="quantity" promptText="Inserisci la quantitá"/>
+
+    <Button fx:id="sendOrderButton" text="Send order" onAction="#confermaRifornimento"/>
 </VBox>

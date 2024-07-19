@@ -108,6 +108,6 @@ public final class Queries {
          """;
    public static final String ADD_ADDRESS = """
          INSERT INTO azienda.indirizzo(Via, Citta, CAP, NumCivico) VALUES
-         (?,?,?,?)
+         (?,?,?,?);
          """;
 }

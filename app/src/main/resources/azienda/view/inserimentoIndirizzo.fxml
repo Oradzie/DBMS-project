@@ -29,5 +29,5 @@
 
         </GridPane>
 
-    <Button text="Salva" OnAction="#toggleSalvaIndirizzo"/>
+    <Button text="Salva" onAction="#toggleSalvaIndirizzo"/>
 </VBox>

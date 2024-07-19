@@ -5,7 +5,7 @@ import azienda.data.Prodotto;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-public class InsertController {
+public class InsertProdController {
 
     private static final Controller controller = App.CONTROLLER;
 
@@ -20,9 +20,10 @@ public class InsertController {
 
     @FXML
     public void toggleSalvaProdotto() {
-        System.out.println("Insert Controller: toggleSalvaProdotto");
-        controller.getView().showError(Prodotto.DAO.addProduct(controller.getModel().getConnection(), this.NumeroSeriale.getText(),
-                this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
-                this.CodRipiano.getText()));
+
+        controller.getView()
+                .showError(Prodotto.DAO.addProduct(controller.getModel().getConnection(), this.NumeroSeriale.getText(),
+                        this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
+                        this.CodRipiano.getText()));
     }
 }

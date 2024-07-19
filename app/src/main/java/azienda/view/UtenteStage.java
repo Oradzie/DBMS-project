@@ -12,17 +12,18 @@ import java.io.IOException;
 
 public class UtenteStage extends Stage {
     public UtenteStage() {
-        // Path to the FXML File
-        String fxmlDocPath = "/azienda/view/utente-dashboard.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
-        loader.setController(App.CONTROLLER);
-
-        String insIndPath = "/azienda/view/inserimentoIndirizzo.fxml";
-        FXMLLoader insIndLoader = new FXMLLoader(getClass().getResource(insIndPath));
-        insIndLoader.setController(App.CONTROLLER);
         try {
+            // Path to the FXML File
+            String fxmlDocPath = "/azienda/view/utente-dashboard.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
+            loader.setController(App.CONTROLLER);
             Parent root = loader.load();
+
+            String insIndPath = "/azienda/view/inserimentoIndirizzo.fxml";
+            FXMLLoader insIndLoader = new FXMLLoader(getClass().getResource(insIndPath));
+            // insIndLoader.setController(App.CONTROLLER);
             insIndLoader.load();
+
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");
             this.setScene(scene);

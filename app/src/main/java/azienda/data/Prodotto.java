@@ -126,17 +126,13 @@ public class Prodotto {
 
             try (
                     final PreparedStatement statement = DAOUtils.prepare(connection, Queries.ADD_PRODUCT,
-                            NumeroSeriale, CodiceLotto, CodiceProdotto, CodRipiano);
-                    var resultSet = statement.executeQuery();) {
-                System.out.println(resultSet);
-                if (resultSet.next()) {
-                    return "Prodotto inserito!";
-                }
+                            NumeroSeriale, CodiceLotto, CodiceProdotto, CodRipiano);) {
+                return "Prodotto inserito!";
 
             } catch (Exception e) {
                 throw new DAOException(e);
             }
-            return "";
+
         }
     }
 }

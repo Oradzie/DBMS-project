@@ -13,30 +13,32 @@ import java.util.Optional;
 public class AdminStage extends Stage {
     
     public AdminStage() {
-        // Path to the FXML File
-        String fxmlDocPath = "/azienda/view/amministrator-dashboard.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
-        loader.setController(App.CONTROLLER);
+        try {
+            // Caricamento dell'FXML dell'amministratore
+            FXMLLoader adminLoader = new FXMLLoader(getClass().getResource("/azienda/view/amministrator-dashboard.fxml"));
+            adminLoader.setController(App.CONTROLLER);
+            Parent adminRoot = adminLoader.load();
 
-        String insMagDocPath = "/azienda/view/inserimentoMagazziniere.fxml";
-        FXMLLoader insMagLoader = new FXMLLoader(getClass().getResource(insMagDocPath));
-        insMagLoader.setController(App.CONTROLLER);
-
-        String catVenDocPath = "/azienda/view/categoria-piu-venduta.fxml";
-        FXMLLoader catVenLoader = new FXMLLoader(getClass().getResource(catVenDocPath));
-        catVenLoader.setController(App.CONTROLLER);
-
-        String andVenDocPath = "/azienda/view/andamento-vendite.fxml";
-        FXMLLoader andVenLoader = new FXMLLoader(getClass().getResource(andVenDocPath));
-
-
-        try{
-            Parent root = loader.load();
+            // Caricamento dell'FXML dell'inserimento magazziniere
+            FXMLLoader insMagLoader = new FXMLLoader(getClass().getResource("/azienda/view/inserimentoMagazziniere.fxml"));
+            insMagLoader.setController(App.CONTROLLER);
             insMagLoader.load();
+
+            // Caricamento dell'FXML della categoria più venduta
+            FXMLLoader catVenLoader = new FXMLLoader(getClass().getResource("/azienda/view/categoria-piu-venduta.fxml"));
+            catVenLoader.setController(App.CONTROLLER);
             catVenLoader.load();
-            andVenLoader.load();
-            App.CONTROLLER.setSalesController((SalesChartController) andVenLoader.getController());
-            final Scene scene = new Scene(root);
+
+            // Caricamento dell'FXML dell'andamento vendite
+            FXMLLoader andVenLoader = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml"));
+            Parent salesRoot = andVenLoader.load();
+
+            // Impostazione del controller dell'andamento vendite in App.CONTROLLER
+            SalesChartController salesChartController = andVenLoader.getController();
+            App.CONTROLLER.setSalesController(salesChartController);
+
+            // Creazione della scena principale
+            final Scene scene = new Scene(adminRoot);
             this.setTitle("DBMS Azienda");
             this.setScene(scene);
             this.setMaximized(true);
@@ -49,5 +51,4 @@ public class AdminStage extends Stage {
     public void closeStage() {
         this.close();
     }
-
 }

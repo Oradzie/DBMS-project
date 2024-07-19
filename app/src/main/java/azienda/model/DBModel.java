@@ -64,7 +64,7 @@ public final class DBModel implements Model {
     }
 
     @Override
-    public Pair<String, Integer> getMonthlySales() {
+    public List<Pair<String, Integer>> getMonthlySales() {
         final Dipendente user = (Dipendente) this.currentUSer;
         return Magazzino.DAO.getMonthlySales(this.connection, user.getCodiceMagazzino());
     }

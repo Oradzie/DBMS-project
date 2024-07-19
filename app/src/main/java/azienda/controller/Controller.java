@@ -78,6 +78,10 @@ public final class Controller implements Initializable {
         this.view = view;
     }
 
+    public final Model getModel() {
+        return this.model;
+    }
+
     public void userRequestedInitialPage() {
         Application.launch(MainView.class);
     }
@@ -193,7 +197,7 @@ public final class Controller implements Initializable {
 
     }
 
-    public void setSalesController(final SalesChartController controller) {
-        controller.initialize(this.model.getMonthlySales());
+    public void setSalesController(final SalesChartController salesChartController) {
+        salesChartController.initialize();
     }
 }

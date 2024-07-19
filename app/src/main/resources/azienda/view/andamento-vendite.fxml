@@ -6,7 +6,8 @@
 <?import javafx.scene.chart.XYChart?>
 
 <?import javafx.scene.chart.CategoryAxis?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.SalesChartController" spacing="10.0" alignment="CENTER" visible="false" disable="true">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.SalesChartController" spacing="10.0"
+      alignment="CENTER" visible="false" disable="true">
     <LineChart fx:id="salesChart">
         <xAxis>
             <CategoryAxis label="Month" />

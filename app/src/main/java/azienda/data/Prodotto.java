@@ -77,7 +77,6 @@ public class Prodotto {
                     final PreparedStatement statement = DAOUtils.prepare(connection, Queries.FIND_PRODUCT,
                             NumeroSeriale);
                     var resultSet = statement.executeQuery();) {
-
                 if (resultSet.next()) {
                     return "Prodotto gia' nel database";
                 }
@@ -91,7 +90,7 @@ public class Prodotto {
                             CodiceLotto);
                     var resultSet = statement.executeQuery();) {
 
-                if (resultSet.next()) {
+                if (!resultSet.next()) {
                     return "Lotto inserito non esistente";
                 }
 
@@ -104,7 +103,7 @@ public class Prodotto {
                             CodiceProdotto);
                     var resultSet = statement.executeQuery();) {
 
-                if (resultSet.next()) {
+                if (!resultSet.next()) {
                     return "Versione prodotto inserita non esistente";
                 }
 
@@ -117,7 +116,7 @@ public class Prodotto {
                             CodRipiano);
                     var resultSet = statement.executeQuery();) {
 
-                if (resultSet.next()) {
+                if (!resultSet.next()) {
                     return "Ripiano non esistente";
                 }
 
@@ -129,7 +128,7 @@ public class Prodotto {
                     final PreparedStatement statement = DAOUtils.prepare(connection, Queries.ADD_PRODUCT,
                             NumeroSeriale, CodiceLotto, CodiceProdotto, CodRipiano);
                     var resultSet = statement.executeQuery();) {
-
+                System.out.println(resultSet);
                 if (resultSet.next()) {
                     return "Prodotto inserito!";
                 }

@@ -4,10 +4,12 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.XYChart?>
-
 <?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.control.Button?>
+
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.SalesChartController" spacing="10.0"
       alignment="CENTER" visible="false" disable="true">
+    <Button text="Show graph" onAction="#showChart"/>
     <LineChart fx:id="salesChart">
         <xAxis>
             <CategoryAxis label="Month" />

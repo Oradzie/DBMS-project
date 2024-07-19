@@ -21,7 +21,7 @@ public class MagazziniereStage extends Stage {
 
             String insProdPath = "/azienda/view/inserimentoProdotto.fxml";
             FXMLLoader insProdLoader = new FXMLLoader(getClass().getResource(insProdPath));
-            insProdLoader.setController(App.CONTROLLER);
+//            insProdLoader.setController(App.CONTROLLER);
             insProdLoader.load();
 
             String elimProdPath = "/azienda/view/eliminazioneProdotto.fxml";

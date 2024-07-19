@@ -37,26 +37,26 @@ public final class Queries {
     public static final String FIND_PRODUCT = """
             SELECT *
             FROM azienda.prodotto
-            WHERE = ?
+            WHERE NumeroSeriale = ?
             """;
     public static final String FIND_LOTTO = """
             SELECT *
             FROM azienda.lotto
-            WHERE = ?
+            WHERE CodiceLotto = ?
             """;
     public static final String FIND_VERSIONE_PRODOTTO = """
             SELECT *
             FROM azienda.versioneprodotto
-            WHERE = ?
+            WHERE CodiceProdotto = ?
             """;
     public static final String FIND_RIPIANO = """
             SELECT *
             FROM azienda.ripiano
-            WHERE = ?
+            WHERE CodRipiano = ?
             """;
 
     public static final String ADD_PRODUCT = """
             INSERT INTO azienda.prodotto(NumeroSeriale,CodiceLotto,,CodPacco,CodiceProdotto,CodRipiano) VALUES
-            (?,?,null,?,?)
+            (?,?,null,?,?);
             """;
 }

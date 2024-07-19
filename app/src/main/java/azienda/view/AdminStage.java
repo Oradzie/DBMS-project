@@ -1,14 +1,12 @@
 package azienda.view;
 
 import azienda.App;
-import azienda.controller.SalesChartController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class AdminStage extends Stage {
     
@@ -31,11 +29,8 @@ public class AdminStage extends Stage {
 
             // Caricamento dell'FXML dell'andamento vendite
             FXMLLoader andVenLoader = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml"));
-            Parent salesRoot = andVenLoader.load();
-
-            // Impostazione del controller dell'andamento vendite in App.CONTROLLER
-            SalesChartController salesChartController = andVenLoader.getController();
-            App.CONTROLLER.setSalesController(salesChartController);
+//            andVenLoader.setController(new SalesChartController());
+            andVenLoader.load();
 
             // Creazione della scena principale
             final Scene scene = new Scene(adminRoot);

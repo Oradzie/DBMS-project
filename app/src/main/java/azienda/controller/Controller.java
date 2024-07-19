@@ -82,6 +82,10 @@ public final class Controller implements Initializable {
         return this.model;
     }
 
+    public final MainView getView() {
+        return this.view;
+    }
+
     public void userRequestedInitialPage() {
         Application.launch(MainView.class);
     }
@@ -196,25 +200,5 @@ public final class Controller implements Initializable {
         this.inserimentoIndirizzoPane.setDisable(false);
         this.inserimentoIndirizzoPane.setVisible(!this.inserimentoIndirizzoPane.isVisible());
 
-    }
-
-    public void setSalesController(final SalesChartController salesChartController) {
-        salesChartController.initialize();
-    }
-
-    @FXML
-    private TextField NumeroSeriale;
-    @FXML
-    private TextField CodiceLotto;
-    @FXML
-    private TextField CodiceProdotto;
-    @FXML
-    private TextField CodRipiano;
-
-    @FXML
-    public void toggleSalvaProdotto() {
-        this.view.showError(Prodotto.DAO.addProduct(model.getConnection(), this.NumeroSeriale.getText(),
-                this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
-                this.CodRipiano.getText()));
     }
 }

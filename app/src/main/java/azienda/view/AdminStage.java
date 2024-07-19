@@ -32,6 +32,11 @@ public class AdminStage extends Stage {
 //            andVenLoader.setController(new SalesChartController());
             andVenLoader.load();
 
+            //Caricamento dell'FXML delle statistiche dei magazzinieri
+            FXMLLoader statMagLoader = new FXMLLoader(getClass().getResource("/azienda/view/visualizzaStatistichemagazzinieri.fxml"));
+            statMagLoader.setController(App.CONTROLLER);
+            statMagLoader.load();
+
             // Creazione della scena principale
             final Scene scene = new Scene(adminRoot);
             this.setTitle("DBMS Azienda");

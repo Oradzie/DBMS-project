@@ -211,12 +211,6 @@ public final class Controller implements Initializable {
         this.inserimentoIndirizzoPane.setVisible(!this.inserimentoIndirizzoPane.isVisible());
 
     }
-<<<<<<< HEAD
-=======
-
-    public void setSalesController(final SalesChartController salesChartController) {
-        salesChartController.initialize();
-    }
 
     @FXML
     public void toggleSalvaProdotto() {
@@ -230,5 +224,4 @@ public final class Controller implements Initializable {
         this.statisticheMagazzinieriPane.setDisable(false);
         this.statisticheMagazzinieriPane.setVisible(!this.statisticheMagazzinieriPane.isVisible());
     }
->>>>>>> 665d3f2 (Added table for warehouse statistics)
 }

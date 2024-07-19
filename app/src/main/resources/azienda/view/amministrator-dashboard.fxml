@@ -35,7 +35,7 @@
 
         <fx:include fx:id="andamentoVenditePane" source="andamento-vendite.fxml"/>
 
-        <fx:include fx:id="statisticheMagazzinieriPane" source="visualizzaStatisticheMagazzinieri.fxml"/>
+        <fx:include fx:id="statisticheMagazzinieriPane" source="visualizzaStatistichemagazzinieri.fxml"/>
     </Pane>
 </HBox>
 

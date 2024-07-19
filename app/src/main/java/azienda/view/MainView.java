@@ -69,11 +69,27 @@ public class MainView extends Application {
         this.utenteStage = new UtenteStage();
     }
 
-    public void closeAdminBashboard() {
+    public void closeAdminDashboard() {
         if (!Objects.isNull(this.adminStage)) {
             this.adminStage.closeStage();
         } else {
             System.err.println("Admin dashboard is null");
+        }
+    }
+
+    public void closeMagazziniereDashboard() {
+        if (!Objects.isNull(this.magazziniereStage)) {
+            this.magazziniereStage.closeStage();
+        } else {
+            System.err.println("Magazziniere dashboard is null");
+        }
+    }
+
+    public void closeUtenteDashboard() {
+        if (!Objects.isNull(this.utenteStage)) {
+            this.utenteStage.closeStage();
+        } else {
+            System.err.println("Utente dashboard is null");
         }
     }
 }

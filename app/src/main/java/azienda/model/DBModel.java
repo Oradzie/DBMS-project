@@ -68,4 +68,9 @@ public final class DBModel implements Model {
         final Dipendente user = (Dipendente) this.currentUSer;
         return Magazzino.DAO.getMonthlySales(this.connection, user.getCodiceMagazzino());
     }
+
+    @Override
+    public Connection getConnection() {
+        return this.connection;
+    }
 }

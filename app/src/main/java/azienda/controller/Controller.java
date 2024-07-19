@@ -89,7 +89,8 @@ public final class Controller implements Initializable {
     public void login() {
         try {
             if (this.model != null) {
-                final Optional<Integer> result = this.model.handleLogin(this.usernameField.getText() + this.emailField.getText(),
+                final Optional<Integer> result = this.model.handleLogin(
+                        this.usernameField.getText() + this.emailField.getText(),
                         this.passwordField.getText(), this.dipendenteRadio.isSelected());
                 if (result.isPresent()) {
                     System.out.println("Login successful!");
@@ -199,5 +200,21 @@ public final class Controller implements Initializable {
 
     public void setSalesController(final SalesChartController salesChartController) {
         salesChartController.initialize();
+    }
+
+    @FXML
+    private TextField NumeroSeriale;
+    @FXML
+    private TextField CodiceLotto;
+    @FXML
+    private TextField CodiceProdotto;
+    @FXML
+    private TextField CodRipiano;
+
+    @FXML
+    public void toggleSalvaProdotto() {
+        this.view.showError(Prodotto.DAO.addProduct(model.getConnection(), this.NumeroSeriale.getText(),
+                this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
+                this.CodRipiano.getText()));
     }
 }

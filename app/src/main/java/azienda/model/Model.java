@@ -21,4 +21,6 @@ public interface Model {
     String getPassword(final String text, final boolean isDipendente);
 
     List<Pair<String, Integer>> getMonthlySales();
+
+    Connection getConnection();
 }

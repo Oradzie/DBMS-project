@@ -21,16 +21,13 @@
         <Label text="Codice Lotto:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
         <TextField fx:id="CodiceLotto" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-        <Label text="Codice Pacco:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <TextField fx:id="CodPacco" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label text="Codice Prodotto:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="CodiceProdotto" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-        <Label text="Codice Prodotto:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-        <TextField fx:id="CodiceProdotto" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-
-        <Label text="Codice Ripiano:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <TextField fx:id="CodRipiano" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        <Label text="Codice Ripiano:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="CodRipiano" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
         </GridPane>
 
-    <Button text="Salva"/>
+    <Button text="Salva" onAction = "#toggleSalvaProdotto"/>
 </VBox>

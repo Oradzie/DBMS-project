@@ -12,28 +12,28 @@ import java.io.IOException;
 
 public class MagazziniereStage extends Stage {
     public MagazziniereStage() {
-        // Path to the FXML File
-        String fxmlDocPath = "/azienda/view/magazziniere-dashboard.fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
-        loader.setController(App.CONTROLLER);
-
-        String insProdPath = "/azienda/view/inserimentoProdotto.fxml";
-        FXMLLoader insProdLoader = new FXMLLoader(getClass().getResource(insProdPath));
-        insProdLoader.setController(App.CONTROLLER);
-
-        String elimProdPath = "/azienda/view/eliminazioneProdotto.fxml";
-        FXMLLoader elimProdLoader = new FXMLLoader(getClass().getResource(elimProdPath));
-        elimProdLoader.setController(App.CONTROLLER);
-
-        String visQProdPath = "/azienda/view/VisualizzaQuantitaProdotto.fxml";
-        FXMLLoader visQProdLoader = new FXMLLoader(getClass().getResource(visQProdPath));
-        visQProdLoader.setController(App.CONTROLLER);
-
         try {
+            // Path to the FXML File
+            String fxmlDocPath = "/azienda/view/magazziniere-dashboard.fxml";
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlDocPath));
+            loader.setController(App.CONTROLLER);
             Parent root = loader.load();
+
+            String insProdPath = "/azienda/view/inserimentoProdotto.fxml";
+            FXMLLoader insProdLoader = new FXMLLoader(getClass().getResource(insProdPath));
+            insProdLoader.setController(App.CONTROLLER);
             insProdLoader.load();
+
+            String elimProdPath = "/azienda/view/eliminazioneProdotto.fxml";
+            FXMLLoader elimProdLoader = new FXMLLoader(getClass().getResource(elimProdPath));
+            elimProdLoader.setController(App.CONTROLLER);
             elimProdLoader.load();
+
+            String visQProdPath = "/azienda/view/VisualizzaQuantitaProdotto.fxml";
+            FXMLLoader visQProdLoader = new FXMLLoader(getClass().getResource(visQProdPath));
+            visQProdLoader.setController(App.CONTROLLER);
             visQProdLoader.load();
+
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");
             this.setScene(scene);

@@ -112,4 +112,10 @@ public final class DBModel implements Model {
     public List<VersioneProdotto> getVersioniProdotto() {
         return VersioneProdotto.DAO.list(this.connection);
     }
+
+    @Override
+    public List<StoricoOrdiniRow> getStoricoOrdini() {
+        final UtenteOnline user = (UtenteOnline) this.currentUSer;
+        return Ordine.DAO.showOrdini(this.connection, user.getCodiceFiscale());
+    }
 }

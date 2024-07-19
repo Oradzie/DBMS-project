@@ -44,5 +44,7 @@ public class Ordine {
     public String getCodiceFiscale() {
         return codiceFiscale;
     }
+
+    public
     
 }

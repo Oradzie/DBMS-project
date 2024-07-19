@@ -37,4 +37,6 @@ public interface Model {
 
     List<VersioneProdotto> getVersioniProdotto();
 
+    List<StoricoOrdiniRow> getStoricoOrdini();
+
 }

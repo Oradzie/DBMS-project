@@ -205,4 +205,31 @@ public final class Queries {
             SELECT *
             FROM azienda.versioneprodotto;     
             """;
+
+    public static final String VIEW_STORICO_ORDINI = """
+                SELECT 
+                o.CodiceOrdine,
+                o.DataOrdine,
+                o.IndirizzoDestinatario,
+                ou.CodiceSconto,
+                ou.PercentualeScontoUtente,
+                vp.PercentualeSconto AS PercentualeScontoPromo,
+                do.CodiceProdotto,
+                vp.Specifiche,
+                do.Quantita,
+                p.NumeroSeriale,
+                p.CodiceLotto,
+                pp.CodPacco,
+                o.CodiceFiscale,
+                CONCAT(p.Nome, ' ', p.Cognome) AS NomeCompleto
+                FROM Ordine o
+                LEFT JOIN Credito ou ON o.CodiceSconto = ou.CodiceSconto
+                LEFT JOIN VenditaPromozionale vp ON o.CodicePromo = vp.CodicePromo
+                JOIN DettaglioOrdine do ON o.CodiceOrdine = do.CodiceOrdine
+                JOIN Prodotto p ON do.CodiceProdotto = p.CodiceProdotto
+                JOIN PaccoPreparato pp ON do.CodPacco = pp.CodPacco
+                JOIN UtenteOnline u ON o.CodiceFiscale = u.CodiceFiscale
+                WHERE o.CodiceFiscale = u.CodiceFiscale
+                ORDER BY o.DataOrdine DESC, o.CodiceOrdine ASC;
+                """;
 }

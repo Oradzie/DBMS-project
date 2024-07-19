@@ -64,5 +64,20 @@ public class Magazzino {
                 throw new DAOException(e);
             }
         }
+
+        public static List<Pair<String, Integer>> getProductSales(Connection connection, String codiceMagazzino) {
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.GET_PRODUCT_SALES, codiceMagazzino);
+                    var resultSet = statement.executeQuery();
+            ) {
+                final List<Pair<String, Integer>> salesData = new ArrayList<Pair<String, Integer>>();
+                while(resultSet.next()) {
+                    salesData.add(new Pair<>(resultSet.getString("NomeProdotto"), resultSet.getInt("NumeroVendite")));
+                }
+                return salesData;
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+        }
     }
 }

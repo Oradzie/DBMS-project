@@ -73,4 +73,10 @@ public final class DBModel implements Model {
     public Connection getConnection() {
         return this.connection;
     }
+
+    @Override
+    public List<Pair<String, Integer>> getProductSales() {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return Magazzino.DAO.getProductSales(this.connection, user.getCodiceMagazzino());
+    }
 }

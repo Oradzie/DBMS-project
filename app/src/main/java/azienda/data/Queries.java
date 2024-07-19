@@ -70,4 +70,25 @@ public final class Queries {
         GROUP BY m.CodiceFiscale, p.Nome, p.Cognome, d.CodiceDipendente
         ORDER BY NumeroPacchiPreparati DESC;
         """;
+
+    public static final String GET_PRODUCT_SALES =
+    """
+        SELECT 
+            cp.NomeProdotto,
+            COUNT(*) AS NumeroVendite
+        FROM 
+            Ordine o
+        JOIN 
+            DettaglioOrdine do ON o.CodiceOrdine = do.CodiceOrdine
+        JOIN 
+            VersioneProdotto vp ON do.CodiceProdotto = vp.CodiceProdotto
+        JOIN 
+            CategoriaProdotto cp ON vp.NomeProdotto = cp.NomeProdotto
+        JOIN 
+            Magazzino m ON do.CodMagazzino = m.CodMagazzino
+        WHERE 
+            m.CodMagazzino = ?
+        GROUP BY 
+            cp.NomeProdotto;
+    """;
 }

@@ -21,7 +21,7 @@
             <Button text="Categoria più Venduta" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleCategoriaVenduta"/>
             <Button text="Statistiche Magazzinieri" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#toggleStatisticheMagazzinieri"/>
             <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleSalesChertPane"/>
-            <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#toggleIstogrammaChartPane"/>
             <Button text="Richiesta rifornimento"  GridPane.rowIndex="5" GridPane.columnIndex="0"/>
             <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
         </GridPane>
@@ -36,6 +36,8 @@
         <fx:include fx:id="andamentoVenditePane" source="andamento-vendite.fxml"/>
 
         <fx:include fx:id="statisticheMagazzinieriPane" source="visualizzaStatistichemagazzinieri.fxml"/>
+
+        <fx:include fx:id="istogrammaVenditePane" source="istogramma-vendite.fxml"/>
     </Pane>
 </HBox>
 

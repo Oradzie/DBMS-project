@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 
 import java.net.URL;
 import java.util.List;
@@ -16,9 +17,11 @@ public class SalesChartController {
 
     @FXML
     private LineChart<String, Number> salesChart;
+    @FXML
+    private Button showButton;
 
     @FXML
-    public void showChart(ActionEvent actionEvent) {
+    public void showChart(final ActionEvent actionEvent) {
         final List<Pair<String, Integer>> salesData = App.CONTROLLER.getModel().getMonthlySales();
         System.out.println(salesData);
         // Create a series for sales data
@@ -30,6 +33,10 @@ public class SalesChartController {
         }
 
         // Add series to chart
-        salesChart.getData().add(series);
+        this.salesChart.getData().add(series);
+
+        this.salesChart.setVisible(true);
+        this.salesChart.setDisable(false);
+        this.showButton.setDisable(true);
     }
 }

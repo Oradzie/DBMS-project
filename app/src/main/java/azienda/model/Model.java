@@ -23,4 +23,6 @@ public interface Model {
     List<Pair<String, Integer>> getMonthlySales();
 
     Connection getConnection();
+
+    List<Pair<String, Integer>> getProductSales();
 }

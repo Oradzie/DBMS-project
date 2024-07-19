@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.chart.XYChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.control.Button?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.SalesChartController" spacing="10.0"
+<?import javafx.scene.chart.BarChart?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ProductSalesController" spacing="10.0"
       alignment="CENTER" visible="false" disable="true">
     <Button fx:id="showButton" text="Show graph" onAction="#showChart"/>
-    <LineChart fx:id="salesChart" visible="false" disable="true">
+    <BarChart fx:id="productSalesChart" layoutX="14.0" layoutY="14.0">
         <xAxis>
-            <CategoryAxis label="Month" />
+            <CategoryAxis fx:id="xAxis" label="Categorie di Prodotto" />
         </xAxis>
         <yAxis>
-            <NumberAxis label="Sales" />
+            <NumberAxis fx:id="yAxis" label="Numero di Vendite" />
         </yAxis>
-    </LineChart>
+    </BarChart>
 </VBox>

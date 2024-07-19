@@ -22,11 +22,6 @@ public class AdminStage extends Stage {
             //insMagLoader.setController(App.CONTROLLER);
             insMagLoader.load();
 
-            // Caricamento dell'FXML della categoria più venduta
-            FXMLLoader catVenLoader = new FXMLLoader(getClass().getResource("/azienda/view/categoria-piu-venduta.fxml"));
-            catVenLoader.setController(App.CONTROLLER);
-            catVenLoader.load();
-
             // Caricamento dell'FXML dell'andamento vendite
             FXMLLoader andVenLoader = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml"));
 //            andVenLoader.setController(new SalesChartController());

@@ -3,6 +3,7 @@ package azienda.model;
 import azienda.commons.Pair;
 import azienda.data.MyTableRow;
 import azienda.data.Prodotto;
+import azienda.data.SalesRow;
 
 import java.sql.Connection;
 import java.util.List;
@@ -29,4 +30,6 @@ public interface Model {
     List<MyTableRow> getWarehouseStatistics();
 
     String getCurrentCodiceMagazzino();
+
+    List<SalesRow> getSalesStatistics();
 }

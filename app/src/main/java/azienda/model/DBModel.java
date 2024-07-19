@@ -91,4 +91,9 @@ public final class DBModel implements Model {
         return user.getCodiceMagazzino();
     }
 
+    @Override
+    public List<SalesRow> getSalesStatistics() {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return Magazzino.DAO.mostSaledProduct(this.connection, user.getCodiceMagazzino());
+    }
 }

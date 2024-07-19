@@ -77,5 +77,22 @@ public class Magazzino {
                 throw new DAOException(e);
             }
         }
+
+        public static List<SalesRow> mostSaledProduct(final Connection connection, final String codiceMagazzino) {
+            try {
+                final PreparedStatement statement = DAOUtils.prepare(connection, Queries.GET_MOST_SOLD_PRODUCT, codiceMagazzino);
+                final var resultSet = statement.executeQuery();
+                final List<SalesRow> salesData = new ArrayList<SalesRow>();
+                while(resultSet.next()) {
+                    salesData.add(new SalesRow(
+                            resultSet.getString("Mese"),
+                            resultSet.getString("NomeProdotto"),
+                            resultSet.getInt("NumeroVendite")));
+                }
+                return salesData;
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+        }
     }
 }

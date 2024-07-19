@@ -93,5 +93,27 @@ public class Magazziniere {
                 throw new DAOException(e);
             }
         }
+        public static List<MagazziniereRow> showDatiMagazzinieri(final Connection connection,
+    final String codiceMagazzino){
+        try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.SHOW_DATI_MAGAZZINIERE,
+                            codiceMagazzino);
+                    var resultSet = statement.executeQuery();) {
+                final List<MagazziniereRow> datiMagazzinieri = new ArrayList<MagazziniereRow>();
+                while (resultSet.next()) {
+                    datiMagazzinieri.add(new MagazziniereRow(resultSet.getString("CodiceDipendente"),
+                                                            resultSet.getString("Cognome"),
+                                                            resultSet.getString("Nome"),
+                                                            resultSet.getString("Telefono"),
+                                                            resultSet.getString("IBAN"),
+                                                            resultSet.getString("Via"),
+                                                            resultSet.getInt("CAP"),
+                                                            resultSet.getInt("NumCivico")));
+                }
+                return datiMagazzinieri;
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+    }
     }
 }

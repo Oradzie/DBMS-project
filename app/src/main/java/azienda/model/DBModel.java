@@ -98,6 +98,12 @@ public final class DBModel implements Model {
     }
 
     @Override
+    public List<MagazziniereRow> getDatiMagazzinieri() {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return Magazziniere.DAO.showDatiMagazzinieri(this.connection, user.getCodiceMagazzino());
+    }
+
+    @Override
     public List<Fornitore> getFornitori() {
         return Fornitore.DAO.listAll(this.connection);
     }

@@ -1,6 +1,7 @@
 package azienda.model;
 
 import azienda.commons.Pair;
+import azienda.data.MagazziniereRow;
 import azienda.data.Fornitore;
 import azienda.data.MyTableRow;
 import azienda.data.Prodotto;
@@ -33,6 +34,8 @@ public interface Model {
     String getCurrentCodiceMagazzino();
 
     List<SalesRow> getSalesStatistics();
+
+    List<MagazziniereRow> getDatiMagazzinieri();
 
     List<Fornitore> getFornitori();
 }

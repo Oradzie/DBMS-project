@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.DatiMagazzinieriController" spacing="10.0" alignment="CENTER">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Dati Magazzinieri" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableView" prefWidth="800">
+        <columns>
+            <TableColumn fx:id="codiceDipendenteColumn" text="Codice Dipendente" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="codiceDipendente"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="cognomeColumn" text="Cognome" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="cognome"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="nomeColumn" text="Nome" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nome"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="telefonoColumn" text="Telefono" prefWidth="120">
+                <cellValueFactory>
+                    <PropertyValueFactory property="telefono"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="ibanColumn" text="IBAN" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="iban"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="viaColumn" text="Via" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="via"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="capColumn" text="CAP" prefWidth="80">
+                <cellValueFactory>
+                    <PropertyValueFactory property="cap"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="numCivicoColumn" text="Num. Civico" prefWidth="80">
+                <cellValueFactory>
+                    <PropertyValueFactory property="numCivico"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <Button text="Carica Dati" onAction="#loadData"/>
+</VBox>

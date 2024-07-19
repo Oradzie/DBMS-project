@@ -73,11 +73,12 @@ public final class Controller implements Initializable {
     private Pane statisticheMagazzinieriPane;
     @FXML
     private VBox istogrammaVenditePane;
+    @FXL
+    private Pane visualizzaDatiMagazzinieriPane;
     @FXML
     private VBox rifornimentoPane;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @Override    pubic void initialize(URL location, ResourceBundle resources) {
         accessToggle = new ToggleGroup();
         utenteOnlineRadio.setToggleGroup(accessToggle);
         dipendenteRadio.setToggleGroup(accessToggle);
@@ -242,6 +243,19 @@ public final class Controller implements Initializable {
             if (node.equals(this.istogrammaVenditePane)) {
                 this.istogrammaVenditePane.setDisable(false);
                 this.istogrammaVenditePane.setVisible(true);
+            } else {
+                node.setDisable(true);
+                node.setVisible(false);
+            }
+        });
+    }
+
+    @FXML
+    public void toggleDatiMagazzinieri() {
+        this.rightPane.getChildren().forEach(node -> {
+            if (node.equals(this.visualizzaDatiMagazzinieriPane)) {
+                this.visualizzaDatiMagazzinieriPane.setDisable(false);
+                this.visualizzaDatiMagazzinieriPane.setVisible(true);
             } else {
                 node.setDisable(true);
                 node.setVisible(false);

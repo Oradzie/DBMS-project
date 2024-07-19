@@ -23,7 +23,7 @@
             <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleSalesChertPane"/>
             <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#toggleIstogrammaChartPane"/>
             <Button text="Richiesta rifornimento"  GridPane.rowIndex="5" GridPane.columnIndex="0" onAction="#toggleRichiestaRifornimentoPage"/>
-            <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0" onAction="#toggleDatiMagazzinieri"/>
         </GridPane>
     </VBox>
 
@@ -38,6 +38,8 @@
         <fx:include fx:id="statisticheMagazzinieriPane" source="visualizzaStatistichemagazzinieri.fxml"/>
 
         <fx:include fx:id="istogrammaVenditePane" source="istogramma-vendite.fxml"/>
+
+        <fx:include fx:id="visualizzaDatiMagazzinieriPane" source="visualizzaDatiMagazzinieri.fxml"/>
 
         <fx:include fx:id="rifornimentoPane" source="richiesta-rifornimento.fxml"/>
     </Pane>

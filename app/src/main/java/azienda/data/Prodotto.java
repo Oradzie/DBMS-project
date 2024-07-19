@@ -5,6 +5,7 @@ import azienda.commons.DAOUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,6 +71,22 @@ public class Prodotto {
             }
         }
 
+        public static String delProduct(final Connection connection, final String NumeroSeriale) {
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.DEL_PRODOTTTO,
+                            NumeroSeriale);) {
+                int result = statement.executeUpdate();
+                if (result == 0) {
+                    return "Prodotto non trovato";
+                }
+                return "Prodotto eliminato con successo";
+            } catch (SQLIntegrityConstraintViolationException e) {
+                return "Prodotto non trovato";
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+        }
+
         public static String addProduct(final Connection connection, final String NumeroSeriale,
                 final String CodiceLotto, final String CodiceProdotto, final String CodRipiano) {
 
@@ -127,8 +144,14 @@ public class Prodotto {
             try (
                     final PreparedStatement statement = DAOUtils.prepare(connection, Queries.ADD_PRODUCT,
                             NumeroSeriale, CodiceLotto, CodiceProdotto, CodRipiano);) {
-                return "Prodotto inserito!";
-
+                int result = statement.executeUpdate();
+                if (result != 0) {
+                    return "Prodotto inserito!";
+                } else {
+                    return "Errore nell'inserimento del prodotto";
+                }
+            } catch (SQLIntegrityConstraintViolationException e) {
+                return "Prodotto gia' esistente";
             } catch (Exception e) {
                 throw new DAOException(e);
             }

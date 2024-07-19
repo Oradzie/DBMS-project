@@ -56,7 +56,7 @@ public final class Queries {
                   """;
 
       public static final String ADD_PRODUCT = """
-                  INSERT INTO azienda.prodotto(NumeroSeriale,CodiceLotto,,CodPacco,CodiceProdotto,CodRipiano) VALUES
+                  INSERT INTO azienda.prodotto(NumeroSeriale,CodiceLotto,CodPacco,CodiceProdotto,CodRipiano) VALUES
                   (?,?,null,?,?);
                   """;
 
@@ -125,62 +125,66 @@ public final class Queries {
                   """;
 
       public static final String SHOW_DATI_MAGAZZINIERE = """
-                SELECT 
-                d.CodiceDipendente,
-                p.Cognome,
-                p.Nome,
-                p.Telefono,
-                d.Password,
-                df.IBAN,
-                df.Via,
-                df.CAP,
-                df.NumCivico
-                FROM 
-                Magazziniere mag
-                JOIN 
-                Dipendente d ON mag.CodiceFiscale = d.CodiceFiscale
-                JOIN 
-                Persona p ON d.CodiceFiscale = p.CodiceFiscale
-                JOIN 
-                Stipendio s ON p.CodiceFiscale = s.CodiceFiscale
-                JOIN 
-                DatiFatturazione df ON s.IBAN = df.IBAN
-                ORDER BY 
-                p.Cognome, p.Nome;
-              """;
-
-      public static final String GET_MOST_SOLD_PRODUCT =
-              """
-                SELECT
-                    Mese,
-                    NomeProdotto,
-                    MAX(NumeroVendite) AS NumeroVendite
-                FROM (
                     SELECT
-                        EXTRACT(MONTH FROM o.DataOrdine) AS Mese,
-                        cp.NomeProdotto,
-                        COUNT(*) AS NumeroVendite
+                    d.CodiceDipendente,
+                    p.Cognome,
+                    p.Nome,
+                    p.Telefono,
+                    d.Password,
+                    df.IBAN,
+                    df.Via,
+                    df.CAP,
+                    df.NumCivico
                     FROM
-                        Ordine o
+                    Magazziniere mag
                     JOIN
-                        DettaglioOrdine do ON o.CodiceOrdine = do.CodiceOrdine
+                    Dipendente d ON mag.CodiceFiscale = d.CodiceFiscale
                     JOIN
-                        VersioneProdotto vp ON do.CodiceProdotto = vp.CodiceProdotto
+                    Persona p ON d.CodiceFiscale = p.CodiceFiscale
                     JOIN
-                        CategoriaProdotto cp ON vp.NomeProdotto = cp.NomeProdotto
+                    Stipendio s ON p.CodiceFiscale = s.CodiceFiscale
                     JOIN
-                        Magazzino m ON do.CodMagazzino = m.CodMagazzino
-                    WHERE
-                        m.CodMagazzino = ?
-                        AND EXTRACT(YEAR FROM o.DataOrdine) = EXTRACT(YEAR FROM CURRENT_DATE)
+                    DatiFatturazione df ON s.IBAN = df.IBAN
+                    ORDER BY
+                    p.Cognome, p.Nome;
+                  """;
+
+      public static final String GET_MOST_SOLD_PRODUCT = """
+                    SELECT
+                        Mese,
+                        NomeProdotto,
+                        MAX(NumeroVendite) AS NumeroVendite
+                    FROM (
+                        SELECT
+                            EXTRACT(MONTH FROM o.DataOrdine) AS Mese,
+                            cp.NomeProdotto,
+                            COUNT(*) AS NumeroVendite
+                        FROM
+                            Ordine o
+                        JOIN
+                            DettaglioOrdine do ON o.CodiceOrdine = do.CodiceOrdine
+                        JOIN
+                            VersioneProdotto vp ON do.CodiceProdotto = vp.CodiceProdotto
+                        JOIN
+                            CategoriaProdotto cp ON vp.NomeProdotto = cp.NomeProdotto
+                        JOIN
+                            Magazzino m ON do.CodMagazzino = m.CodMagazzino
+                        WHERE
+                            m.CodMagazzino = ?
+                            AND EXTRACT(YEAR FROM o.DataOrdine) = EXTRACT(YEAR FROM CURRENT_DATE)
+                        GROUP BY
+                            EXTRACT(MONTH FROM o.DataOrdine),
+                            cp.NomeProdotto
+                    ) AS VenditePerMese
                     GROUP BY
-                        EXTRACT(MONTH FROM o.DataOrdine),
-                        cp.NomeProdotto
-                ) AS VenditePerMese
-                GROUP BY
-                    Mese,
-                    NomeProdotto
-                ORDER BY
-                    Mese;               
-              """;
+                        Mese,
+                        NomeProdotto
+                    ORDER BY
+                        Mese;
+                  """;
+
+      public static final String DEL_PRODOTTTO = """
+                  DELETE FROM azienda.prodotto
+                  WHERE NumeroSeriale = ?;
+                  """;
 }

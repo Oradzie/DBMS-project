@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" spacing="10.0" alignment="TOP_CENTER" visible="false" disable="true">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ElimProdController" spacing="10.0" alignment="TOP_CENTER" visible="false" disable="true">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
@@ -20,5 +20,5 @@
 
         </GridPane>
 
-    <Button text="Elimina"/>
+    <Button text="Elimina" onAction = "#toggleEliminaProdotto"/>
 </VBox>

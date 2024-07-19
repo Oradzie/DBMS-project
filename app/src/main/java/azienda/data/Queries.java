@@ -193,4 +193,10 @@ public final class Queries {
             FROM azienda.versioneprodotto
             WHERE CodiceProdotto = ?;
             """;
+
+    public static final String LIST_FORNITORI =
+            """
+            SELECT *
+            FROM azienda.fornitore;
+            """;
 }

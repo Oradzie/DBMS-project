@@ -73,12 +73,13 @@ public final class Controller implements Initializable {
     private Pane statisticheMagazzinieriPane;
     @FXML
     private VBox istogrammaVenditePane;
-    @FXL
+    @FXML
     private Pane visualizzaDatiMagazzinieriPane;
     @FXML
     private VBox rifornimentoPane;
 
-    @Override    pubic void initialize(URL location, ResourceBundle resources) {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         accessToggle = new ToggleGroup();
         utenteOnlineRadio.setToggleGroup(accessToggle);
         dipendenteRadio.setToggleGroup(accessToggle);

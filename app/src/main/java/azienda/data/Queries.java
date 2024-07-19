@@ -123,4 +123,29 @@ public final class Queries {
                   INSERT INTO azienda.magazziniere (CodiceFiscale) VALUES
                   (?)
                   """;
+
+      public static final String SHOW_DATI_MAGAZZINIERE = """
+                SELECT 
+                d.CodiceDipendente,
+                p.Cognome,
+                p.Nome,
+                p.Telefono,
+                d.Password,
+                df.IBAN,
+                df.Via,
+                df.CAP,
+                df.NumCivico
+                FROM 
+                Magazziniere mag
+                JOIN 
+                Dipendente d ON mag.CodiceFiscale = d.CodiceFiscale
+                JOIN 
+                Persona p ON d.CodiceFiscale = p.CodiceFiscale
+                JOIN 
+                Stipendio s ON p.CodiceFiscale = s.CodiceFiscale
+                JOIN 
+                DatiFatturazione df ON s.IBAN = df.IBAN
+                ORDER BY 
+                p.Cognome, p.Nome;
+              """;
 }

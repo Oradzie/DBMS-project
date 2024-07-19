@@ -29,7 +29,7 @@ public class MagazziniereStage extends Stage {
 
             String visQProdPath = "/azienda/view/VisualizzaQuantitaProdotto.fxml";
             FXMLLoader visQProdLoader = new FXMLLoader(getClass().getResource(visQProdPath));
-            visQProdLoader.setController(App.CONTROLLER);
+            // visQProdLoader.setController(App.CONTROLLER);
             visQProdLoader.load();
 
             final Scene scene = new Scene(root);

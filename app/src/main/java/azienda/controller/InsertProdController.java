@@ -26,4 +26,5 @@ public class InsertProdController {
                         this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
                         this.CodRipiano.getText()));
     }
+
 }

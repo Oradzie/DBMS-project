@@ -73,7 +73,7 @@ public class Prodotto {
 
         public static String delProduct(final Connection connection, final String NumeroSeriale) {
             try (
-                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.DEL_PRODOTTTO,
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.DEL_PRODOTTO,
                             NumeroSeriale);) {
                 int result = statement.executeUpdate();
                 if (result == 0) {
@@ -82,6 +82,21 @@ public class Prodotto {
                 return "Prodotto eliminato con successo";
             } catch (SQLIntegrityConstraintViolationException e) {
                 return "Prodotto non trovato";
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+        }
+
+        public static String viewProduct(final Connection connection, final String CodiceProdotto) {
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.VIEW_PRODOTTO,
+                            CodiceProdotto);
+                    var resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return (resultSet.getString("Disponibilita"));
+                } else {
+                    return "Prodotto non trovato";
+                }
             } catch (Exception e) {
                 throw new DAOException(e);
             }

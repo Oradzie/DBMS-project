@@ -61,6 +61,16 @@ public final class Controller implements Initializable {
     private VBox inserimentoIndirizzoPane;
     @FXML
     private Pane rightPane;
+    @FXML
+    private TextField NumeroSeriale;
+    @FXML
+    private TextField CodiceLotto;
+    @FXML
+    private TextField CodiceProdotto;
+    @FXML
+    private TextField CodRipiano;
+    @FXML
+    private Pane statisticheMagazzinieriPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -201,4 +211,24 @@ public final class Controller implements Initializable {
         this.inserimentoIndirizzoPane.setVisible(!this.inserimentoIndirizzoPane.isVisible());
 
     }
+<<<<<<< HEAD
+=======
+
+    public void setSalesController(final SalesChartController salesChartController) {
+        salesChartController.initialize();
+    }
+
+    @FXML
+    public void toggleSalvaProdotto() {
+        this.view.showError(Prodotto.DAO.addProduct(model.getConnection(), this.NumeroSeriale.getText(),
+                this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
+                this.CodRipiano.getText()));
+    }
+
+    @FXML
+    public void toggleStatisticheMagazzinieri() {
+        this.statisticheMagazzinieriPane.setDisable(false);
+        this.statisticheMagazzinieriPane.setVisible(!this.statisticheMagazzinieriPane.isVisible());
+    }
+>>>>>>> 665d3f2 (Added table for warehouse statistics)
 }

@@ -59,4 +59,15 @@ public final class Queries {
             INSERT INTO azienda.prodotto(NumeroSeriale,CodiceLotto,,CodPacco,CodiceProdotto,CodRipiano) VALUES
             (?,?,null,?,?);
             """;
+
+    public static final String SHOW_WAREHOUSE_STATISTICS =  """
+        SELECT m.CodiceFiscale,p.Nome,p.Cognome,d.CodiceDipendente,
+        COUNT(pp.CodPacco) AS NumeroPacchiPreparati
+        FROM Magazziniere m
+        JOIN Persona p ON m.CodiceFiscale = p.CodiceFiscale
+        JOIN Dipendente d ON m.CodiceFiscale = d.CodiceFiscale
+        JOIN PaccoPreparato pp ON m.CodiceFiscale = pp.CodiceFiscale
+        GROUP BY m.CodiceFiscale, p.Nome, p.Cognome, d.CodiceDipendente
+        ORDER BY NumeroPacchiPreparati DESC;
+        """;
 }

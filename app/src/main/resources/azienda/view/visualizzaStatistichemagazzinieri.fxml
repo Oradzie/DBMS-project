@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.MagazzinieriStatisticheController" spacing="10.0" alignment="CENTER">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Statistiche Magazzinieri" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableView" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="codiceFiscaleColumn" text="Codice Fiscale" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="codiceFiscale"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="cognomeColumn" text="Cognome" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="cognome"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="nomeColumn" text="Nome" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nome"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="codiceDipendenteColumn" text="Codice Dipendente" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="codiceDipendente"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="numeroPacchiPreparatiColumn" text="Numero Pacchi Preparati" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="numeroPacchiPreparati"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

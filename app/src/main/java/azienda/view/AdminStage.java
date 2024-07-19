@@ -19,7 +19,7 @@ public class AdminStage extends Stage {
 
             // Caricamento dell'FXML dell'inserimento magazziniere
             FXMLLoader insMagLoader = new FXMLLoader(getClass().getResource("/azienda/view/inserimentoMagazziniere.fxml"));
-            insMagLoader.setController(App.CONTROLLER);
+            //insMagLoader.setController(App.CONTROLLER);
             insMagLoader.load();
 
             // Caricamento dell'FXML della categoria più venduta

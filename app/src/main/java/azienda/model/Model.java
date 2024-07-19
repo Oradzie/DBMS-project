@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface Model {
-     // Create a model that connects to a database using the given connection.
-     public static Model fromConnection(Connection connection) {
+    // Create a model that connects to a database using the given connection.
+    public static Model fromConnection(Connection connection) {
         return new DBModel(connection);
     }
 
@@ -27,4 +27,6 @@ public interface Model {
     List<Pair<String, Integer>> getProductSales();
 
     List<MyTableRow> getWarehouseStatistics();
+
+    String getCurrentCodiceMagazzino();
 }

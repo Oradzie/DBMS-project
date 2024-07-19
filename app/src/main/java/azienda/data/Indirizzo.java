@@ -1,11 +1,10 @@
 package azienda.data;
 
-import java.io.IOError;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import azienda.commons.DAOException;
 import azienda.commons.DAOUtils;
@@ -44,13 +43,9 @@ public class Indirizzo {
 
         public static String addAddress(final Connection connection, final String Via,
                 final String Citta, final String CAP, final String NumCivico) {
-            String Via1 = new String("");
-            String CAP1 = new String("");
-            String NumCivico1 = new String("");
             try (
                     final PreparedStatement statement = DAOUtils.prepare(connection, Queries.ADD_ADDRESS,
-                            Via, Citta, CAP, NumCivico);
-                    ) {
+                            Via, Citta, CAP, NumCivico);) {
                 int result = statement.executeUpdate();
                 if (result != 0) {
                     return "Indirizzo inserito!";

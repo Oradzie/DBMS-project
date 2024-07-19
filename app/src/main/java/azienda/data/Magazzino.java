@@ -3,14 +3,12 @@ package azienda.data;
 import azienda.commons.DAOException;
 import azienda.commons.DAOUtils;
 import azienda.commons.Pair;
-import azienda.model.DBModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class Magazzino {
 

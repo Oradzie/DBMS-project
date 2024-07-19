@@ -1,6 +1,5 @@
 package azienda.model;
 
-import java.io.InterruptedIOException;
 import java.sql.Connection;
 import java.util.List;
 import java.util.Objects;
@@ -83,8 +82,13 @@ public final class DBModel implements Model {
     @Override
     public List<MyTableRow> getWarehouseStatistics() {
         final Dipendente user = (Dipendente) this.currentUSer;
-        return Magazziniere.DAO.showWarehouseStatistics(this.connection,user.getCodiceMagazzino());
+        return Magazziniere.DAO.showWarehouseStatistics(this.connection, user.getCodiceMagazzino());
     }
 
-    
+    @Override
+    public String getCurrentCodiceMagazzino() {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return user.getCodiceMagazzino();
+    }
+
 }

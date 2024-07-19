@@ -45,6 +45,4 @@ public class Ordine {
         return codiceFiscale;
     }
 
-    public
-    
 }

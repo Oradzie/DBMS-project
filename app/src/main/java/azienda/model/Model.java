@@ -39,4 +39,5 @@ public interface Model {
 
     List<StoricoOrdiniRow> getStoricoOrdini();
 
+    List<VenditaPromozionaleRaw> getPromozioni();
 }

@@ -70,6 +70,8 @@ public final class Controller implements Initializable {
     private VBox rifornimentoPane;
     @FXML
     private VBox visualizzaProdottiDispPane;
+    @FXML
+    private VBox visualizzaPromozioniPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -274,5 +276,11 @@ public final class Controller implements Initializable {
     public void toggleVisualizzaProdottiDisponibili() {
         this.visualizzaProdottiDispPane.setDisable(false);
         this.visualizzaProdottiDispPane.setVisible(!this.visualizzaProdottiDispPane.isVisible());
+    }
+
+    @FXML
+    public void toggleVisualizzaPromozioni() {
+        this.visualizzaPromozioniPane.setDisable(false);
+        this.visualizzaPromozioniPane.setVisible(!this.visualizzaPromozioniPane.isVisible());
     }
 }

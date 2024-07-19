@@ -114,8 +114,14 @@ public final class DBModel implements Model {
     }
 
     @Override
+    public List<VenditaPromozionaleRaw> getPromozioni() {
+        return VenditaPromozionaleRaw.DAO.list(this.connection);
+    }
+
+    @Override
     public List<StoricoOrdiniRow> getStoricoOrdini() {
         final UtenteOnline user = (UtenteOnline) this.currentUSer;
         return Ordine.DAO.showOrdini(this.connection, user.getCodiceFiscale());
     }
+
 }

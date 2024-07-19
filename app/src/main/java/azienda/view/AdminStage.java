@@ -34,7 +34,6 @@ public class AdminStage extends Stage {
 
             //Caricamento dell'FXML delle statistiche dei magazzinieri
             FXMLLoader statMagLoader = new FXMLLoader(getClass().getResource("/azienda/view/visualizzaStatistichemagazzinieri.fxml"));
-            statMagLoader.setController(App.CONTROLLER);
             statMagLoader.load();
 
             // Creazione della scena principale

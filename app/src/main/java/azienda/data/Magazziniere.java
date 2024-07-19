@@ -29,17 +29,18 @@ public class Magazziniere {
 
     public static class DAO{
 
-        public List<String> showWarahouseStatistics(final Connection connection, final String codiceFiscale,final String codiceDipendente, final String nome, final String cognome){
+        public static List<MyTableRow> showWarehouseStatistics(final Connection connection, final String codiceMagazzino){
             try (
-                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.SHOW_WAREHOUSE_STATISTICS, codiceDipendente,codiceFiscale,nome,cognome);
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.SHOW_WAREHOUSE_STATISTICS,codiceMagazzino);
                     var resultSet = statement.executeQuery();
             ) {
-                final List<String> warahouseStatistics = new ArrayList<String>();
+                final List<MyTableRow> warahouseStatistics = new ArrayList<MyTableRow>();
                 while (resultSet.next()) {
-                    warahouseStatistics.addAll(List.of(resultSet.getString("CodiceDipendente")
-                                                    ,resultSet.getString("CodiceFiscale")
+                    warahouseStatistics.add(new MyTableRow(resultSet.getString("CodiceFiscale")
+                                                    ,resultSet.getString("CodiceDipendente")
+                                                    ,resultSet.getString("Nome")
                                                     ,resultSet.getString("Cognome")
-                                                    ,resultSet.getString("Nome")));
+                                                    ,resultSet.getInt("NumeroPacchiPreparati")));
                 }
                 return warahouseStatistics;
             } catch (Exception e) {

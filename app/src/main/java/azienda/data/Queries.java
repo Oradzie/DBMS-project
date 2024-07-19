@@ -67,6 +67,7 @@ public final class Queries {
          JOIN Persona p ON m.CodiceFiscale = p.CodiceFiscale
          JOIN Dipendente d ON m.CodiceFiscale = d.CodiceFiscale
          JOIN PaccoPreparato pp ON m.CodiceFiscale = pp.CodiceFiscale
+         WHERE d.CodMagazzino = ?
          GROUP BY m.CodiceFiscale, p.Nome, p.Cognome, d.CodiceDipendente
          ORDER BY NumeroPacchiPreparati DESC;
          """;

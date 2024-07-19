@@ -79,4 +79,12 @@ public final class DBModel implements Model {
         final Dipendente user = (Dipendente) this.currentUSer;
         return Magazzino.DAO.getProductSales(this.connection, user.getCodiceMagazzino());
     }
+
+    @Override
+    public List<MyTableRow> getWarehouseStatistics() {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return Magazziniere.DAO.showWarehouseStatistics(this.connection,user.getCodiceMagazzino());
+    }
+
+    
 }

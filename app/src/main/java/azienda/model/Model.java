@@ -1,7 +1,7 @@
 package azienda.model;
 
 import azienda.commons.Pair;
-import azienda.data.Persona;
+import azienda.data.MyTableRow;
 import azienda.data.Prodotto;
 
 import java.sql.Connection;
@@ -25,4 +25,6 @@ public interface Model {
     Connection getConnection();
 
     List<Pair<String, Integer>> getProductSales();
+
+    List<MyTableRow> getWarehouseStatistics();
 }

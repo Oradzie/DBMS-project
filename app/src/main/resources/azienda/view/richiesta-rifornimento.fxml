@@ -16,8 +16,8 @@
     </padding>
 
     <Label text="Selezionare un rifornitore" styleClass="entry-label"/>
-    <ComboBox fx:id="boxFornitore">
-    </ComboBox>
+    <ComboBox fx:id="boxFornitore"/>
 
-    <Label
+    <Label text="Slezriona un prodotto" styleClass="entry-label"/>
+    <ComboBox fx:id="boxProdotto"/>
 </VBox>

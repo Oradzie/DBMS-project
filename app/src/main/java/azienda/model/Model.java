@@ -36,4 +36,5 @@ public interface Model {
     List<Fornitore> getFornitori();
 
     List<VersioneProdotto> getVersioniProdotto();
+
 }

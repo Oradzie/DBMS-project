@@ -17,7 +17,7 @@
         <Label text="DASHBOARD UTENTE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold;"/>
 
         <GridPane hgap="10.0" vgap="10.0">
-            <Button text="Visualizza Prodotti Disponibili" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+            <Button text="Visualizza Prodotti Disponibili" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleVisualizzaProdottiDisponibili"/>
             <Button text="Visualizza Storico Ordini" GridPane.rowIndex="1" GridPane.columnIndex="0" />
             <Button text="Visualizza Periodi di Promozione" GridPane.rowIndex="2" GridPane.columnIndex="0" />
             <Button text="Aggiungi Indirizzo di Spedizione" GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleInserimentoIndirizzo"/>
@@ -26,4 +26,5 @@
 
      <!-- Contenitore per il form di inserimento -->
     <fx:include fx:id="inserimentoIndirizzoPane" source="inserimentoIndirizzo.fxml"/>
+    <fx:include fx:id="visualizzaProdottiDispPane" source="visualizzaProdottiDisponibili.fxml"/>
 </HBox>

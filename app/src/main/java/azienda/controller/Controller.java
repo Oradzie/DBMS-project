@@ -221,7 +221,14 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleStatisticheMagazzinieri() {
-        this.statisticheMagazzinieriPane.setDisable(false);
-        this.statisticheMagazzinieriPane.setVisible(!this.statisticheMagazzinieriPane.isVisible());
+        this.rightPane.getChildren().forEach(node -> {
+            if (node.equals(this.statisticheMagazzinieriPane)) {
+                this.statisticheMagazzinieriPane.setDisable(false);
+                this.statisticheMagazzinieriPane.setVisible(true);
+            } else {
+                node.setDisable(true);
+                node.setVisible(false);
+            }
+        });
     }
 }

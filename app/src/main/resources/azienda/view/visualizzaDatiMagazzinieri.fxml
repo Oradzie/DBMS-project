@@ -8,7 +8,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.DatiMagazzinieriController" spacing="10.0" alignment="CENTER">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.DatiMagazzinieriController" visible="false" disable="true" spacing="10.0" alignment="CENTER">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>

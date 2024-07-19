@@ -36,7 +36,7 @@ public class MagazziniereRow {
         return Nome;
     }
 
-    public String getIBAN() {
+    public String getIban() {
         return IBAN;
     }
 
@@ -44,7 +44,7 @@ public class MagazziniereRow {
         return Via;
     }
 
-    public int getCAP() {
+    public int getCap() {
         return CAP;
     }
     

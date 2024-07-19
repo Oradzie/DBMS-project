@@ -145,6 +145,7 @@ public final class Queries {
               Stipendio s ON p.CodiceFiscale = s.CodiceFiscale
               JOIN
               DatiFatturazione df ON s.IBAN = df.IBAN
+              WHERE d.CodMagazzino = ?
               ORDER BY
               p.Cognome, p.Nome;
             """;

@@ -32,7 +32,6 @@ public class AggiungiOrdineController {
                 .showError(result.second());
         controller.getModel().setLastOrderAdded(result.first());
 
-        this.aggiungiAlCarrelloPane.setDisable(false);
-        this.aggiungiAlCarrelloPane.setVisible(!this.aggiungiAlCarrelloPane.isVisible());
+        controller.toggleConcludiOrdine();
     }
 }

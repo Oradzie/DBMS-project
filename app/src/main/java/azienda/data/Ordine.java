@@ -101,7 +101,6 @@ public class Ordine {
                 do {
                     codiceOrdine = "COD";
                     codiceOrdine = codiceOrdine.concat(String.valueOf(random.nextInt(10000)));
-                    System.out.println(codiceOrdine);
                 } while (codici.contains(codiceOrdine));
 
             } catch (Exception e) {

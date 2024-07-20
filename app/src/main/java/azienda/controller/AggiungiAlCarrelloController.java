@@ -27,7 +27,6 @@ public class AggiungiAlCarrelloController {
 
         @FXML
         public void toggleTerminaOrdine() {
-                controller.getModel().setLastOrderAdded("");
                 controller.toggleAggiungiOrdine();
         }
 }

@@ -335,4 +335,17 @@ public final class Controller implements Initializable {
             this.view.showError(e.getMessage());
         }
     }
+
+    public void toggleConcludiOrdine() {
+        if (!this.rightPaneUser.getChildren().isEmpty()) {
+            this.rightPaneUser.getChildren().clear();
+        }
+        try {
+            final VBox aggiuntaOrdinePane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/iniziaOrdine.fxml")).load();
+            this.rightPaneUser.getChildren().add(aggiuntaOrdinePane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
+    }
 }

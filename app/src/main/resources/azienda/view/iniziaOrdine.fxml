@@ -11,7 +11,6 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-
     <Label text="Nuovo Prodotto" styleClass="entry-label"/>
     <GridPane hgap="10.0" vgap="10.0">
         <Label text="Codice Prodotto:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
@@ -19,8 +18,7 @@
         
         <Label text="Quantità:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
         <TextField fx:id="quantita" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-
-        </GridPane>
+    </GridPane>
     <Button text="Aggiungi Al Carrello" onAction="#toggleAggiuntaCarrello"/>
     <Button text="Termina Ordine" onAction= "#toggleTerminaOrdine"/>
 </VBox>

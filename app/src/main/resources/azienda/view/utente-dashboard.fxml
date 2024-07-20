@@ -24,10 +24,4 @@
         </GridPane>
     </VBox>
     <Pane fx:id="rightPaneUser"/>
-<!--     &lt;!&ndash; Contenitore per il form di inserimento &ndash;&gt;-->
-<!--    <fx:include fx:id="inserimentoIndirizzoPane" source="inserimentoIndirizzo.fxml"/>-->
-<!--    <fx:include fx:id="visualizzaProdottiDispPane" source="visualizzaProdottiDisponibili.fxml"/>-->
-<!--    <fx:include fx:id="visualizzaStoricoOrdiniPane" source="visualizzaStoricoOrdini.fxml"/>-->
-<!--    <fx:include fx:id="visualizzaPromozioniPane" source="visualizzaPromozioni.fxml"/>-->
-<!--    <fx:include fx:id="aggiuntaOrdinePane" source="aggiungiOrdine.fxml"/>-->
 </HBox>

@@ -21,9 +21,6 @@
 
         <Label text="Codice Promo, inserisci '0' se non ne hai:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
         <TextField fx:id="codicePromo" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-
     </GridPane>
     <Button text="Aggiungi Dati e Inizia Ordine" onAction="#toggleConfermaOrdine"/>
-     <!-- Contenitore per il form di inserimento -->
-    <fx:include fx:id="aggiungiAlCarrelloPane" source="iniziaOrdine.fxml"/>
 </VBox>

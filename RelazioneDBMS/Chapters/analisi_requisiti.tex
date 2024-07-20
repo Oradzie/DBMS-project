@@ -1,0 +1,64 @@
+\section{Analisi dei Requisiti}
+
+\subsection{Requisiti in linguaggio naturale}
+
+La seguente descrizione riporta in linguaggio naturale i requisiti del nostro sistema informativo:
+
+"
+Il database dovrà essere in grado di tracciare tutti i prodotti nei magazzini, tenendo conto delle vendite per facilitare il rifornimento dei magazzini in modo preciso e tempestivo.
+
+I clienti che utilizzano il punto vendita online potranno creare un account, inserire le loro informazioni di contatto e di consegna, e poi effettuare ordini. Una volta che un ordine viene effettuato, il sistema lo assegnerà al magazzino appropriato. L'amministratore del magazzino riceverà l'ordine e lo assegnerà ai magazzinieri per la preparazione. 
+
+Nel sistema ci saranno due tipi di utenti interni (dipendenti): i magazzinieri e gli amministratori.
+Di ogni dipendente si tiene traccia dell'indirizzo di fatturazione e del suo IBAN.
+
+
+Gli amministratori avranno la responsabilità di controllare la quantità di prodotti nel magazzino, verificare lo storico delle vendite e commissionare gli ordini giornalieri ricevuti dal punto vendita ai magazzinieri. Saranno anche responsabili di commissionare i rifornimenti del magazzino di riferimento ai fornitori, richiedendo diversi lotti di prodotti.
+Gli amministratori dei magazzini hanno anche il compito di determinare l'approvvigionamento annuale basato sulle vendite dell'anno precedente.
+
+I magazzinieri, invece, avranno accesso al database per gestire l'inventario dei prodotti e preparare gli ordini. 
+Quando arriva un rifornimento annuale, saranno responsabili dell'aggiornamento del sistema informativo.
+
+Quando un utente online effettua un ordine, questo viene riformulato dal punto vendita in uno o più dettagli ordine, che, in modo intelligente, arriverà al magazzino con la disponibilità più adeguata e da lì, verrà poi preparato il pacco da spedire.
+Ogni dettaglio ordine fa riferimento alla versione del prodotto richiesta (ovvero la tipologia di prodotto con le sue specifiche desiderate).
+Un determinato prodotto, viene identificato all'interno del magazzino da un numero seriale (codice a barre) e dal suo lotto di appartenenza.
+
+Il magazzino è diviso in settori, scaffali e ripiani.
+L'utente può avere diritto ad uno sconto, nel caso ad esempio in cui sia anche dipendente.
+
+L'ordine può presentare, in un determinato periodo, una vendita promozionale, su cui verrà poi applicata una percentuale di sconto."
+
+\newpage
+\subsection{Estrazione dei concetti fondamentali}
+Individuiamo adesso le parole e le espressioni chiave che ci consentiranno di realizzare uno schema significativo del progetto e di raffinarlo successivamente per ottenere lo schema definitivo. I termini di
+rilievo appaiono nel testo con una sottolineatura:
+
+"
+Il database dovrà essere in grado di tracciare tutti i prodotti nei magazzini, tenendo conto delle vendite per facilitare il rifornimento dei magazzini in modo preciso e tempestivo.
+
+I clienti che utilizzano il punto vendita online potranno creare un account, inserire le loro informazioni di contatto e di consegna, e poi effettuare ordini. Una volta che un ordine viene effettuato, il sistema lo assegnerà al magazzino appropriato. L'amministratore del magazzino riceverà l'ordine e lo assegnerà ai magazzinieri per la preparazione. 
+
+Nel sistema ci saranno due tipi di utenti interni (\textbf{\underline{dipendenti}}): i magazzinieri e gli amministratori.
+Di ogni dipendente si tiene traccia dell'indirizzo di fatturazione e del suo IBAN.
+
+Gli \textbf{\underline{amministratori}} avranno la responsabilità di controllare la quantità di prodotti nel magazzino, verificare lo storico delle vendite e commissionare gli ordini giornalieri ricevuti dal punto vendita ai magazzinieri. Saranno anche responsabili di commissionare i \textbf{\underline{rifornimenti}} del magazzino di riferimento ai \textbf{\underline{fornitori}}, richiedendo diversi \textbf{\underline{lotti}} di prodotti.
+Gli amministratori dei magazzini hanno anche il compito di determinare l'approvvigionamento annuale basato sulle vendite dell'anno precedente.
+
+I \textbf{\underline{magazzinieri}}, invece, avranno accesso al database per gestire l'\textbf{\underline{inventario}} dei prodotti e preparare gli ordini. 
+Quando arriva un rifornimento annuale, saranno responsabili dell'aggiornamento del sistema informativo.
+
+Quando un \textbf{\underline{utente online}} effettua un \textbf{\underline{ordine}}, questo viene riformulato dal punto vendita in uno o più dettagli ordine, che, in modo intelligente, arriverà al magazzino con la disponibilità più adeguata e da lì, verrà poi preparato il \textbf{\underline{pacco da spedire}}.
+Ogni \textbf{\underline{dettaglio ordine}} fa riferimento alla \textbf{\underline{versione del prodotto}} richiesta (ovvero la \textbf{\underline{tipologia di prodotto}} con le sue specifiche desiderate).
+Un determinato \textbf{\underline{prodotto}}, viene identificato all'interno del magazzino da un numero seriale (codice a barre) e dal suo lotto di appartenenza.
+
+Il \textbf{\underline{magazzino}} è diviso in \textbf{\underline{settori}}, \textbf{\underline{scaffali}} e \textbf{\underline{ripiani}}.
+L'utente può avere diritto ad uno \textbf{\underline{sconto}}, nel caso ad esempio in cui sia anche dipendente.
+
+L'ordine può presentare, in un determinato periodo, una \textbf{\underline{vendita promozionale}}, su cui verrà poi applicata una percentuale di sconto."
+\\\\\\
+L'azienda tiene a specificare la differenza tra:
+\begin{itemize}
+    \item Tipologia del prodotto (o categoria), il quale rappresenta il nome del prodotto senza le varie specifiche, ad esempio: "Iphone 13";
+    \item Versione prodotto, ovvero il prodotto con la presenza delle specifiche, ad esempio: "Iphone 13 rosso 256gb ecc.";
+    \item Prodotto, che rappresenta il singolo prodotto che viene scannerizzato tramite il suo codice a barre (univoco).
+\end{itemize}

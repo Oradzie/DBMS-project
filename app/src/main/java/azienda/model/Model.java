@@ -42,4 +42,14 @@ public interface Model {
     List<VenditaPromozionaleRaw> getPromozioni();
 
     boolean inlotraRichiestaRifornimento(Fornitore value, VersioneProdotto value1, int i);
+
+    String getCurrentUser();
+
+    void setLastOrderAdded(String codiceOrdine);
+
+    String getLastOrderAdded();
+
+    void setLastLineaAdded(Integer numeroLinea);
+
+    Integer getLastLineaAdded();
 }

@@ -12,6 +12,8 @@ public final class DBModel implements Model {
 
     private final Connection connection;
     private Utente currentUSer;
+    private String lastOrderAdded = "";
+    private Integer lastLineaAdded = 0;
 
     public DBModel(Connection connection) {
         Objects.requireNonNull(connection, "Model created with null connection");
@@ -128,5 +130,30 @@ public final class DBModel implements Model {
             final int quantity) {
         final Dipendente user = (Dipendente) this.currentUSer;
         return Rifornimento.DAO.addRifornimento(this.connection, user.getCodiceFiscale(), fornitore, quantity);
+    }
+
+    @Override
+    public String getCurrentUser() {
+        return this.currentUSer.getCodiceFiscale();
+    }
+
+    @Override
+    public void setLastOrderAdded(String codiceOrdine) {
+        this.lastOrderAdded = codiceOrdine;
+    }
+
+    @Override
+    public String getLastOrderAdded() {
+        return this.lastOrderAdded;
+    }
+
+    @Override
+    public void setLastLineaAdded(Integer numeroLinea) {
+        this.lastLineaAdded = numeroLinea;
+    }
+
+    @Override
+    public Integer getLastLineaAdded() {
+        return this.lastLineaAdded;
     }
 }

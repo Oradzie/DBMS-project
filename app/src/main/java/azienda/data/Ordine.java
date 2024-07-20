@@ -3,7 +3,11 @@ package azienda.data;
 import java.time.LocalDate;
 import azienda.commons.DAOException;
 import azienda.commons.DAOUtils;
-import java.util.*;
+import azienda.commons.Pair;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -50,7 +54,7 @@ public class Ordine {
         return codiceFiscale;
     }
 
-    public static class DAO{
+    public static class DAO {
         public static List<StoricoOrdiniRow> showOrdini(final Connection connection,
                 final String codiceFiscale) {
             try (
@@ -77,6 +81,51 @@ public class Ordine {
                 throw new DAOException(e);
             }
         }
+
+        public static Pair<String, String> addOrdine(final Connection connection,
+                final LocalDate data, final String indirizzoDestinatario,
+                String codiceSconto, String codicePromo, final String codiceFiscale) {
+            if (codicePromo.length() < 4)
+                codicePromo = null;
+            if (codiceSconto.length() < 4)
+                codiceSconto = null;
+            String codiceOrdine = "";
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.VIEW_ORDINI);
+                    var resultSet = statement.executeQuery();) {
+                Random random = new Random();
+                List<String> codici = new ArrayList<>();
+                while (resultSet.next()) {
+                    codici.add(resultSet.getString("CodiceOrdine"));
+                }
+                do {
+                    codiceOrdine = "COD";
+                    codiceOrdine = codiceOrdine.concat(String.valueOf(random.nextInt(10000)));
+                    System.out.println(codiceOrdine);
+                } while (codici.contains(codiceOrdine));
+
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.ADD_ORDINE,
+                            codiceOrdine, data, indirizzoDestinatario, codiceSconto, codicePromo, codiceFiscale);) {
+                int result = statement.executeUpdate();
+                if (result != 0) {
+                    return new Pair<>(codiceOrdine, "Ordine inserito, ora puoi iniziare a inserire prodotti");
+                } else {
+                    return new Pair<>(codiceOrdine, "Errore nell'inserimento dell'ordine");
+                }
+
+            } catch (SQLIntegrityConstraintViolationException e) {
+                return new Pair<>(codiceOrdine, "Ordine già esistente");
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+
+        }
+
     }
-    
+
 }

@@ -65,6 +65,8 @@ public final class Controller implements Initializable {
     private VBox visualizzaPromozioniPane;
     @FXML
     private VBox visualizzaStoricoOrdiniPane;
+    @FXML
+    private VBox aggiuntaOrdinePane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -97,8 +99,9 @@ public final class Controller implements Initializable {
     public void login() {
         try {
             if (this.model != null) {
-                final Optional<Integer> result = this.model.handleLogin(dipendenteRadio.isSelected() ? this.usernameField.getText() :
-                        this.emailField.getText(), this.passwordField.getText(), this.dipendenteRadio.isSelected());
+                final Optional<Integer> result = this.model.handleLogin(
+                        dipendenteRadio.isSelected() ? this.usernameField.getText() : this.emailField.getText(),
+                        this.passwordField.getText(), this.dipendenteRadio.isSelected());
                 if (result.isPresent()) {
                     System.out.println("Login successful!");
                     if (result.get() == 0) {
@@ -146,7 +149,8 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox inserimentoMagazzinierePane = new FXMLLoader(getClass().getResource("/azienda/view/inserimentoMagazziniere.fxml")).load();
+            final VBox inserimentoMagazzinierePane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/inserimentoMagazziniere.fxml")).load();
             this.rightPane.getChildren().add(inserimentoMagazzinierePane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
@@ -159,7 +163,8 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox categoriaPiuVendutaPane = new FXMLLoader(getClass().getResource("/azienda/view/categoria-piu-venduta.fxml")).load();
+            final VBox categoriaPiuVendutaPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/categoria-piu-venduta.fxml")).load();
             this.rightPane.getChildren().add(categoriaPiuVendutaPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
@@ -172,13 +177,13 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox salesChartPane = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml")).load();
+            final VBox salesChartPane = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml"))
+                    .load();
             this.rightPane.getChildren().add(salesChartPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
     }
-
 
     @FXML
     public void toggleStatisticheMagazzinieri() {
@@ -186,7 +191,8 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox statisticheMagazzinieriPane = new FXMLLoader(getClass().getResource("/azienda/view/visualizzaStatistichemagazzinieri.fxml")).load();
+            final VBox statisticheMagazzinieriPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/visualizzaStatistichemagazzinieri.fxml")).load();
             this.rightPane.getChildren().add(statisticheMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
@@ -199,7 +205,8 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox istogrammaVenditePane = new FXMLLoader(getClass().getResource("/azienda/view/istogramma-vendite.fxml")).load();
+            final VBox istogrammaVenditePane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/istogramma-vendite.fxml")).load();
             this.rightPane.getChildren().add(istogrammaVenditePane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
@@ -212,7 +219,8 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(getClass().getResource("/azienda/view/visualizzaDatiMagazzinieri.fxml")).load();
+            final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/visualizzaDatiMagazzinieri.fxml")).load();
             this.rightPane.getChildren().add(visualizzaDatiMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
@@ -225,7 +233,8 @@ public final class Controller implements Initializable {
             this.rightPane.getChildren().clear();
         }
         try {
-            final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(getClass().getResource("/azienda/view/richiesta-rifornimento.fxml")).load();
+            final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/richiesta-rifornimento.fxml")).load();
             this.rightPane.getChildren().add(visualizzaDatiMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
@@ -283,8 +292,15 @@ public final class Controller implements Initializable {
     }
 
     @FXML
-    public void toggleVisualizzaStoricoOrdini(){
+    public void toggleVisualizzaStoricoOrdini() {
         this.visualizzaStoricoOrdiniPane.setDisable(false);
         this.visualizzaStoricoOrdiniPane.setVisible(!this.visualizzaStoricoOrdiniPane.isVisible());
+    }
+
+    @FXML
+    public void toggleAggiungiOrdine() {
+        this.aggiuntaOrdinePane.setDisable(false);
+        this.aggiuntaOrdinePane.setVisible(!this.aggiuntaOrdinePane.isVisible());
+
     }
 }

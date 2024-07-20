@@ -36,21 +36,11 @@ public final class Controller implements Initializable {
     @FXML
     private ToggleGroup accessToggle;
     @FXML
-    private VBox inserimentoIndirizzoPane;
-    @FXML
     private Pane rightPaneAdmin;
     @FXML
     private Pane rightPaneMag;
     @FXML
     private Pane rightPaneUser;
-    @FXML
-    private VBox visualizzaProdottiDispPane;
-    @FXML
-    private VBox visualizzaPromozioniPane;
-    @FXML
-    private VBox visualizzaStoricoOrdiniPane;
-    @FXML
-    private VBox aggiuntaOrdinePane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,6 +48,9 @@ public final class Controller implements Initializable {
         utenteOnlineRadio.setToggleGroup(accessToggle);
         dipendenteRadio.setToggleGroup(accessToggle);
         dipendenteRadio.setSelected(true);
+        emailField.setOnAction(event -> login());
+        usernameField.setOnAction(event -> login());
+        passwordField.setOnAction(event -> login());
     }
 
     public final void setModel(final Model model) {

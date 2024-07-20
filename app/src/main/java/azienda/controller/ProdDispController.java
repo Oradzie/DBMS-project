@@ -25,13 +25,12 @@ public class ProdDispController {
     private TableColumn<VersioneProdotto, String> codiceProdotto;
 
     @FXML
-    private void loadProducts() {
+    public void initialize() {
         final List<VersioneProdotto> prodotti = App.CONTROLLER.getModel().getVersioniProdotto();
         nomeProdotto.setCellValueFactory(new PropertyValueFactory<>("NomeProdotto"));
         specifiche.setCellValueFactory(new PropertyValueFactory<>("Specifiche"));
         disponibilita.setCellValueFactory(new PropertyValueFactory<>("Disponibilita"));
         codiceProdotto.setCellValueFactory(new PropertyValueFactory<>("CodiceProdotto"));
-
         // Simulate data loading
         ObservableList<VersioneProdotto> data = FXCollections.observableArrayList(
                 prodotti);

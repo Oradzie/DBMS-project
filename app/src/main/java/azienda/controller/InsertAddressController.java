@@ -19,8 +19,7 @@ public class InsertAddressController {
     private TextField NumCivico;
 
     @FXML
-    public void toggleSalvaIndirizzo() {
-
+    public void salvaIndirizzo() {
         controller.getView()
                 .showError(Indirizzo.DAO.addAddress(controller.getModel().getConnection(), this.Via.getText(),
                         this.Citta.getText(), this.CAP.getText(),

@@ -4,6 +4,7 @@ import azienda.App;
 import azienda.commons.Pair;
 import azienda.data.Ordine;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
@@ -18,7 +19,6 @@ public class AggiungiOrdineController {
     private TextField codiceSconto;
     @FXML
     private TextField codicePromo;
-
     @FXML
     private VBox aggiungiAlCarrelloPane;
 

@@ -45,7 +45,7 @@ public class VisualizzaStoricoOrdiniController {
     private TableColumn<StoricoOrdiniRow, String> nomeCompletoColumn;
 
     @FXML
-    public void showOrders() {
+    public void initialize() {
         List<StoricoOrdiniRow> orders = App.CONTROLLER.getModel().getStoricoOrdini();
         ObservableList<StoricoOrdiniRow> ordersList = FXCollections.observableArrayList(orders);
         codiceOrdineColumn.setCellValueFactory(new PropertyValueFactory<>("codiceOrdine"));

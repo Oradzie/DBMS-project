@@ -8,14 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0">
+<HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0" stylesheets="@style.css">
     <VBox alignment="TOP_CENTER" spacing="10.0">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
         </padding>
 
-        <Label text="DASHBOARD UTENTE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold;"/>
-
+        <Label text="DASHBOARD UTENTE" styleClass="header-label"/>
         <GridPane hgap="10.0" vgap="10.0">
             <Button text="Visualizza Prodotti Disponibili" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleVisualizzaProdottiDisponibili"/>
             <Button text="Visualizza Storico Ordini" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleVisualizzaStoricoOrdini"/>
@@ -24,11 +23,11 @@
             <Button text="Aggiungi Ordine" GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#toggleAggiungiOrdine"/>
         </GridPane>
     </VBox>
-
-     <!-- Contenitore per il form di inserimento -->
-    <fx:include fx:id="inserimentoIndirizzoPane" source="inserimentoIndirizzo.fxml"/>
-    <fx:include fx:id="visualizzaProdottiDispPane" source="visualizzaProdottiDisponibili.fxml"/>
-    <fx:include fx:id="visualizzaStoricoOrdiniPane" source="visualizzaStoricoOrdini.fxml"/>
-    <fx:include fx:id="visualizzaPromozioniPane" source="visualizzaPromozioni.fxml"/>
-    <fx:include fx:id="aggiuntaOrdinePane" source="aggiungiOrdine.fxml"/>
+    <Pane fx:id="rightPaneUser"/>
+<!--     &lt;!&ndash; Contenitore per il form di inserimento &ndash;&gt;-->
+<!--    <fx:include fx:id="inserimentoIndirizzoPane" source="inserimentoIndirizzo.fxml"/>-->
+<!--    <fx:include fx:id="visualizzaProdottiDispPane" source="visualizzaProdottiDisponibili.fxml"/>-->
+<!--    <fx:include fx:id="visualizzaStoricoOrdiniPane" source="visualizzaStoricoOrdini.fxml"/>-->
+<!--    <fx:include fx:id="visualizzaPromozioniPane" source="visualizzaPromozioni.fxml"/>-->
+<!--    <fx:include fx:id="aggiuntaOrdinePane" source="aggiungiOrdine.fxml"/>-->
 </HBox>

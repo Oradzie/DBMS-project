@@ -36,27 +36,13 @@ public final class Controller implements Initializable {
     @FXML
     private ToggleGroup accessToggle;
     @FXML
-    private VBox inserimentoProdottoPane;
-    @FXML
-    private VBox eliminazioneProdottoPane;
-    @FXML
-    private VBox VisualizzaQuantitaPane;
-    @FXML
     private VBox inserimentoIndirizzoPane;
     @FXML
     private Pane rightPaneAdmin;
     @FXML
     private Pane rightPaneMag;
     @FXML
-    private TextField NumeroSeriale;
-    @FXML
-    private TextField CodiceLotto;
-    @FXML
-    private TextField CodiceProdotto;
-    @FXML
-    private TextField CodRipiano;
-    @FXML
-    private VBox rifornimentoPane;
+    private Pane rightPaneUser;
     @FXML
     private VBox visualizzaProdottiDispPane;
     @FXML
@@ -282,40 +268,71 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleInserimentoIndirizzo() {
-        this.inserimentoIndirizzoPane.setDisable(false);
-        this.inserimentoIndirizzoPane.setVisible(!this.inserimentoIndirizzoPane.isVisible());
-
-    }
-
-    @FXML
-    public void toggleSalvaProdotto() {
-        this.view.showError(Prodotto.DAO.addProduct(model.getConnection(), this.NumeroSeriale.getText(),
-                this.CodiceLotto.getText(), this.CodiceProdotto.getText(),
-                this.CodRipiano.getText()));
+        if (!this.rightPaneUser.getChildren().isEmpty()) {
+            this.rightPaneUser.getChildren().clear();
+        }
+        try {
+            final VBox inserimentoIndirizzoPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/inserimentoIndirizzo.fxml")).load();
+            this.rightPaneUser.getChildren().add(inserimentoIndirizzoPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML
     public void toggleVisualizzaProdottiDisponibili() {
-        this.visualizzaProdottiDispPane.setDisable(false);
-        this.visualizzaProdottiDispPane.setVisible(!this.visualizzaProdottiDispPane.isVisible());
+        if (!this.rightPaneUser.getChildren().isEmpty()) {
+            this.rightPaneUser.getChildren().clear();
+        }
+        try {
+            final VBox visualizzaProdottiDispPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/visualizzaProdottiDisponibili.fxml")).load();
+            this.rightPaneUser.getChildren().add(visualizzaProdottiDispPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML
     public void toggleVisualizzaPromozioni() {
-        this.visualizzaPromozioniPane.setDisable(false);
-        this.visualizzaPromozioniPane.setVisible(!this.visualizzaPromozioniPane.isVisible());
+        if (!this.rightPaneUser.getChildren().isEmpty()) {
+            this.rightPaneUser.getChildren().clear();
+        }
+        try {
+            final VBox visualizzaPromozioniPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/visualizzaPromozioni.fxml")).load();
+            this.rightPaneUser.getChildren().add(visualizzaPromozioniPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML
     public void toggleVisualizzaStoricoOrdini() {
-        this.visualizzaStoricoOrdiniPane.setDisable(false);
-        this.visualizzaStoricoOrdiniPane.setVisible(!this.visualizzaStoricoOrdiniPane.isVisible());
+        if (!this.rightPaneUser.getChildren().isEmpty()) {
+            this.rightPaneUser.getChildren().clear();
+        }
+        try {
+            final VBox visualizzaStoricoOrdiniPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/visualizzaStoricoOrdini.fxml")).load();
+            this.rightPaneUser.getChildren().add(visualizzaStoricoOrdiniPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML
     public void toggleAggiungiOrdine() {
-        this.aggiuntaOrdinePane.setDisable(false);
-        this.aggiuntaOrdinePane.setVisible(!this.aggiuntaOrdinePane.isVisible());
-
+        if (!this.rightPaneUser.getChildren().isEmpty()) {
+            this.rightPaneUser.getChildren().clear();
+        }
+        try {
+            final VBox aggiuntaOrdinePane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/aggiungiOrdine.fxml")).load();
+            this.rightPaneUser.getChildren().add(aggiuntaOrdinePane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 }

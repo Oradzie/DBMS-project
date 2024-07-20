@@ -7,13 +7,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.InsertAddressController" spacing="10.0" alignment="TOP_CENTER" visible="false" disable="true">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.InsertAddressController" spacing="10.0" alignment="TOP_CENTER" stylesheets="@style.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-
-    <Label text="Inserimento Nuovo Indirizzo" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-
+    <Label text="Inserimento Nuovo Indirizzo" styleClass="entry-label"/>
     <GridPane hgap="10.0" vgap="10.0">
         <Label text="Via:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
         <TextField fx:id="Via" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
@@ -26,8 +24,6 @@
 
         <Label text="Numero Civico:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
         <TextField fx:id="NumCivico" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-
-        </GridPane>
-
-    <Button text="Salva" onAction="#toggleSalvaIndirizzo"/>
+    </GridPane>
+    <Button text="Salva" onAction="#salvaIndirizzo"/>
 </VBox>

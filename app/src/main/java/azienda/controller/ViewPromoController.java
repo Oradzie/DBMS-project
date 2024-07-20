@@ -26,7 +26,7 @@ public class ViewPromoController {
     private TableColumn<VenditaPromozionaleRaw, String> codicePromo;
 
     @FXML
-    private void loadPromotions() {
+    public void initialize() {
         final List<VenditaPromozionaleRaw> promozioni = App.CONTROLLER.getModel().getPromozioni();
         dataInizio.setCellValueFactory(new PropertyValueFactory<>("DataInizio"));
         dataFine.setCellValueFactory(new PropertyValueFactory<>("DataFine"));

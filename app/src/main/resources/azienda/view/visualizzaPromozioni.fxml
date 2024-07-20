@@ -8,13 +8,11 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ViewPromoController" visible="false" disable="true" spacing="10.0" alignment="CENTER">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ViewPromoController" spacing="10.0" alignment="CENTER" stylesheets="@style.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-
-    <Label text="Vendite Promozionali" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-
+    <Label text="Vendite Promozionali" styleClass="entry-label"/>
     <TableView fx:id="tableView" prefWidth="500">
         <columns>
             <TableColumn fx:id="dataInizio" text="Data Inizio" prefWidth="150">
@@ -39,6 +37,4 @@
             </TableColumn>
         </columns>
     </TableView>
-
-    <Button text="Carica Promozioni" onAction="#loadPromotions"/>
 </VBox>

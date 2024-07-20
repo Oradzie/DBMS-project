@@ -8,13 +8,11 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.VisualizzaStoricoOrdiniController" visible="false" disable="true" spacing="10.0" alignment="CENTER">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.VisualizzaStoricoOrdiniController" spacing="10.0" alignment="CENTER" stylesheets="@style.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-
-    <Label text="Storico Ordini" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-
+    <Label text="Storico Ordini" styleClass="entry-label"/>
     <TableView fx:id="storicoOrdiniTable" prefWidth="800" prefHeight="600">
         <columns>
             <TableColumn fx:id="codiceOrdineColumn" text="Codice Ordine">
@@ -89,6 +87,4 @@
             </TableColumn>
         </columns>
     </TableView>
-
-    <Button text="Show" onAction="#showOrders"/>
 </VBox>

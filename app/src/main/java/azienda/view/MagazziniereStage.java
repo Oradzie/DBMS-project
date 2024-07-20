@@ -22,7 +22,7 @@ public class MagazziniereStage extends Stage {
             this.setMaximized(true);
             this.show();
         } catch (IOException e) {
-            e.printStackTrace();
+            App.CONTROLLER.getView().showError(e.getMessage());
         }
     }
 

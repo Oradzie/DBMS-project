@@ -236,8 +236,13 @@ public final class Queries {
             """;
                      
         public static final String LIST_PROMOZIONI = """
-                        SELECT *
-                        FROM azienda.venditapromozionale;
-                        """;
+                SELECT *
+                FROM azienda.venditapromozionale;
+                """;
+
+        public static final String ADD_RIFORNIMENTO =
+                """
+                CALL AggiungiRifornimentoLottoQuantita(?, ?, ?);
+                """;
 
 }

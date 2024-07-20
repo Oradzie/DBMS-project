@@ -19,8 +19,7 @@ public class InsertProdController {
     private TextField CodRipiano;
 
     @FXML
-    public void toggleSalvaProdotto() {
-
+    public void salvaProdotto() {
         controller.getView()
                 .showError(Prodotto.DAO.addProduct(controller.getModel().getConnection(), this.NumeroSeriale.getText(),
                         this.CodiceLotto.getText(), this.CodiceProdotto.getText(),

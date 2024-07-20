@@ -7,18 +7,14 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ViewProdController" spacing="10.0" alignment="TOP_CENTER" visible="false" disable="true">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ViewProdController" spacing="10.0" alignment="TOP_CENTER" stylesheets="@style.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-
-    <Label text="Visualizza quantità Prodotto" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-
+    <Label text="Visualizza quantità Prodotto" styleClass="entry-label"/>
     <GridPane hgap="10.0" vgap="10.0">
         <Label text="Codice Prodotto:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
         <TextField fx:id="CodiceProdotto" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-
-        </GridPane>
-
-    <Button text="Visualizza" onAction = "#toggleVisualizzaProdotto"/>
+    </GridPane>
+    <Button text="Visualizza" onAction = "#visualizzaProdotto"/>
 </VBox>

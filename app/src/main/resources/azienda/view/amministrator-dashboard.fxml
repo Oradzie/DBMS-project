@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0">
+<HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0" stylesheets="@style.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <VBox alignment="TOP_LEFT" spacing="10.0">
-        <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold; -fx-font-size: 24px;"/>
+    <VBox spacing="10.0">
+        <Label text="DASHBOARD AMMINISTRATORE" styleClass="header-label"/>
 
         <GridPane hgap="10.0" vgap="10.0">
             <Button text="Inserimento Magazziniere" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleInserimentoMagazziniere"/>
@@ -27,5 +27,5 @@
         </GridPane>
     </VBox>
 
-    <Pane fx:id="rightPane"/>
+    <Pane fx:id="rightPaneAdmin"/>
 </HBox>

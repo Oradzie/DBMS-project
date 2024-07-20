@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0">
+<HBox xmlns:fx="http://javafx.com/fxml/1" spacing="20.0" stylesheets="@style.css">
     <VBox alignment="TOP_CENTER" spacing="10.0">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
         </padding>
 
-        <Label text="DASHBOARD MAGAZZINIERE" styleClass="header-label" style="-fx-text-fill: #8B0000; -fx-font-weight: bold;"/>
+        <Label text="DASHBOARD MAGAZZINIERE" styleClass="header-label"/>
 
         <GridPane hgap="10.0" vgap="10.0">
             <Button text="Eliminazione Prodotto" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleEliminazioneProdotto"/>
@@ -23,9 +23,6 @@
         </GridPane>
     </VBox>
 
-    <!-- Contenitore per il form di inserimento -->
-    <fx:include fx:id="inserimentoProdottoPane" source="inserimentoProdotto.fxml"/>
-    <fx:include fx:id="eliminazioneProdottoPane" source="eliminazioneProdotto.fxml"/>
-    <fx:include fx:id="VisualizzaQuantitaPane" source="VisualizzaQuantitaProdotto.fxml"/>
+    <Pane fx:id="rightPaneMag"/>
 </HBox>
 

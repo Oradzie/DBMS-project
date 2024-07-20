@@ -36,10 +36,6 @@ public final class Controller implements Initializable {
     @FXML
     private ToggleGroup accessToggle;
     @FXML
-    private VBox categoriaPiuVendutaPane;
-    @FXML
-    private VBox andamentoVenditePane;
-    @FXML
     private VBox inserimentoProdottoPane;
     @FXML
     private VBox eliminazioneProdottoPane;
@@ -48,7 +44,9 @@ public final class Controller implements Initializable {
     @FXML
     private VBox inserimentoIndirizzoPane;
     @FXML
-    private Pane rightPane;
+    private Pane rightPaneAdmin;
+    @FXML
+    private Pane rightPaneMag;
     @FXML
     private TextField NumeroSeriale;
     @FXML
@@ -103,7 +101,6 @@ public final class Controller implements Initializable {
                         dipendenteRadio.isSelected() ? this.usernameField.getText() : this.emailField.getText(),
                         this.passwordField.getText(), this.dipendenteRadio.isSelected());
                 if (result.isPresent()) {
-                    System.out.println("Login successful!");
                     if (result.get() == 0) {
                         this.view.showAmministratorDashboard();
                     } else if (result.get() == 1) {
@@ -145,13 +142,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleInserimentoMagazziniere() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox inserimentoMagazzinierePane = new FXMLLoader(
                     getClass().getResource("/azienda/view/inserimentoMagazziniere.fxml")).load();
-            this.rightPane.getChildren().add(inserimentoMagazzinierePane);
+            this.rightPaneAdmin.getChildren().add(inserimentoMagazzinierePane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -159,13 +156,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleCategoriaVenduta() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox categoriaPiuVendutaPane = new FXMLLoader(
                     getClass().getResource("/azienda/view/categoria-piu-venduta.fxml")).load();
-            this.rightPane.getChildren().add(categoriaPiuVendutaPane);
+            this.rightPaneAdmin.getChildren().add(categoriaPiuVendutaPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -173,13 +170,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleSalesChartPane() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox salesChartPane = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml"))
                     .load();
-            this.rightPane.getChildren().add(salesChartPane);
+            this.rightPaneAdmin.getChildren().add(salesChartPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -187,13 +184,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleStatisticheMagazzinieri() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox statisticheMagazzinieriPane = new FXMLLoader(
                     getClass().getResource("/azienda/view/visualizzaStatistichemagazzinieri.fxml")).load();
-            this.rightPane.getChildren().add(statisticheMagazzinieriPane);
+            this.rightPaneAdmin.getChildren().add(statisticheMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -201,13 +198,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleIstogrammaChartPane() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox istogrammaVenditePane = new FXMLLoader(
                     getClass().getResource("/azienda/view/istogramma-vendite.fxml")).load();
-            this.rightPane.getChildren().add(istogrammaVenditePane);
+            this.rightPaneAdmin.getChildren().add(istogrammaVenditePane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -215,13 +212,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleDatiMagazzinieri() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(
                     getClass().getResource("/azienda/view/visualizzaDatiMagazzinieri.fxml")).load();
-            this.rightPane.getChildren().add(visualizzaDatiMagazzinieriPane);
+            this.rightPaneAdmin.getChildren().add(visualizzaDatiMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -229,13 +226,13 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleRichiestaRifornimentoPage() {
-        if (!this.rightPane.getChildren().isEmpty()) {
-            this.rightPane.getChildren().clear();
+        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
+            this.rightPaneAdmin.getChildren().clear();
         }
         try {
             final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(
                     getClass().getResource("/azienda/view/richiesta-rifornimento.fxml")).load();
-            this.rightPane.getChildren().add(visualizzaDatiMagazzinieriPane);
+            this.rightPaneAdmin.getChildren().add(visualizzaDatiMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }
@@ -243,26 +240,44 @@ public final class Controller implements Initializable {
 
     @FXML
     public void toggleInserimentoProdotto() {
-        this.inserimentoProdottoPane.setDisable(false);
-        this.inserimentoProdottoPane.setVisible(!this.inserimentoProdottoPane.isVisible());
-        this.eliminazioneProdottoPane.setVisible(false);
-        this.VisualizzaQuantitaPane.setVisible(false);
+        if (!this.rightPaneMag.getChildren().isEmpty()) {
+            this.rightPaneMag.getChildren().clear();
+        }
+        try {
+            final VBox inserimentoProdottoPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/inserimentoProdotto.fxml")).load();
+            this.rightPaneMag.getChildren().add(inserimentoProdottoPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML
     public void toggleEliminazioneProdotto() {
-        this.eliminazioneProdottoPane.setDisable(false);
-        this.eliminazioneProdottoPane.setVisible(!this.eliminazioneProdottoPane.isVisible());
-        this.inserimentoProdottoPane.setVisible(false);
-        this.VisualizzaQuantitaPane.setVisible(false);
+        if (!this.rightPaneMag.getChildren().isEmpty()) {
+            this.rightPaneMag.getChildren().clear();
+        }
+        try {
+            final VBox eliminazioneProdottoPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/eliminazioneProdotto.fxml")).load();
+            this.rightPaneMag.getChildren().add(eliminazioneProdottoPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML
     public void toggleVisualizzaQuantita() {
-        this.VisualizzaQuantitaPane.setDisable(false);
-        this.VisualizzaQuantitaPane.setVisible(!this.VisualizzaQuantitaPane.isVisible());
-        this.inserimentoProdottoPane.setVisible(false);
-        this.eliminazioneProdottoPane.setVisible(false);
+        if (!this.rightPaneMag.getChildren().isEmpty()) {
+            this.rightPaneMag.getChildren().clear();
+        }
+        try {
+            final VBox visualizzaQuantitaPane = new FXMLLoader(
+                    getClass().getResource("/azienda/view/visualizzaQuantitaProdotto.fxml")).load();
+            this.rightPaneMag.getChildren().add(visualizzaQuantitaPane);
+        } catch (Exception e) {
+            this.view.showError(e.getMessage());
+        }
     }
 
     @FXML

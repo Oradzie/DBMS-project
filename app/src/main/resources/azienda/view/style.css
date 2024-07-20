@@ -12,6 +12,7 @@
 
 .header-label {
     -fx-font-size: 34px;
+    -fx-text-fill: #8B0000;
     -fx-font-weight: bold;
 }
 

@@ -12,8 +12,7 @@ public class ViewProdController {
     private TextField CodiceProdotto;
 
     @FXML
-    public void toggleVisualizzaProdotto() {
-
+    public void visualizzaProdotto() {
         controller.getView()
                 .showError(
                         Prodotto.DAO.viewProduct(controller.getModel().getConnection(), this.CodiceProdotto.getText()));

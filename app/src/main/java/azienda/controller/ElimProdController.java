@@ -13,8 +13,7 @@ public class ElimProdController {
     private TextField NumeroSeriale;
 
     @FXML
-    public void toggleEliminaProdotto() {
-
+    public void eliminaProdotto() {
         controller.getView()
                 .showError(
                         Prodotto.DAO.delProduct(controller.getModel().getConnection(), this.NumeroSeriale.getText()));

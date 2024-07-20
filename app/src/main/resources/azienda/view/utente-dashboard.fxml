@@ -18,7 +18,7 @@
 
         <GridPane hgap="10.0" vgap="10.0">
             <Button text="Visualizza Prodotti Disponibili" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleVisualizzaProdottiDisponibili"/>
-            <Button text="Visualizza Storico Ordini" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleVisualizzaStoricoOrdini"/>
+            <Button text="Visualizza Storico Ordini" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="##toggleVisualizzaStoricoOrdini"/>
             <Button text="Visualizza Periodi di Promozione" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#toggleVisualizzaPromozioni" />
             <Button text="Aggiungi Indirizzo di Spedizione" GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleInserimentoIndirizzo"/>
         </GridPane>

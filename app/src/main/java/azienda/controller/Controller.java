@@ -72,6 +72,8 @@ public final class Controller implements Initializable {
     private VBox visualizzaProdottiDispPane;
     @FXML
     private VBox visualizzaPromozioniPane;
+    @FXML
+    private VBox visualizzaStoricoOrdiniPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -283,4 +285,12 @@ public final class Controller implements Initializable {
         this.visualizzaPromozioniPane.setDisable(false);
         this.visualizzaPromozioniPane.setVisible(!this.visualizzaPromozioniPane.isVisible());
     }
+
+    @FXML
+    public void toggleVisualizzaStoricoOrdini(){
+        this.visualizzaStoricoOrdiniPane.setDisable(false);
+        this.visualizzaStoricoOrdiniPane.setVisible(!this.visualizzaStoricoOrdiniPane.isVisible());
+    }   
+
+
 }

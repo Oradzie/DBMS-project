@@ -127,7 +127,6 @@ public final class DBModel implements Model {
     public boolean inlotraRichiestaRifornimento(final Fornitore fornitore, final VersioneProdotto prodotto,
             final int quantity) {
         final Dipendente user = (Dipendente) this.currentUSer;
-        return Rifornimento.DAO.addRifornimento(this.connection, user.getCodiceFiscale(), fornitore, prodotto,
-                quantity);
+        return Rifornimento.DAO.addRifornimento(this.connection, user.getCodiceFiscale(), fornitore, quantity);
     }
 }

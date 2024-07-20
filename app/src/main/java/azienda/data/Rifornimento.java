@@ -32,8 +32,8 @@ public class Rifornimento {
     
     public static final class DAO {
 
-        public static boolean addRifornimento(final Connection connection, final String codiceFiscaleAmministratore, final Fornitore fornitore,
-                                              final VersioneProdotto prodotto, final int quantity) {
+        public static boolean addRifornimento(final Connection connection, final String codiceFiscaleAmministratore,
+                                              final Fornitore fornitore, final int quantity) {
             try (
                     final PreparedStatement statement = DAOUtils.prepare(connection, Queries.ADD_RIFORNIMENTO,
                             fornitore.getCodiceFornitore(), codiceFiscaleAmministratore, quantity);) {

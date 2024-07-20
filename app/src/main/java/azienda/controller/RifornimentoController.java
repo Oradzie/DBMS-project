@@ -5,10 +5,7 @@ import azienda.data.Fornitore;
 import azienda.data.VersioneProdotto;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
-
 import java.util.Objects;
 
 public class RifornimentoController {

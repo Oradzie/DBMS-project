@@ -1,19 +1,15 @@
 package azienda.controller;
 
 import azienda.App;
-import azienda.commons.Pair;
-import azienda.data.MyTableRow;
 import azienda.data.SalesRow;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.List;
-
 
 public class MostSalesCategory {
 

@@ -7,9 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import azienda.App;
-import azienda.data.Magazziniere;
 import azienda.data.MagazziniereRow;
-import azienda.data.MyTableRow;
 import java.util.*;
 
 public class DatiMagazzinieriController {

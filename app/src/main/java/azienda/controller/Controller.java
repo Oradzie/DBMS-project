@@ -1,30 +1,21 @@
 package azienda.controller;
 
 import azienda.commons.DAOException;
-import azienda.data.Persona;
 import azienda.data.Prodotto;
 import azienda.model.Model;
 import azienda.view.MainView;
 
-import java.lang.reflect.Field;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import java.io.IOException;
 
 import javafx.scene.layout.VBox;
-import org.mindrot.jbcrypt.BCrypt;
 
 public final class Controller implements Initializable {
 
@@ -77,6 +68,12 @@ public final class Controller implements Initializable {
     private Pane visualizzaDatiMagazzinieriPane;
     @FXML
     private VBox rifornimentoPane;
+    @FXML
+    private VBox visualizzaProdottiDispPane;
+    @FXML
+    private VBox visualizzaPromozioniPane;
+    @FXML
+    private VBox visualizzaStoricoOrdiniPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -276,4 +273,24 @@ public final class Controller implements Initializable {
             }
         });
     }
+
+    @FXML
+    public void toggleVisualizzaProdottiDisponibili() {
+        this.visualizzaProdottiDispPane.setDisable(false);
+        this.visualizzaProdottiDispPane.setVisible(!this.visualizzaProdottiDispPane.isVisible());
+    }
+
+    @FXML
+    public void toggleVisualizzaPromozioni() {
+        this.visualizzaPromozioniPane.setDisable(false);
+        this.visualizzaPromozioniPane.setVisible(!this.visualizzaPromozioniPane.isVisible());
+    }
+
+    @FXML
+    public void toggleVisualizzaStoricoOrdini(){
+        this.visualizzaStoricoOrdiniPane.setDisable(false);
+        this.visualizzaStoricoOrdiniPane.setVisible(!this.visualizzaStoricoOrdiniPane.isVisible());
+    }   
+
+
 }

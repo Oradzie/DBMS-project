@@ -31,5 +31,4 @@ public class VenditaPromozionale {
     public float getPercentualeSconto() {
         return percentualeSconto;
     }
-    
 }

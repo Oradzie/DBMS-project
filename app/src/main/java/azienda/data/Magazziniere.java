@@ -1,14 +1,8 @@
 package azienda.data;
 
-import com.google.common.base.Optional;
-
 import azienda.commons.DAOException;
 import azienda.commons.DAOUtils;
-
 import java.util.*;
-
-import org.checkerframework.checker.units.qual.A;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLIntegrityConstraintViolationException;

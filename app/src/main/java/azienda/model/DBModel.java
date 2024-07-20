@@ -113,8 +113,21 @@ public final class DBModel implements Model {
     }
 
     @Override
-    public boolean inlotraRichiestaRifornimento(final Fornitore fornitore, final VersioneProdotto prodotto, final int quantity) {
+    public List<VenditaPromozionaleRaw> getPromozioni() {
+        return VenditaPromozionaleRaw.DAO.list(this.connection);
+    }
+
+    @Override
+    public List<StoricoOrdiniRow> getStoricoOrdini() {
+        final UtenteOnline user = (UtenteOnline) this.currentUSer;
+        return Ordine.DAO.showOrdini(this.connection, user.getCodiceFiscale());
+    }
+
+    @Override
+    public boolean inlotraRichiestaRifornimento(final Fornitore fornitore, final VersioneProdotto prodotto,
+            final int quantity) {
         final Dipendente user = (Dipendente) this.currentUSer;
-        return Rifornimento.DAO.addRifornimento(this.connection, user.getCodiceFiscale(), fornitore, prodotto, quantity);
+        return Rifornimento.DAO.addRifornimento(this.connection, user.getCodiceFiscale(), fornitore, prodotto,
+                quantity);
     }
 }

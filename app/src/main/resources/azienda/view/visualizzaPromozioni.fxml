@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ViewPromoController" visible="false" disable="true" spacing="10.0" alignment="CENTER">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Vendite Promozionali" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableView" prefWidth="500">
+        <columns>
+            <TableColumn fx:id="dataInizio" text="Data Inizio" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dataInizio"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="dataFine" text="Data Fine" prefWidth="150">
+                <cellValueFactory>
+                    <PropertyValueFactory property="dataFine"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="percentualeSconto" text="Percentuale Sconto" prefWidth="75">
+                <cellValueFactory>
+                    <PropertyValueFactory property="percentualeSconto"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="codicePromo" text="Codice Prodomo" prefWidth="125">
+                <cellValueFactory>
+                    <PropertyValueFactory property="codiceProdomo"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <Button text="Carica Promozioni" onAction="#loadPromotions"/>
+</VBox>

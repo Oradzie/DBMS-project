@@ -1,6 +1,12 @@
 package azienda.data;
 
 import java.time.LocalDate;
+import azienda.commons.DAOException;
+import azienda.commons.DAOUtils;
+import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Ordine {
 
@@ -43,6 +49,35 @@ public class Ordine {
 
     public String getCodiceFiscale() {
         return codiceFiscale;
+    }
+
+    public static class DAO{
+        public static List<StoricoOrdiniRow> showOrdini(final Connection connection,
+                final String codiceFiscale) {
+            try (
+                    final PreparedStatement statement = DAOUtils.prepare(connection, Queries.VIEW_STORICO_ORDINI,
+                            codiceFiscale);
+                    var resultSet = statement.executeQuery();) {
+                final List<StoricoOrdiniRow> storicoOrdini = new ArrayList<StoricoOrdiniRow>();
+                while (resultSet.next()) {
+                    storicoOrdini.add(new StoricoOrdiniRow(resultSet.getString("codiceOrdine"),
+                            resultSet.getString("dataOrdine"), resultSet.getString("indirizzoDestinatario"),
+                            resultSet.getString("codiceSconto"), resultSet.getDouble("percentualeScontoUtente"),
+                            resultSet.getDouble("percentualeScontoPromo"),
+                            resultSet.getString("codiceProdotto"),
+                            resultSet.getString("specifiche"),
+                            resultSet.getInt("quantita"),
+                            resultSet.getString("numeroSeriale"),
+                            resultSet.getString("codiceLotto"),
+                            resultSet.getString("codicePacco"),
+                            resultSet.getString("codiceFiscale"),
+                            resultSet.getString("NomeCompleto")));
+                }
+                return storicoOrdini;
+            } catch (Exception e) {
+                throw new DAOException(e);
+            }
+        }
     }
     
 }

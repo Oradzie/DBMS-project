@@ -37,5 +37,9 @@ public interface Model {
 
     List<VersioneProdotto> getVersioniProdotto();
 
+    List<StoricoOrdiniRow> getStoricoOrdini();
+
+    List<VenditaPromozionaleRaw> getPromozioni();
+
     boolean inlotraRichiestaRifornimento(Fornitore value, VersioneProdotto value1, int i);
 }

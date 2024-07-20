@@ -1,11 +1,9 @@
 package azienda.view;
 
 import azienda.App;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,6 +21,20 @@ public class UtenteStage extends Stage {
             FXMLLoader insIndLoader = new FXMLLoader(getClass().getResource(insIndPath));
             // insIndLoader.setController(App.CONTROLLER);
             insIndLoader.load();
+
+            String visProdPath = "/azienda/view/visualizzaProdottiDisponibili.fxml";
+            FXMLLoader visProdLoader = new FXMLLoader(getClass().getResource(visProdPath));
+            // insIndLoader.setController(App.CONTROLLER);
+            visProdLoader.load();
+
+            String visStoricoOrdiniPath = "/azienda/view/visualizzaProdottiDisponibili.fxml";
+            FXMLLoader visStoricoOrdiniLoader = new FXMLLoader(getClass().getResource(visStoricoOrdiniPath));
+            visStoricoOrdiniLoader.load();
+
+            String visPromoPath = "/azienda/view/visualizzaPromozioni.fxml";
+            FXMLLoader visPromoLoader = new FXMLLoader(getClass().getResource(visPromoPath));
+            visPromoLoader.load();
+            visStoricoOrdiniLoader.load();
 
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");

@@ -25,7 +25,6 @@ public final class DBModel implements Model {
                     .flatMap(dipendente -> {
                         if (dipendente.getPassword().equals(password)) {
                             this.currentUSer = dipendente;
-                            System.out.println(dipendente.getCodiceDipendente() + ": " + dipendente.isAdmin());
                             if (dipendente.isAdmin()) {
                                 return Optional.of(0);
                             } else {
@@ -111,5 +110,11 @@ public final class DBModel implements Model {
     @Override
     public List<VersioneProdotto> getVersioniProdotto() {
         return VersioneProdotto.DAO.list(this.connection);
+    }
+
+    @Override
+    public boolean inlotraRichiestaRifornimento(final Fornitore fornitore, final VersioneProdotto prodotto, final int quantity) {
+        final Dipendente user = (Dipendente) this.currentUSer;
+        return Rifornimento.DAO.addRifornimento(this.connection, user.getCodiceFiscale(), fornitore, prodotto, quantity);
     }
 }

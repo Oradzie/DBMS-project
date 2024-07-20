@@ -203,6 +203,11 @@ public final class Queries {
     public static final String LIST_VERSIONE_PRODOTTO =
             """
             SELECT *
-            FROM azienda.versioneprodotto;     
+            FROM azienda.versioneprodotto;
+            """;
+
+    public static final String ADD_RIFORNIMENTO =
+            """                                
+            CALL AggiungiRifornimentoLottoQuantita(?, ?, ?);
             """;
 }

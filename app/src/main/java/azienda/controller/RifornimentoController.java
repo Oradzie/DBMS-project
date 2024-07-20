@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 
+import java.util.Objects;
+
 public class RifornimentoController {
 
     @FXML
@@ -31,6 +33,11 @@ public class RifornimentoController {
     }
 
     public void confermaRifornimento() {
-        System.out.println("Rifornimento confermanto...");
+        if (Objects.nonNull(boxFornitore.getValue()) && Objects.nonNull(boxProdotto.getValue()) && !quantity.getText().isEmpty()) {
+            App.CONTROLLER.getModel().inlotraRichiestaRifornimento(boxFornitore.getValue(), boxProdotto.getValue(), Integer.parseInt(quantity.getText()));
+            App.CONTROLLER.getView().showError("Rifornimento effettuato con successo!");
+        } else {
+            App.CONTROLLER.getView().showError("Errore, compilare tutti i campi!");
+        }
     }
 }

@@ -36,4 +36,6 @@ public interface Model {
     List<Fornitore> getFornitori();
 
     List<VersioneProdotto> getVersioniProdotto();
+
+    boolean inlotraRichiestaRifornimento(Fornitore value, VersioneProdotto value1, int i);
 }

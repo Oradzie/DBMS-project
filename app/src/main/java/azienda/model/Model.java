@@ -31,8 +31,6 @@ public interface Model {
 
     List<SalesRow> getSalesStatistics();
 
-    List<MagazziniereRow> getDatiMagazzinieri();
-
     List<Fornitore> getFornitori();
 
     List<VersioneProdotto> getVersioniProdotto();

@@ -235,4 +235,8 @@ public final class Queries {
             FROM azienda.venditapromozionale;
             """;
 
+    public static final String ADD_RIFORNIMENTO =
+            """
+            CALL AggiungiRifornimentoLottoQuantita(?, ?, ?);
+            """;
 }

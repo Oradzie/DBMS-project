@@ -21,7 +21,7 @@
     <Label text="Seleziona un prodotto" styleClass="entry-label"/>
     <ComboBox fx:id="boxProdotto"/>
 
-    <Label text="Scegli la qunatitá di lotti" styleClass="entry-label"/>
+    <Label text="Scegli la quantitá di lotti" styleClass="entry-label"/>
     <TextField fx:id="quantity" promptText="Inserisci la quantitá"/>
 
     <Button fx:id="sendOrderButton" text="Send order" onAction="#confermaRifornimento"/>

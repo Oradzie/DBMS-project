@@ -106,9 +106,8 @@ public final class Controller implements Initializable {
     public void login() {
         try {
             if (this.model != null) {
-                final Optional<Integer> result = this.model.handleLogin(
-                        this.usernameField.getText() + this.emailField.getText(),
-                        this.passwordField.getText(), this.dipendenteRadio.isSelected());
+                final Optional<Integer> result = this.model.handleLogin(dipendenteRadio.isSelected() ? this.usernameField.getText() :
+                        this.emailField.getText(), this.passwordField.getText(), this.dipendenteRadio.isSelected());
                 if (result.isPresent()) {
                     System.out.println("Login successful!");
                     if (result.get() == 0) {
@@ -136,12 +135,17 @@ public final class Controller implements Initializable {
         if (utenteOnlineRadio.isSelected()) {
             emailField.setVisible(true);
             usernameField.setVisible(false);
+            usernameField.clear();
+            passwordField.clear();
         } else if (dipendenteRadio.isSelected()) {
             emailField.setVisible(false);
+            emailField.clear();
             usernameField.setVisible(true);
+            passwordField.clear();
         } else {
-            emailField.setDisable(true);
-            usernameField.setDisable(true);
+            emailField.setDisable(false);
+            usernameField.setDisable(false);
+            passwordField.clear();
         }
     }
 

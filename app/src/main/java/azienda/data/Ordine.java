@@ -6,7 +6,6 @@ import azienda.commons.DAOUtils;
 import java.util.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLIntegrityConstraintViolationException;
 
 public class Ordine {
 
@@ -60,17 +59,17 @@ public class Ordine {
                     var resultSet = statement.executeQuery();) {
                 final List<StoricoOrdiniRow> storicoOrdini = new ArrayList<StoricoOrdiniRow>();
                 while (resultSet.next()) {
-                    storicoOrdini.add(new StoricoOrdiniRow(resultSet.getString("codiceOrdine"),
-                            resultSet.getString("dataOrdine"), resultSet.getString("indirizzoDestinatario"),
-                            resultSet.getString("codiceSconto"), resultSet.getDouble("percentualeScontoUtente"),
-                            resultSet.getDouble("percentualeScontoPromo"),
-                            resultSet.getString("codiceProdotto"),
-                            resultSet.getString("specifiche"),
-                            resultSet.getInt("quantita"),
-                            resultSet.getString("numeroSeriale"),
-                            resultSet.getString("codiceLotto"),
-                            resultSet.getString("codicePacco"),
-                            resultSet.getString("codiceFiscale"),
+                    storicoOrdini.add(new StoricoOrdiniRow(resultSet.getString("CodiceOrdine"),
+                            resultSet.getString("DataOrdine"), resultSet.getString("IndirizzoDestinatario"),
+                            resultSet.getString("CodiceSconto"), resultSet.getDouble("PercentualeScontoUtente"),
+                            resultSet.getDouble("PercentualeSconto"),
+                            resultSet.getString("CodiceProdotto"),
+                            resultSet.getString("Specifiche"),
+                            resultSet.getInt("Quantita"),
+                            resultSet.getString("NumeroSeriale"),
+                            resultSet.getString("CodiceLotto"),
+                            resultSet.getString("CodPacco"),
+                            resultSet.getString("CodiceFiscale"),
                             resultSet.getString("NomeCompleto")));
                 }
                 return storicoOrdini;

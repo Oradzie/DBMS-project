@@ -34,7 +34,7 @@ public class DatiMagazzinieriController {
     private TableColumn<MagazziniereRow, String> numCivicoColumn;
 
     @FXML
-    private void loadData() {
+    private void initialize() {
         final List<MagazziniereRow> datiMagazzinieri = App.CONTROLLER.getModel().getDatiMagazzinieri();
         codiceDipendenteColumn.setCellValueFactory(new PropertyValueFactory<>("codiceDipendente"));
         cognomeColumn.setCellValueFactory(new PropertyValueFactory<>("cognome"));
@@ -46,7 +46,7 @@ public class DatiMagazzinieriController {
         numCivicoColumn.setCellValueFactory(new PropertyValueFactory<>("numCivico"));
         // Simulate data loading
         ObservableList<MagazziniereRow> data = FXCollections.observableArrayList(
-            datiMagazzinieri
+                datiMagazzinieri
         );
         tableView.setItems(data);
     }

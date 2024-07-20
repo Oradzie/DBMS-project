@@ -17,20 +17,6 @@ public class AdminStage extends Stage {
             adminLoader.setController(App.CONTROLLER);
             Parent adminRoot = adminLoader.load();
 
-            // Caricamento dell'FXML dell'inserimento magazziniere
-            FXMLLoader insMagLoader = new FXMLLoader(getClass().getResource("/azienda/view/inserimentoMagazziniere.fxml"));
-            //insMagLoader.setController(App.CONTROLLER);
-            insMagLoader.load();
-
-            // Caricamento dell'FXML dell'andamento vendite
-            FXMLLoader andVenLoader = new FXMLLoader(getClass().getResource("/azienda/view/andamento-vendite.fxml"));
-//            andVenLoader.setController(new SalesChartController());
-            andVenLoader.load();
-
-            //Caricamento dell'FXML delle statistiche dei magazzinieri
-            FXMLLoader statMagLoader = new FXMLLoader(getClass().getResource("/azienda/view/visualizzaStatistichemagazzinieri.fxml"));
-            statMagLoader.load();
-
             // Creazione della scena principale
             final Scene scene = new Scene(adminRoot);
             this.setTitle("DBMS Azienda");
@@ -38,7 +24,7 @@ public class AdminStage extends Stage {
             this.setMaximized(true);
             this.show();
         } catch(IOException e){
-            e.printStackTrace();
+            App.CONTROLLER.getView().showError(e.getMessage());
         }
     }
 

@@ -10,6 +10,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 
 import java.net.URL;
+import java.time.Month;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -17,26 +18,21 @@ public class SalesChartController {
 
     @FXML
     private LineChart<String, Number> salesChart;
-    @FXML
-    private Button showButton;
 
     @FXML
-    public void showChart(final ActionEvent actionEvent) {
+    public void initialize() {
         final List<Pair<String, Integer>> salesData = App.CONTROLLER.getModel().getMonthlySales();
-        System.out.println(salesData);
         // Create a series for sales data
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Monthly Sales");
 
         for (Pair<String, Integer> pair : salesData) {
-            series.getData().add(new XYChart.Data<>(pair.first(), pair.second()));
+            series.getData().add(new XYChart.Data<>(
+                    Month.of(Integer.parseInt(pair.first())).getDisplayName(java.time.format.TextStyle.FULL, java.util.Locale.ITALIAN),
+                    pair.second()));
         }
 
         // Add series to chart
         this.salesChart.getData().add(series);
-
-        this.salesChart.setVisible(true);
-        this.salesChart.setDisable(false);
-        this.showButton.setDisable(true);
     }
 }

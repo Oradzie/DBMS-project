@@ -8,9 +8,8 @@
 <?import javafx.scene.control.Button?>
 
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.SalesChartController" spacing="10.0"
-      alignment="CENTER" visible="false" disable="true">
-    <Button fx:id="showButton" text="Show graph" onAction="#showChart"/>
-    <LineChart fx:id="salesChart" visible="false" disable="true">
+      alignment="CENTER">
+    <LineChart fx:id="salesChart">
         <xAxis>
             <CategoryAxis label="Month" />
         </xAxis>

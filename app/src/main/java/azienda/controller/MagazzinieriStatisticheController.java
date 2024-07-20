@@ -29,7 +29,7 @@ public class MagazzinieriStatisticheController {
     private TableColumn<MyTableRow, Integer> numeroPacchiPreparatiColumn;
 
     @FXML
-    public void showStatistics(){
+    public void initialize() {
         final List<MyTableRow> statistics = App.CONTROLLER.getModel().getWarehouseStatistics();
         codiceFiscaleColumn.setCellValueFactory(new PropertyValueFactory<>("codiceFiscale"));
         cognomeColumn.setCellValueFactory(new PropertyValueFactory<>("cognome"));
@@ -38,10 +38,8 @@ public class MagazzinieriStatisticheController {
         numeroPacchiPreparatiColumn.setCellValueFactory(new PropertyValueFactory<>("numeroPacchiPreparati"));
         // Fill the table with data
         ObservableList<MyTableRow> productList = FXCollections.observableArrayList(
-            statistics
+                statistics
         );
         tableView.setItems(productList);
-        
     }
-
 }

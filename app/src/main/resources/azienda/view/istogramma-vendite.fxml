@@ -7,8 +7,7 @@
 
 <?import javafx.scene.chart.BarChart?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.ProductSalesController" spacing="10.0"
-      alignment="CENTER" visible="false" disable="true">
-    <Button fx:id="showButton" text="Show graph" onAction="#showChart"/>
+      alignment="CENTER">
     <BarChart fx:id="productSalesChart" layoutX="14.0" layoutY="14.0">
         <xAxis>
             <CategoryAxis fx:id="xAxis" label="Categorie di Prodotto" />

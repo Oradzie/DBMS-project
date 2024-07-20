@@ -1,11 +1,13 @@
 package azienda.controller;
 
 import azienda.App;
+import azienda.commons.Pair;
 import azienda.data.MyTableRow;
 import azienda.data.SalesRow;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -24,7 +26,8 @@ public class MostSalesCategory {
     @FXML
     private TableColumn<SalesRow, Integer> venditeColumn;
 
-    public void showStatistics() {
+    @FXML
+    public void initialize() {
         final List<SalesRow> statistics = App.CONTROLLER.getModel().getSalesStatistics();
         meseColumn.setCellValueFactory(new PropertyValueFactory<>("Mese"));
         categoriaColumn.setCellValueFactory(new PropertyValueFactory<>("NomeProdotto"));
@@ -33,9 +36,5 @@ public class MostSalesCategory {
         // Fill the table with data
         ObservableList<SalesRow> productList = FXCollections.observableArrayList(statistics);
         tableView.setItems(productList);
-
-        this.tableView.setVisible(true);
-        this.tableView.setDisable(false);
-        System.out.println("Showing statistics");
     }
 }

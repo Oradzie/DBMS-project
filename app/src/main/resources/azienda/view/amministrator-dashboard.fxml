@@ -20,28 +20,12 @@
             <Button text="Inserimento Magazziniere" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#toggleInserimentoMagazziniere"/>
             <Button text="Categoria più Venduta" GridPane.rowIndex="1" GridPane.columnIndex="0" onAction="#toggleCategoriaVenduta"/>
             <Button text="Statistiche Magazzinieri" GridPane.rowIndex="2" GridPane.columnIndex="0" onAction="#toggleStatisticheMagazzinieri"/>
-            <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleSalesChertPane"/>
+            <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleSalesChartPane"/>
             <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#toggleIstogrammaChartPane"/>
             <Button text="Richiesta rifornimento"  GridPane.rowIndex="5" GridPane.columnIndex="0" onAction="#toggleRichiestaRifornimentoPage"/>
             <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0" onAction="#toggleDatiMagazzinieri"/>
         </GridPane>
     </VBox>
 
-    <Pane fx:id="rightPane">
-        <!-- Contenitore per il form di inserimento -->
-        <fx:include fx:id="inserimentoMagazzinierePane" source="inserimentoMagazziniere.fxml"/>
-
-        <fx:include fx:id="categoriaPiuVendutaPane" source="categoria-piu-venduta.fxml"/>
-
-        <fx:include fx:id="andamentoVenditePane" source="andamento-vendite.fxml"/>
-
-        <fx:include fx:id="statisticheMagazzinieriPane" source="visualizzaStatistichemagazzinieri.fxml"/>
-
-        <fx:include fx:id="istogrammaVenditePane" source="istogramma-vendite.fxml"/>
-
-        <fx:include fx:id="visualizzaDatiMagazzinieriPane" source="visualizzaDatiMagazzinieri.fxml"/>
-
-        <fx:include fx:id="rifornimentoPane" source="richiesta-rifornimento.fxml"/>
-    </Pane>
+    <Pane fx:id="rightPane"/>
 </HBox>
-

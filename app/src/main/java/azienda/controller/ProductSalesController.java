@@ -15,15 +15,9 @@ public class ProductSalesController {
 
     @FXML
     private BarChart<String, Number> productSalesChart;
-    @FXML
-    private CategoryAxis xAxis;
-    @FXML
-    private NumberAxis yAxis;
-    @FXML
-    private Button showButton;
 
     @FXML
-    public void showChart() {
+    public void initialize() {
         final List<Pair<String, Integer>> salesData = App.CONTROLLER.getModel().getProductSales();
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Vendite per Prodotto");
@@ -33,8 +27,5 @@ public class ProductSalesController {
         }
 
         this.productSalesChart.getData().add(series);
-        this.productSalesChart.setVisible(true);
-        this.productSalesChart.setDisable(false);
-        this.showButton.setDisable(true);
     }
 }

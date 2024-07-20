@@ -1,7 +1,6 @@
 package azienda.controller;
 
 import azienda.commons.DAOException;
-import azienda.data.Prodotto;
 import azienda.model.Model;
 import azienda.view.MainView;
 
@@ -184,20 +183,6 @@ public final class Controller implements Initializable {
             final VBox istogrammaVenditePane = new FXMLLoader(
                     getClass().getResource("/azienda/view/istogramma-vendite.fxml")).load();
             this.rightPaneAdmin.getChildren().add(istogrammaVenditePane);
-        } catch (Exception e) {
-            this.view.showError(e.getMessage());
-        }
-    }
-
-    @FXML
-    public void toggleDatiMagazzinieri() {
-        if (!this.rightPaneAdmin.getChildren().isEmpty()) {
-            this.rightPaneAdmin.getChildren().clear();
-        }
-        try {
-            final VBox visualizzaDatiMagazzinieriPane = new FXMLLoader(
-                    getClass().getResource("/azienda/view/visualizzaDatiMagazzinieri.fxml")).load();
-            this.rightPaneAdmin.getChildren().add(visualizzaDatiMagazzinieriPane);
         } catch (Exception e) {
             this.view.showError(e.getMessage());
         }

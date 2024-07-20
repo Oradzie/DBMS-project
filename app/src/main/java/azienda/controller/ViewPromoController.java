@@ -3,7 +3,6 @@ package azienda.controller;
 import java.util.List;
 
 import azienda.App;
-import azienda.data.VenditaPromozionale;
 import azienda.data.VenditaPromozionaleRaw;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

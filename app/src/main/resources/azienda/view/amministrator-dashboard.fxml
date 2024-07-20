@@ -23,7 +23,6 @@
             <Button text="Andamento Vendite"  GridPane.rowIndex="3" GridPane.columnIndex="0" onAction="#toggleSalesChartPane"/>
             <Button text="Istogramma Vendite"  GridPane.rowIndex="4" GridPane.columnIndex="0" onAction="#toggleIstogrammaChartPane"/>
             <Button text="Richiesta rifornimento"  GridPane.rowIndex="5" GridPane.columnIndex="0" onAction="#toggleRichiestaRifornimentoPage"/>
-            <Button text="Visualizzazione dati magazzinieri" GridPane.rowIndex="6" GridPane.columnIndex="0" onAction="#toggleDatiMagazzinieri"/>
         </GridPane>
     </VBox>
 

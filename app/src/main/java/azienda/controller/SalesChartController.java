@@ -2,17 +2,11 @@ package azienda.controller;
 
 import azienda.App;
 import azienda.commons.Pair;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
-
-import java.net.URL;
 import java.time.Month;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class SalesChartController {
 
@@ -28,7 +22,8 @@ public class SalesChartController {
 
         for (Pair<String, Integer> pair : salesData) {
             series.getData().add(new XYChart.Data<>(
-                    Month.of(Integer.parseInt(pair.first())).getDisplayName(java.time.format.TextStyle.FULL, java.util.Locale.ITALIAN),
+                    Month.of(Integer.parseInt(pair.first())).getDisplayName(java.time.format.TextStyle.FULL,
+                            java.util.Locale.ITALIAN),
                     pair.second()));
         }
 

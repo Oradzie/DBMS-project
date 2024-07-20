@@ -1,19 +1,11 @@
 package azienda.view;
 
-import azienda.data.Prodotto;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import azienda.App;
 
-import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
-
-import azienda.controller.Controller;
 
 public class MainView extends Application {
 

@@ -34,7 +34,6 @@ public class UtenteStage extends Stage {
             String visPromoPath = "/azienda/view/visualizzaPromozioni.fxml";
             FXMLLoader visPromoLoader = new FXMLLoader(getClass().getResource(visPromoPath));
             visPromoLoader.load();
-            visStoricoOrdiniLoader.load();
 
             final Scene scene = new Scene(root);
             this.setTitle("DBMS Azienda");

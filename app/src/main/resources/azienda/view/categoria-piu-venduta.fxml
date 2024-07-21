@@ -7,13 +7,12 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.MostSalesCategory" spacing="10.0" alignment="CENTER">
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="azienda.controller.MostSalesCategory" spacing="10.0" alignment="CENTER" stylesheets="@style.css">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label text="Categoria più Venduta per Mese" style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+    <Label text="Categoria più Venduta per Mese" styleClass="entry-label"/>
     <TableView fx:id="tableView" prefWidth="600">
         <columns>
             <TableColumn fx:id="meseColumn" text="Mese" prefWidth="150">

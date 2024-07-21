@@ -168,41 +168,6 @@ public final class Queries {
                         FROM azienda.versioneprodotto
                         WHERE CodiceProdotto = ?;
                         """;
-=======
-    public static final String GET_MOST_SOLD_PRODUCT = """
-              SELECT
-                  Mese,
-                  NomeProdotto,
-                  MAX(NumeroVendite) AS NumeroVendite
-                FROM (
-                  SELECT
-                      EXTRACT(MONTH FROM o.DataOrdine) AS Mese,
-                      cp.NomeProdotto,
-                      COUNT(*) AS NumeroVendite
-                  FROM
-                      Ordine o
-                  JOIN
-                      DettaglioOrdine do ON o.CodiceOrdine = do.CodiceOrdine
-                  JOIN
-                      VersioneProdotto vp ON do.CodiceProdotto = vp.CodiceProdotto
-                  JOIN
-                      CategoriaProdotto cp ON vp.NomeProdotto = cp.NomeProdotto
-                  JOIN
-                      Magazzino m ON do.CodMagazzino = m.CodMagazzino
-                  WHERE
-                      m.CodMagazzino = ?
-                      AND EXTRACT(YEAR FROM o.DataOrdine) = EXTRACT(YEAR FROM CURRENT_DATE)
-                  GROUP BY
-                      EXTRACT(MONTH FROM o.DataOrdine),
-                      cp.NomeProdotto
-              ) AS VenditePerMese
-              GROUP BY
-                  Mese,
-                  NomeProdotto
-              ORDER BY
-                  Mese;
-            """;
->>>>>>> aac48a5 (Removed a query)
 
         public static final String LIST_FORNITORI = """
                         SELECT *

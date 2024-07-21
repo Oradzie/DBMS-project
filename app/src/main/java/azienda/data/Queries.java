@@ -124,7 +124,6 @@ public final class Queries {
                         (?)
                         """;
 
-<<<<<<< HEAD
         public static final String GET_MOST_SOLD_PRODUCT = """
                           SELECT
                               Mese,

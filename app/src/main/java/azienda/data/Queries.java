@@ -92,21 +92,6 @@ public final class Queries {
                                 cp.NomeProdotto;
                         """;
 
-        public static final String FIND_VIA = """
-                        SELECT *
-                        FROM azienda.indirizzo
-                        WHERE Via = ?
-                        """;
-        public static final String FIND_CAP = """
-                        SELECT *
-                        FROM azienda.indirizzo
-                        WHERE CAP = ?
-                        """;
-        public static final String FIND_NUMCIVICO = """
-                        SELECT *
-                        FROM azienda.indirizzo
-                        WHERE NumCivico = ?
-                        """;
         public static final String ADD_ADDRESS = """
                         INSERT INTO azienda.indirizzo(Via, Citta, CAP, NumCivico) VALUES
                         (?,?,?,?);
